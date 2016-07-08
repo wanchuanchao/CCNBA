@@ -20,8 +20,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"简书",@"知乎"]];
     seg.backgroundColor = [UIColor whiteColor];
-    seg.frame = CGRectMake(0, 0,100, 30);
-    self.navigationItem.titleView = seg;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
