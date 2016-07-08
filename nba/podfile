@@ -1,0 +1,5 @@
+target 'nba' do
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'MBProgressHUD'
+end
