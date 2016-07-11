@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D81063AB169E6B01D2716A9 /* libPods-nba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */; };
+		D62EC0881D33462F00A4A093 /* NBA.png in Resources */ = {isa = PBXBuildFile; fileRef = D62EC0871D33462F00A4A093 /* NBA.png */; };
 		D697EC721D2F94F200F1DC96 /* CCHeadLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D697EC6F1D2F94F200F1DC96 /* CCHeadLineViewController.m */; };
 		D697EC731D2F94F200F1DC96 /* CCinformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D697EC711D2F94F200F1DC96 /* CCinformationViewController.m */; };
 		D6A1C12E1D2F57F1009693E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C12D1D2F57F1009693E9 /* main.m */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nba.release.xcconfig"; path = "Pods/Target Support Files/Pods-nba/Pods-nba.release.xcconfig"; sourceTree = "<group>"; };
 		BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D62EC0871D33462F00A4A093 /* NBA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NBA.png; sourceTree = "<group>"; };
 		D697EC6E1D2F94F200F1DC96 /* CCHeadLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHeadLineViewController.h; sourceTree = "<group>"; };
 		D697EC6F1D2F94F200F1DC96 /* CCHeadLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHeadLineViewController.m; sourceTree = "<group>"; };
 		D697EC701D2F94F200F1DC96 /* CCinformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCinformationViewController.h; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 				1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D62EC0861D33461A00A4A093 /* picture */ = {
+			isa = PBXGroup;
+			children = (
+				D62EC0871D33462F00A4A093 /* NBA.png */,
+			);
+			path = picture;
 			sourceTree = "<group>";
 		};
 		D6A1C1201D2F57F1009693E9 = {
@@ -221,6 +231,7 @@
 				D697EC6F1D2F94F200F1DC96 /* CCHeadLineViewController.m */,
 				D697EC701D2F94F200F1DC96 /* CCinformationViewController.h */,
 				D697EC711D2F94F200F1DC96 /* CCinformationViewController.m */,
+				D62EC0861D33461A00A4A093 /* picture */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -342,7 +353,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				D62EC0881D33462F00A4A093 /* NBA.png in Resources */,
+
 				D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */,
+
 				D6A1C13F1D2F57F1009693E9 /* LaunchScreen.storyboard in Resources */,
 				D6A1C13C1D2F57F1009693E9 /* Assets.xcassets in Resources */,
 				D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */,
@@ -522,8 +537,17 @@
 			baseConfigurationReference = F3D609396A9D66350BDCBF31 /* Pods-nba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
 				GCC_PREFIX_HEADER = nba/tool/PrefixHeader.pch;
+
+
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
+
+				GCC_PREFIX_HEADER = "/Users/zhaoce/Desktop/未命名文件夹/aaaaaa/nba/nba/tool/PrefixHeader.pch";
+
+>>>>>>> 0af191e938a5ca86b228bb165d02a29cb24e5c92
+>>>>>>> 7cf714676c87c218ffe7b4498e12009927676739
 				INFOPLIST_FILE = nba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wanccao.nba;
@@ -537,8 +561,17 @@
 			baseConfigurationReference = 1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
 				GCC_PREFIX_HEADER = nba/tool/PrefixHeader.pch;
+
+
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
+
+
+				GCC_PREFIX_HEADER = "/Users/zhaoce/Desktop/未命名文件夹/aaaaaa/nba/nba/tool/PrefixHeader.pch";
+
+
 				INFOPLIST_FILE = nba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wanccao.nba;

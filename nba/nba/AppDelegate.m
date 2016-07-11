@@ -5,6 +5,9 @@
 //  Created by lanou3g on 16/7/8.
 //  Copyright © 2016年 wanccao. All rights reserved.
 //
+//背景色
+#define BackgroundColor GLOBALCOLOR(229, 229, 229,1)
+
 
 #import "AppDelegate.h"
 #import "CCNewViewController.h"
