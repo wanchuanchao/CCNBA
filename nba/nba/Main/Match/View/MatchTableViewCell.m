@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
 }
+
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.width = 375;
