@@ -7,36 +7,49 @@
 //
 
 #import "CCMatchViewController.h"
-
-@interface CCMatchViewController ()
-
+#import "MatchTableViewCell.h"
+@interface CCMatchViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong)UITableView *rootTableView;
+@property (nonatomic,strong)UICollectionView *rootCollectionView;
+@property (nonatomic,strong)UISegmentedControl *rootSeg;
 @end
-
+static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 @implementation CCMatchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"string";
+    [self setTableView];
+}
+- (void)setTableView{
     self.view.backgroundColor = [UIColor whiteColor];
-    UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"简书",@"知乎"]];
-    seg.backgroundColor = [UIColor whiteColor];
-    
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
+    self.rootTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,40, self.view.width, self.view.height+10) style:(UITableViewStyleGrouped)];
+    NSLog(@"%f",self.view.width);
+    self.rootTableView.delegate = self;
+    self.rootTableView.dataSource = self;
+
+    [self.view addSubview:self.rootTableView];
+    [self.rootTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark //////////////////////////tableview.delegate////////////////////////////
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MatchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MatchTableViewCellID];
+    return cell;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 }
-*/
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 15;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 250;
+}
 @end
