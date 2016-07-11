@@ -24,6 +24,8 @@
 		D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C16D1D2FA6D3009693E9 /* MatchModel.m */; };
 		D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */; };
 		D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */; };
+		D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */; };
+		D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6051E1D3387F500F9F1BC /* UrlRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
 		D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
 		D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchViewController.xib; sourceTree = "<group>"; };
+		D6D6051D1D3387F500F9F1BC /* UrlRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlRequest.h; sourceTree = "<group>"; };
+		D6D6051E1D3387F500F9F1BC /* UrlRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlRequest.m; sourceTree = "<group>"; };
 		F3D609396A9D66350BDCBF31 /* Pods-nba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nba/Pods-nba.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +255,7 @@
 		D6A1C1651D2F5911009693E9 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				D6D6051C1D33849F00F9F1BC /* URLrequest */,
 				D6A1C1661D2F5911009693E9 /* PrefixHeader.pch */,
 				D6A1C1671D2F5911009693E9 /* UIView+Extension.h */,
 				D6A1C1681D2F5911009693E9 /* UIView+Extension.m */,
@@ -275,6 +280,15 @@
 				D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D6D6051C1D33849F00F9F1BC /* URLrequest */ = {
+			isa = PBXGroup;
+			children = (
+				D6D6051D1D3387F500F9F1BC /* UrlRequest.h */,
+				D6D6051E1D3387F500F9F1BC /* UrlRequest.m */,
+			);
+			path = URLrequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */,
 				D6A1C13F1D2F57F1009693E9 /* LaunchScreen.storyboard in Resources */,
 				D6A1C13C1D2F57F1009693E9 /* Assets.xcassets in Resources */,
 				D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */,
@@ -402,6 +417,7 @@
 				D6A1C1691D2F5911009693E9 /* UIView+Extension.m in Sources */,
 				D6A1C15D1D2F5837009693E9 /* CCMoreViewController.m in Sources */,
 				D6A1C15B1D2F5837009693E9 /* CCBaseViewController.m in Sources */,
+				D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */,
 				D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */,
 				D697EC721D2F94F200F1DC96 /* CCHeadLineViewController.m in Sources */,
 				D6A1C1311D2F57F1009693E9 /* AppDelegate.m in Sources */,
@@ -516,6 +532,7 @@
 			baseConfigurationReference = F3D609396A9D66350BDCBF31 /* Pods-nba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
 				GCC_PREFIX_HEADER = nba/tool/PrefixHeader.pch;
 				INFOPLIST_FILE = nba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,6 +547,7 @@
 			baseConfigurationReference = 1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
 				GCC_PREFIX_HEADER = nba/tool/PrefixHeader.pch;
 				INFOPLIST_FILE = nba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
