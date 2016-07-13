@@ -515,14 +515,14 @@
 				D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */,
 				D63BD9CA1D33BCE500D91961 /* CCHeadLineViewController.m in Sources */,
 				D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */,
-<<<<<<< HEAD
+
 				D6568AB31D34D91600214120 /* CCNewHeadModel.m in Sources */,
-=======
+
 
 				D697EC721D2F94F200F1DC96 /* CCHeadLineViewController.m in Sources */,
 				D6F07EB21D34CBBF003B27C8 /* DateTime.m in Sources */,
 
->>>>>>> 3ace416a037b9c07e605975e3744e6d6c61af9ef
+
 				D6A1C1311D2F57F1009693E9 /* AppDelegate.m in Sources */,
 				D63BD9D41D33BEA800D91961 /* CCHeadLineTableViewCell.m in Sources */,
 				D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */,
