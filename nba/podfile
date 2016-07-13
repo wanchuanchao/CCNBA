@@ -2,5 +2,11 @@ target 'nba' do
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'MBProgressHUD'
+<<<<<<< HEAD
 pod ‘AFNetworking’
+=======
+pod 'AFNetworking'
+pod 'MJExtension'
+pod 'UIView+AutoLayout'
+>>>>>>> 3ace416a037b9c07e605975e3744e6d6c61af9ef
 end

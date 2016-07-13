@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MatchModel;
 @interface MatchTableViewCell : UITableViewCell
-
+@property (nonatomic,strong)MatchModel *model;    
 @end

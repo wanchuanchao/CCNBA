@@ -9,5 +9,7 @@
 #import "MatchModel.h"
 
 @implementation MatchModel
-
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    
+}
 @end
