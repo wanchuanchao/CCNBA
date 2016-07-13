@@ -23,8 +23,8 @@
 @implementation CCNewViewController
 
 - (void)viewDidLoad {
-    self.headLineVC = [[CCHeadLineViewController alloc] init];
-    [self.view addSubview:self.headLineVC.view];
+    
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"图标" style:(UIBarButtonItemStylePlain) target:self action:nil];
     [super viewDidLoad];
     [self setSegment];
@@ -48,10 +48,13 @@
 // 设置子控制器
 - (void)setChildViewController {
     self.headLineVC = [[CCHeadLineViewController alloc] init];
-    [self addChildViewController:_headLineVC];
-    
-    self.informationVC = [[CCinformationViewController alloc] init];
-    [self addChildViewController:_informationVC];
+    [self.view addSubview:self.headLineVC.view];
+    //self.headLineVC.view.frame = self.view.bounds;
+    [self addChildViewController:self.headLineVC];
+//    self.informationVC = [[CCinformationViewController alloc] init];
+//    [self.view addSubview:self.informationVC.view];
+//     self.informationVC.view.frame = self.view.bounds;
+//    [self addChildViewController:_informationVC];
     
 }
 
@@ -65,22 +68,30 @@
 - (void)selectedSegmentIndexAction:(id)sender {
     switch ([(UISegmentedControl *)sender selectedSegmentIndex]) {
         case 0:{
+            
+            if (!_headLineVC) {
+               self.headLineVC = [[CCHeadLineViewController alloc] init];
+            }
+            
             NSLog(@"");
             NSArray *array1 = [self.view subviews];
             if ([array1 count] == 2) {
                 [[array1 objectAtIndex:1] removeFromSuperview];
             }
-            self.headLineVC = [[CCHeadLineViewController alloc] init];
+           
             [self.view addSubview:self.headLineVC.view];
             break;
         }
         case 1:{
+            if (!_informationVC) {
+                self.informationVC = [[CCinformationViewController alloc] init];
+            }
             NSLog(@"");
             NSArray *array2 = [self.view subviews];
             if ([array2 count] == 2) {
                 [[array2 objectAtIndex:1] removeFromSuperview];
             }
-            self.informationVC = [[CCinformationViewController alloc] init];
+            
             [self.view addSubview:self.informationVC.view];
             break;
         }

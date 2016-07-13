@@ -7,16 +7,52 @@
 //
 
 #import "CCHeadTwoViewController.h"
+#import <MBProgressHUD.h>
+@interface CCHeadTwoViewController ()<UIWebViewDelegate>
 
-@interface CCHeadTwoViewController ()
-
+/**  蒙板 */
+@property (nonatomic,strong) MBProgressHUD *hud;
+/**   */
+@property (nonatomic,strong) UIWebView *webView;
 @end
 
 @implementation CCHeadTwoViewController
 
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+//    self.hud = [[MBProgressHUD alloc] init];
+//    [self.hud show:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+//    self.hud = [[MBProgressHUD alloc] init];
+//    [self.hud hide:YES afterDelay:2];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    if (error) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统提示" message:@"网络状况不良" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *did = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:did];
+        [self presentViewController:alert animated:YES completion:nil];
+        NSLog(@"as");
+    }
+    
+    
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+    self.webView.delegate = self;
+    [self.view addSubview:self.webView];
+    
+     
 }
 
 - (void)didReceiveMemoryWarning {

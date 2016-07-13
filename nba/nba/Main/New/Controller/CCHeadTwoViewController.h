@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CCHeadTwoViewController : UIViewController
-
+/**   */
+@property (nonatomic,strong) NSString *url;
 @end

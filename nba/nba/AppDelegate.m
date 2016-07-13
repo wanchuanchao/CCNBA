@@ -36,6 +36,7 @@
 - (void)addChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image{
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     vc.title = title;
+    vc.navigationController.navigationBar.translucent = NO;
     vc.tabBarItem.image = [UIImage imageNamed:image];
     [self.tabBarVC addChildViewController:nc];
 }

@@ -7,7 +7,8 @@
 //
 
 #import "CCHeadLineTableViewCell.h"
-
+#import "CCNewHeadModel.h"
+#import <UIImageView+WebCache.h>
 @interface CCHeadLineTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -21,6 +22,13 @@
 
 
 @implementation CCHeadLineTableViewCell
+
+- (void)setModel:(CCNewHeadModel *)model {
+    self.titleLabel.text = model.title;
+    self.timeLabel.text = model.pub_time;
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
+}
+
 
 - (void)awakeFromNib {
     

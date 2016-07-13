@@ -14,35 +14,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="439" height="231"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69R-bU-DIV">
-                        <rect key="frame" x="0.0" y="5" width="439" height="146"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jordon" translatesAutoresizingMaskIntoConstraints="NO" id="69R-bU-DIV">
+                        <rect key="frame" x="0.0" y="5" width="439" height="156"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zx-6j-k4M">
-                        <rect key="frame" x="5" y="161" width="429" height="30"/>
+                        <rect key="frame" x="5" y="166" width="429" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="SnC-t0-uR0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tON-aY-Wrk">
                         <rect key="frame" x="5" y="201" width="429" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="tON-aY-Wrk" secondAttribute="trailing" constant="5" id="2vn-3i-Klx"/>
                     <constraint firstItem="69R-bU-DIV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="J76-au-arE"/>
-                    <constraint firstAttribute="bottom" secondItem="69R-bU-DIV" secondAttribute="bottom" constant="80" id="Qbi-IF-5bv"/>
-                    <constraint firstItem="1Zx-6j-k4M" firstAttribute="top" secondItem="69R-bU-DIV" secondAttribute="bottom" constant="10" id="TEL-t3-Qid"/>
+                    <constraint firstAttribute="bottom" secondItem="69R-bU-DIV" secondAttribute="bottom" constant="70" id="Qbi-IF-5bv"/>
+                    <constraint firstItem="1Zx-6j-k4M" firstAttribute="top" secondItem="69R-bU-DIV" secondAttribute="bottom" constant="5" id="TEL-t3-Qid"/>
                     <constraint firstAttribute="trailing" secondItem="1Zx-6j-k4M" secondAttribute="trailing" constant="5" id="Y6d-Fy-mEE"/>
                     <constraint firstAttribute="bottom" secondItem="tON-aY-Wrk" secondAttribute="bottom" constant="5" id="e8d-BB-yyX"/>
                     <constraint firstItem="1Zx-6j-k4M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="eEt-0i-I87"/>
                     <constraint firstAttribute="trailing" secondItem="69R-bU-DIV" secondAttribute="trailing" id="hSg-Tg-t46"/>
-                    <constraint firstItem="tON-aY-Wrk" firstAttribute="top" secondItem="1Zx-6j-k4M" secondAttribute="bottom" constant="10" id="rK1-tm-P3Q"/>
+                    <constraint firstItem="tON-aY-Wrk" firstAttribute="top" secondItem="1Zx-6j-k4M" secondAttribute="bottom" constant="5" id="rK1-tm-P3Q"/>
                     <constraint firstItem="tON-aY-Wrk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="tNG-pt-2A7"/>
                     <constraint firstItem="69R-bU-DIV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="wkQ-sA-Txp"/>
                 </constraints>
@@ -55,4 +55,7 @@
             <point key="canvasLocation" x="327.5" y="222"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="jordon" width="225" height="400"/>
+    </resources>
 </document>

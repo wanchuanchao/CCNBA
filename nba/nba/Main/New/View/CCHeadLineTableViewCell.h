@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CCNewHeadModel;
 @interface CCHeadLineTableViewCell : UITableViewCell
+/**  model */
+@property (nonatomic,strong) CCNewHeadModel *model;
 
 @end
