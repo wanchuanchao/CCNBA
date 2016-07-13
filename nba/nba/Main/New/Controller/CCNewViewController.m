@@ -37,13 +37,12 @@
     segment.frame = CGRectMake(0, 0,150, 30);
     segment.layer.borderWidth = 0.0;
     //    segment.tintColor = [UIColor whiteColor];
-    segment.segmentedControlStyle = UISegmentedControlStyleBar;
+//    segment.segmentedControlStyle = UISegmentedControlStyleBar;
     segment.backgroundColor = [UIColor whiteColor];
     segment.selectedSegmentIndex = 0;
     [segment addTarget:self action:@selector(selectedSegmentIndexAction:) forControlEvents:(UIControlEventValueChanged)];
     self.navigationItem.titleView = segment;
 }
-
 
 // 设置子控制器
 - (void)setChildViewController {

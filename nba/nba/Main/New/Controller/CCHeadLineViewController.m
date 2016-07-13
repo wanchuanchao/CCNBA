@@ -34,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
     self.headTableView = [[UITableView alloc] initWithFrame:self.view.frame style:(UITableViewStylePlain)];
     self.headTableView.delegate = self;
     self.headTableView.dataSource = self;

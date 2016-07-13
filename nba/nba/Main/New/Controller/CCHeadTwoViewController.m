@@ -8,6 +8,7 @@
 
 #import "CCHeadTwoViewController.h"
 #import <MBProgressHUD.h>
+#import <AFNetworking.h>
 @interface CCHeadTwoViewController ()<UIWebViewDelegate>
 
 /**  蒙板 */
@@ -29,19 +30,19 @@
 //    [self.hud hide:YES afterDelay:2];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    if (error) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统提示" message:@"网络状况不良" preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *did = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:did];
-        [self presentViewController:alert animated:YES completion:nil];
-        NSLog(@"as");
-    }
-    
-    
-    
-}
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
+//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//    if (error) {
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统提示" message:@"网络链接失败,请检查网络是否链接正常" preferredStyle:(UIAlertControllerStyleAlert)];
+//        UIAlertAction *did = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+//        [alert addAction:did];
+//        [self presentViewController:alert animated:YES completion:nil];
+//        NSLog(@"as");
+//    }
+//    
+//    
+//    
+//}
 
 
 
@@ -52,6 +53,14 @@
     self.webView.delegate = self;
     [self.view addSubview:self.webView];
     
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统提示" message:@"网络链接失败,请检查网络是否链接正常" preferredStyle:(UIAlertControllerStyleAlert)];
+                    UIAlertAction *did = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:did];
+        }
+    }];
      
 }
 

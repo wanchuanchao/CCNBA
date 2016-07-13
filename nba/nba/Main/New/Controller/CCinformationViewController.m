@@ -7,19 +7,23 @@
 //
 
 #import "CCinformationViewController.h"
-
+#import "CCInformationTableViewCell.h"
 @interface CCinformationViewController ()
 
+/**   */
+@property (nonatomic,strong) UITableView *informationTableView;
 @end
 
 @implementation CCinformationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
 }
 
-
+- (void)setTableView {
+    
+}
 
 @end
