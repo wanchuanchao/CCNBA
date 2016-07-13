@@ -162,13 +162,6 @@
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
-    },
-    {
-      "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "Icon-40@3x.png",
-      "unassigned" : true,
-      "scale" : "3x"
     }
   ],
   "info" : {
