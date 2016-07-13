@@ -1,5 +1,5 @@
 //
-//  CCHeadLineViewController.h
+//  CCHeadLineTableViewCell.h
 //  nba
 //
 //  Created by lanou3g on 16/7/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CCHeadLineViewController : UIViewController
+@interface CCHeadLineTableViewCell : UITableViewCell
 
 @end
