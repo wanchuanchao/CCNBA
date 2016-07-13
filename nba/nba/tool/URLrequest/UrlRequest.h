@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface UrlRequest : NSObject
-+ (NSArray *)requestWithUrl:(NSString *)url model:(NSObject *)model;
++ (NSArray *)requestWithUrl:(NSString *)url model:(Class)className;
 @end
