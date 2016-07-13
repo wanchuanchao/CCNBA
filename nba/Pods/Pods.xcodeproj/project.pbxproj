@@ -131,7 +131,7 @@
 
 /* Begin PBXContainerItemProxy section */
 		11835D436DC9F799D4078338F5135990 /* PBXContainerItemProxy */ = {
-=======
+
 		00E2C713170FE2A2A05739D51006D3B0 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9939C6EFE8C8B18DF872C10599B4B14 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		01D55589C9F709F594AB317B06C46C5C /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F8ED21D274612245CAE4DCAE929693E0 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		026CCF569A2125FCB0EE8F152731259E /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4903868F57391C6C983985A2F2EA6B /* NSObject+MJClass.m */; };
@@ -527,7 +527,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-=======
+
 		00259EB50402979C1CA9885DD719F90B /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		0158170E450E24798878A59FDEAB3090 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		01EE0BAFEB44019DF3E5F421C1D65DC6 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
