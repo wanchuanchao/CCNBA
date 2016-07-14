@@ -7,7 +7,8 @@
 //
 
 #import "CCMeViewController.h"
-
+#import "WCCDrawerViewController.h"
+#import "CCLoginViewController.h"
 @interface CCMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *rootTableView;
 
@@ -31,18 +32,23 @@
     NSString *titleStr = @"";
     if (indexPath.section == 0 && indexPath.row == 0) {
         titleStr = @"我的主队";
+        cell.imageView.image = [UIImage imageNamed:@"主场"];
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         titleStr = @"推送消息";
+        cell.imageView.image = [UIImage imageNamed:@"信封"];
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
         titleStr = @"设置";
+        cell.imageView.image = [UIImage imageNamed:@"设置"];
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
         titleStr = @"清理缓存";
+        cell.imageView.image = [UIImage imageNamed:@"清除缓存"];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1fMB",[self getTmpSize]];
     }
     cell.textLabel.text = titleStr;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -53,7 +59,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        
+        [self login];
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         
@@ -102,5 +108,16 @@
             [self.rootTableView reloadData];
         }
     }
+}
+- (WCCDrawerViewController *)getWCCDrawerVC{
+    return (WCCDrawerViewController *)[[UIApplication sharedApplication].windows[0] rootViewController];
+}
+- (void)login{
+    CCLoginViewController *vc = [[CCLoginViewController alloc] init];
+    [[self getWCCDrawerVC] showViewController:vc animated:YES];
+}
+
+- (IBAction)login:(id)sender {
+    [self login];
 }
 @end

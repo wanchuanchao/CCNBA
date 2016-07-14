@@ -107,6 +107,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if ([self getModelArrayWithTableView:tableView]) {
         cell.model = [self getModelArrayWithTableView:tableView][indexPath.section];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

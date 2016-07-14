@@ -45,7 +45,7 @@
 }
 #pragma mark //////////////////////////抽屉按钮方法////////////////////////////
 - (void)addbtn{
-    UIImage *btn = [UIImage imageNamed:@"nav_menu_icon"];
+    UIImage *btn = [[UIImage imageNamed:@"头像Btn"]imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
     NSLog(@"%@",rootVC.viewControllers);
     for (UINavigationController *vc in rootVC.viewControllers) {
         vc.viewControllers.firstObject.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:btn style:(UIBarButtonItemStyleDone) target:self action:@selector(btn)];
@@ -79,9 +79,10 @@
     rootVC.view.userInteractionEnabled = NO;
     tap.enabled = YES;
 }
-- (void)showViewController:(UIViewController *)vc{
+- (void)showViewController:(UIViewController *)vc animated:(BOOL)yes{
     [self showRootViewControllerAnimationed:NO];
-    [rootVC.navigationController pushViewController:vc animated:YES];
+    UINavigationController *nc = (UINavigationController *)rootVC.selectedViewController;
+    [nc pushViewController:vc animated:yes];
 }
 #pragma mark //////////////////////////手势////////////////////////////
 - (void)tapAction:(UITapGestureRecognizer *)sender{
