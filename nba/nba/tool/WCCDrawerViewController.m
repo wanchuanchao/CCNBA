@@ -7,7 +7,7 @@
 //
 
 #import "WCCDrawerViewController.h"
-
+#import "CCMeViewController.h"
 @interface WCCDrawerViewController ()<UIGestureRecognizerDelegate>
 {
     UITabBarController *rootVC;

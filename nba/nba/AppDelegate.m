@@ -20,6 +20,7 @@
 
 @interface AppDelegate ()
 @property (nonatomic,strong)UITabBarController *tabBarVC;
+@property (nonatomic,strong)WCCDrawerViewController *drawVC;
 @end
 
 @implementation AppDelegate
@@ -32,10 +33,10 @@
     [self addChildViewController:[[CCVideoViewController alloc] init] title:@"视频" image:@""];
     [self addChildViewController:[[CCMoreViewController alloc] init] title:@"更多" image:@""];
     CCMeViewController *meVC = [[CCMeViewController alloc] init];
-    WCCDrawerViewController *drawVC = [[WCCDrawerViewController alloc] initWithRootViewController:self.tabBarVC menuViewController:meVC];
+    self.drawVC = [[WCCDrawerViewController alloc] initWithRootViewController:self.tabBarVC menuViewController:meVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = drawVC;
+    self.window.rootViewController = self.drawVC;
     return YES;
 }
 - (void)addChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image{
