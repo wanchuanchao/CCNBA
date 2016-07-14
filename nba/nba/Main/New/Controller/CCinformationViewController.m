@@ -10,6 +10,7 @@
 #import "CCInformationTableViewCell.h"
 #import "CCNewRequest.h"
 #import "CCInformationModel.h"
+#import <UIImageView+WebCache.h>
 @interface CCinformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 /**   */
@@ -76,13 +77,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.arr.count - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCInformationTableViewCell" forIndexPath:indexPath];
-    cell.model = _arr[indexPath.row];
-    
+    cell.model = _arr[indexPath.row+1];
     return cell;
     
 }
@@ -98,18 +98,16 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    self.inHeadTableView = tableView;
-//    
-//    if (section == 0) {
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView.frame)-30, self.view.frame.size.width, 30)];
-//        [imageView addSubview:label];
-//        [self.inHeadTableView addSubview:imageView];
-//        
-//    }
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]];
+    // 取出数组里的第一段数据,加在头视图上
+    CCInformationModel *model = (CCInformationModel *)self.arr.firstObject;
+    // 加载头视图图片
+    UIImageView *imageView = [[UIImageView alloc] init];
     imageView.frame = tableView.tableHeaderView.frame;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
+//    // 加载头视图标题
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 10, tableView.tableHeaderView.frame.size.height - 20)];
+//    label.text = model.title;
+//    [imageView addSubview:label];
     return imageView;
 }
 

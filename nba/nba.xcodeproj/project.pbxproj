@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4D81063AB169E6B01D2716A9 /* libPods-nba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */; };
+		D606DAED1D3663F600D09826 /* MatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */; };
+		D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D606DAEC1D3663F600D09826 /* MatchDetailViewController.xib */; };
 		D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D60B84F51D362C4300C78FB8 /* CCInformationTableViewCell.m */; };
 		D60B84F81D362C4300C78FB8 /* CCInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60B84F61D362C4300C78FB8 /* CCInformationTableViewCell.xib */; };
 		D6568AB01D34D26B00214120 /* CCNewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6568AAF1D34D26B00214120 /* CCNewRequest.m */; };
 		D6568AB31D34D91600214120 /* CCNewHeadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6568AB21D34D91600214120 /* CCNewHeadModel.m */; };
+		D678D5F81D372C7300C62B6B /* WCCDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D678D5F71D372C7300C62B6B /* WCCDrawerViewController.m */; };
+		D678D5FA1D3739C600C62B6B /* CCMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D678D5F91D3739C600C62B6B /* CCMoreViewController.xib */; };
+		D678D6021D3740FD00C62B6B /* CCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D678D6001D3740FD00C62B6B /* CCMeViewController.m */; };
+		D678D6031D3740FD00C62B6B /* CCMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D678D6011D3740FD00C62B6B /* CCMeViewController.xib */; };
 		D67F38221D36625B007AED4F /* CCHeadLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F38201D36625B007AED4F /* CCHeadLineTableViewCell.m */; };
 		D67F38231D36625B007AED4F /* CCHeadLineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D67F38211D36625B007AED4F /* CCHeadLineTableViewCell.xib */; };
 		D67F382A1D366285007AED4F /* CCHeadLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F38251D366285007AED4F /* CCHeadLineViewController.m */; };
@@ -40,6 +46,9 @@
 /* Begin PBXFileReference section */
 		1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nba.release.xcconfig"; path = "Pods/Target Support Files/Pods-nba/Pods-nba.release.xcconfig"; sourceTree = "<group>"; };
 		BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D606DAEA1D3663F600D09826 /* MatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailViewController.h; sourceTree = "<group>"; };
+		D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDetailViewController.m; sourceTree = "<group>"; };
+		D606DAEC1D3663F600D09826 /* MatchDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchDetailViewController.xib; sourceTree = "<group>"; };
 		D60B84F41D362C4300C78FB8 /* CCInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInformationTableViewCell.h; sourceTree = "<group>"; };
 		D60B84F51D362C4300C78FB8 /* CCInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCInformationTableViewCell.m; sourceTree = "<group>"; };
 		D60B84F61D362C4300C78FB8 /* CCInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCInformationTableViewCell.xib; sourceTree = "<group>"; };
@@ -48,6 +57,12 @@
 		D6568AAF1D34D26B00214120 /* CCNewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewRequest.m; sourceTree = "<group>"; };
 		D6568AB11D34D91600214120 /* CCNewHeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewHeadModel.h; sourceTree = "<group>"; };
 		D6568AB21D34D91600214120 /* CCNewHeadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewHeadModel.m; sourceTree = "<group>"; };
+		D678D5F61D372C7300C62B6B /* WCCDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCDrawerViewController.h; sourceTree = "<group>"; };
+		D678D5F71D372C7300C62B6B /* WCCDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCDrawerViewController.m; sourceTree = "<group>"; };
+		D678D5F91D3739C600C62B6B /* CCMoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMoreViewController.xib; sourceTree = "<group>"; };
+		D678D5FF1D3740FD00C62B6B /* CCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMeViewController.h; sourceTree = "<group>"; };
+		D678D6001D3740FD00C62B6B /* CCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMeViewController.m; sourceTree = "<group>"; };
+		D678D6011D3740FD00C62B6B /* CCMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMeViewController.xib; sourceTree = "<group>"; };
 		D67F381F1D36625B007AED4F /* CCHeadLineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHeadLineTableViewCell.h; sourceTree = "<group>"; };
 		D67F38201D36625B007AED4F /* CCHeadLineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHeadLineTableViewCell.m; sourceTree = "<group>"; };
 		D67F38211D36625B007AED4F /* CCHeadLineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCHeadLineTableViewCell.xib; sourceTree = "<group>"; };
@@ -169,6 +184,40 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		D678D5FB1D37409E00C62B6B /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				D678D5FC1D37409E00C62B6B /* Model */,
+				D678D5FD1D37409E00C62B6B /* view */,
+				D678D5FE1D37409E00C62B6B /* ViewController */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		D678D5FC1D37409E00C62B6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D678D5FD1D37409E00C62B6B /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		D678D5FE1D37409E00C62B6B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D678D5FF1D3740FD00C62B6B /* CCMeViewController.h */,
+				D678D6001D3740FD00C62B6B /* CCMeViewController.m */,
+				D678D6011D3740FD00C62B6B /* CCMeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		D67F38191D3661D7007AED4F /* HeadLine */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +273,7 @@
 		D6A1C1461D2F5837009693E9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D678D5FB1D37409E00C62B6B /* Me */,
 				D6A1C1471D2F5837009693E9 /* Base */,
 				D6A1C14B1D2F5837009693E9 /* Match */,
 				D6A1C14F1D2F5837009693E9 /* More */,
@@ -266,6 +316,9 @@
 				D6A1C14D1D2F5837009693E9 /* CCMatchViewController.h */,
 				D6A1C14E1D2F5837009693E9 /* CCMatchViewController.m */,
 				D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */,
+				D606DAEA1D3663F600D09826 /* MatchDetailViewController.h */,
+				D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */,
+				D606DAEC1D3663F600D09826 /* MatchDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,6 +336,7 @@
 			children = (
 				D6A1C1511D2F5837009693E9 /* CCMoreViewController.h */,
 				D6A1C1521D2F5837009693E9 /* CCMoreViewController.m */,
+				D678D5F91D3739C600C62B6B /* CCMoreViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -340,6 +394,8 @@
 				D6A1C1681D2F5911009693E9 /* UIView+Extension.m */,
 				D6F07EB01D34CBBF003B27C8 /* DateTime.h */,
 				D6F07EB11D34CBBF003B27C8 /* DateTime.m */,
+				D678D5F61D372C7300C62B6B /* WCCDrawerViewController.h */,
+				D678D5F71D372C7300C62B6B /* WCCDrawerViewController.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -401,6 +457,7 @@
 		D6A1C1211D2F57F1009693E9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CC;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = wanccao;
 				TargetAttributes = {
@@ -434,8 +491,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */,
+				D678D5FA1D3739C600C62B6B /* CCMoreViewController.xib in Resources */,
 				D6A1C13F1D2F57F1009693E9 /* LaunchScreen.storyboard in Resources */,
+				D678D6031D3740FD00C62B6B /* CCMeViewController.xib in Resources */,
 				D60B84F81D362C4300C78FB8 /* CCInformationTableViewCell.xib in Resources */,
+				D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */,
 				D67F38231D36625B007AED4F /* CCHeadLineTableViewCell.xib in Resources */,
 				D6A1C13C1D2F57F1009693E9 /* Assets.xcassets in Resources */,
 				D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */,
@@ -507,8 +567,11 @@
 				D67F382B1D366285007AED4F /* CCHeadTwoViewController.m in Sources */,
 				D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */,
 				D6568AB31D34D91600214120 /* CCNewHeadModel.m in Sources */,
+				D678D5F81D372C7300C62B6B /* WCCDrawerViewController.m in Sources */,
 				D6F07EB21D34CBBF003B27C8 /* DateTime.m in Sources */,
 				D6A1C1311D2F57F1009693E9 /* AppDelegate.m in Sources */,
+				D678D6021D3740FD00C62B6B /* CCMeViewController.m in Sources */,
+				D606DAED1D3663F600D09826 /* MatchDetailViewController.m in Sources */,
 				D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */,
 				D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */,
 				D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */,
