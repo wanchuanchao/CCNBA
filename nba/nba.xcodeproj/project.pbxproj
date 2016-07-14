@@ -33,6 +33,7 @@
 		D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */; };
 		D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */; };
 		D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6051E1D3387F500F9F1BC /* UrlRequest.m */; };
+		D6E504871D37418B002DEAF7 /* CCInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E504861D37418B002DEAF7 /* CCInformationModel.m */; };
 		D6F07EB21D34CBBF003B27C8 /* DateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F07EB11D34CBBF003B27C8 /* DateTime.m */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchViewController.xib; sourceTree = "<group>"; };
 		D6D6051D1D3387F500F9F1BC /* UrlRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlRequest.h; sourceTree = "<group>"; };
 		D6D6051E1D3387F500F9F1BC /* UrlRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlRequest.m; sourceTree = "<group>"; };
+		D6E504851D37418B002DEAF7 /* CCInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInformationModel.h; sourceTree = "<group>"; };
+		D6E504861D37418B002DEAF7 /* CCInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCInformationModel.m; sourceTree = "<group>"; };
 		D6F07EB01D34CBBF003B27C8 /* DateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTime.h; sourceTree = "<group>"; };
 		D6F07EB11D34CBBF003B27C8 /* DateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTime.m; sourceTree = "<group>"; };
 		F3D609396A9D66350BDCBF31 /* Pods-nba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nba/Pods-nba.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 			children = (
 				D6568AB11D34D91600214120 /* CCNewHeadModel.h */,
 				D6568AB21D34D91600214120 /* CCNewHeadModel.m */,
+				D6E504851D37418B002DEAF7 /* CCInformationModel.h */,
+				D6E504861D37418B002DEAF7 /* CCInformationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				D6A1C1691D2F5911009693E9 /* UIView+Extension.m in Sources */,
 				D6A1C15D1D2F5837009693E9 /* CCMoreViewController.m in Sources */,
 				D6568AB01D34D26B00214120 /* CCNewRequest.m in Sources */,
+				D6E504871D37418B002DEAF7 /* CCInformationModel.m in Sources */,
 				D6A1C15B1D2F5837009693E9 /* CCBaseViewController.m in Sources */,
 				D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */,
 				D67F382B1D366285007AED4F /* CCHeadTwoViewController.m in Sources */,

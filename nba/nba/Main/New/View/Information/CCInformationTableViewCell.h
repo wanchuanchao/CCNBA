@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CCInformationModel;
 @interface CCInformationTableViewCell : UITableViewCell
+
+@property (nonatomic,strong) CCInformationModel *model;
 
 @end
