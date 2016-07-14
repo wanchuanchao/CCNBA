@@ -13,5 +13,5 @@
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController menuViewController:(UIViewController *)menuViewController;
 - (void)showRootViewController;
 -(void)showMenuViewController;
-- (void)showViewController:(UIViewController *)vc;
+- (void)showViewController:(UIViewController *)vc animated:(BOOL)yes;
 @end
