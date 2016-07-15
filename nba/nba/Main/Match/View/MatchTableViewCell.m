@@ -49,9 +49,20 @@
         self.leftGoal.text = model.leftGoal;
         self.rightGoal.text = model.rightGoal;
     }
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [self.leftBadge sd_setImageWithURL:[NSURL URLWithString:model.leftBadge] placeholderImage:[UIImage imageNamed:@"1"]];
+    [manager downloadImageWithURL:[NSURL URLWithString:model.leftBadge] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        
+    }];
     self.leftName.text = model.leftName;
     [self.rightBadge sd_setImageWithURL:[NSURL URLWithString:model.rightBadge] placeholderImage:[UIImage imageNamed:@"1"]];
+    [manager downloadImageWithURL:[NSURL URLWithString:model.rightBadge] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        
+    }];
     self.rightName.text = model.rightName;
     self.matchDesc.text = model.matchDesc;
     

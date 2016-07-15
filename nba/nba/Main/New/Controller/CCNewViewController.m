@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"图标" style:(UIBarButtonItemStylePlain) target:self action:nil];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"图标" style:(UIBarButtonItemStylePlain) target:self action:nil];
     [super viewDidLoad];
     [self setSegment];
     [self setChildViewController];

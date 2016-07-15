@@ -7,6 +7,7 @@
 //
 
 #import "CCMatchViewController.h"
+#import "MatchDetailViewController.h"
 #import "MatchTableViewCell.h"
 #import "MatchModel.h"
 @interface CCMatchViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
@@ -23,7 +24,6 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
     self.dateNum = 0;
     [self setTableView];
     [self loadTableView];
@@ -71,7 +71,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@",downloadProgress);
+//        NSLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject != nil) {
             NSMutableArray *modelArr = [NSMutableArray array];
@@ -107,6 +107,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if ([self getModelArrayWithTableView:tableView]) {
         cell.model = [self getModelArrayWithTableView:tableView][indexPath.section];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -126,6 +127,8 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self getModelArrayWithTableView:tableView];
+    MatchDetailViewController *vc = [[MatchDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //scollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

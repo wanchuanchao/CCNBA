@@ -1,22 +1,22 @@
 //
-//  CCBaseViewController.m
-//  NBA
+//  CCLoginViewController.m
+//  nba
 //
-//  Created by lanou3g on 16/7/6.
-//  Copyright © 2016年 chao. All rights reserved.
+//  Created by lanou3g on 16/7/14.
+//  Copyright © 2016年 wanccao. All rights reserved.
 //
 
-#import "CCBaseViewController.h"
+#import "CCLoginViewController.h"
 
-@interface CCBaseViewController ()
+@interface CCLoginViewController ()
 
 @end
 
-@implementation CCBaseViewController
+@implementation CCLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

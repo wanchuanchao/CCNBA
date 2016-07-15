@@ -15,8 +15,12 @@
 #import "CCMoreViewController.h"
 #import "CCVideoViewController.h"
 #import "CCBaseViewController.h"
+#import "WCCDrawerViewController.h"
+#import "CCMeViewController.h"
+
 @interface AppDelegate ()
 @property (nonatomic,strong)UITabBarController *tabBarVC;
+@property (nonatomic,strong)WCCDrawerViewController *drawVC;
 @end
 
 @implementation AppDelegate
@@ -24,13 +28,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.tabBarVC = [[CCBaseViewController alloc] init];
-    [self addChildViewController:[[CCNewViewController alloc] init] title:@"最新" image:@""];
-    [self addChildViewController:[[CCMatchViewController alloc] init] title:@"比赛" image:@""];
-    [self addChildViewController:[[CCVideoViewController alloc] init] title:@"视频" image:@""];
-    [self addChildViewController:[[CCMoreViewController alloc] init] title:@"更多" image:@""];
+    [self addChildViewController:[[CCNewViewController alloc] init] title:@"最新" image:@"最新"];
+    [self addChildViewController:[[CCMatchViewController alloc] init] title:@"比赛" image:@"发起比赛"];
+    [self addChildViewController:[[CCVideoViewController alloc] init] title:@"视频" image:@"视频"];
+    [self addChildViewController:[[CCMoreViewController alloc] init] title:@"更多" image:@"更多"];
+    CCMeViewController *meVC = [[CCMeViewController alloc] init];
+    self.drawVC = [[WCCDrawerViewController alloc] initWithRootViewController:self.tabBarVC menuViewController:meVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = self.tabBarVC;
+    self.window.rootViewController = self.drawVC;
     return YES;
 }
 - (void)addChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image{
