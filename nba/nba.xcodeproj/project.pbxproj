@@ -12,6 +12,14 @@
 		D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D606DAEC1D3663F600D09826 /* MatchDetailViewController.xib */; };
 		D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D60B84F51D362C4300C78FB8 /* CCInformationTableViewCell.m */; };
 		D60B84F81D362C4300C78FB8 /* CCInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60B84F61D362C4300C78FB8 /* CCInformationTableViewCell.xib */; };
+		D60D06641D37BDB700382A32 /* WCCAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D06631D37BDB700382A32 /* WCCAVPlayerView.m */; };
+		D60D06661D37BDC200382A32 /* WCCAVPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60D06651D37BDC200382A32 /* WCCAVPlayerView.xib */; };
+		D638DB861D366441001CD3BB /* CCCollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D638DB811D366441001CD3BB /* CCCollectionTableViewController.m */; };
+		D638DB871D366441001CD3BB /* CCHighlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D638DB831D366441001CD3BB /* CCHighlightsTableViewController.m */; };
+		D638DB881D366441001CD3BB /* CCOptimalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D638DB851D366441001CD3BB /* CCOptimalTableViewController.m */; };
+		D638DB901D368B75001CD3BB /* CCVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D638DB8F1D368B75001CD3BB /* CCVideoModel.m */; };
+		D638DB941D368B92001CD3BB /* CCVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D638DB921D368B92001CD3BB /* CCVideoTableViewCell.m */; };
+		D638DB951D368B92001CD3BB /* CCVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D638DB931D368B92001CD3BB /* CCVideoTableViewCell.xib */; };
 		D6568AB01D34D26B00214120 /* CCNewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6568AAF1D34D26B00214120 /* CCNewRequest.m */; };
 		D6568AB31D34D91600214120 /* CCNewHeadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6568AB21D34D91600214120 /* CCNewHeadModel.m */; };
 		D678D5F81D372C7300C62B6B /* WCCDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D678D5F71D372C7300C62B6B /* WCCDrawerViewController.m */; };
@@ -39,6 +47,7 @@
 		D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C16D1D2FA6D3009693E9 /* MatchModel.m */; };
 		D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */; };
 		D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */; };
+		D6D14DEE1D371D07006D707E /* CCVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D14DED1D371D07006D707E /* CCVideoTableViewController.m */; };
 		D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */; };
 		D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6051E1D3387F500F9F1BC /* UrlRequest.m */; };
 		D6F07EB21D34CBBF003B27C8 /* DateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F07EB11D34CBBF003B27C8 /* DateTime.m */; };
@@ -53,7 +62,21 @@
 		D60B84F41D362C4300C78FB8 /* CCInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInformationTableViewCell.h; sourceTree = "<group>"; };
 		D60B84F51D362C4300C78FB8 /* CCInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCInformationTableViewCell.m; sourceTree = "<group>"; };
 		D60B84F61D362C4300C78FB8 /* CCInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCInformationTableViewCell.xib; sourceTree = "<group>"; };
+		D60D06621D37BDA800382A32 /* WCCAVPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCCAVPlayerView.h; sourceTree = "<group>"; };
+		D60D06631D37BDB700382A32 /* WCCAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCAVPlayerView.m; sourceTree = "<group>"; };
+		D60D06651D37BDC200382A32 /* WCCAVPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCCAVPlayerView.xib; sourceTree = "<group>"; };
 		D62EC0871D33462F00A4A093 /* NBA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NBA.png; sourceTree = "<group>"; };
+		D638DB801D366441001CD3BB /* CCCollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCollectionTableViewController.h; sourceTree = "<group>"; };
+		D638DB811D366441001CD3BB /* CCCollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCollectionTableViewController.m; sourceTree = "<group>"; };
+		D638DB821D366441001CD3BB /* CCHighlightsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHighlightsTableViewController.h; sourceTree = "<group>"; };
+		D638DB831D366441001CD3BB /* CCHighlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHighlightsTableViewController.m; sourceTree = "<group>"; };
+		D638DB841D366441001CD3BB /* CCOptimalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCOptimalTableViewController.h; sourceTree = "<group>"; };
+		D638DB851D366441001CD3BB /* CCOptimalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCOptimalTableViewController.m; sourceTree = "<group>"; };
+		D638DB8E1D368B75001CD3BB /* CCVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoModel.h; sourceTree = "<group>"; };
+		D638DB8F1D368B75001CD3BB /* CCVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoModel.m; sourceTree = "<group>"; };
+		D638DB911D368B92001CD3BB /* CCVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoTableViewCell.h; sourceTree = "<group>"; };
+		D638DB921D368B92001CD3BB /* CCVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoTableViewCell.m; sourceTree = "<group>"; };
+		D638DB931D368B92001CD3BB /* CCVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCVideoTableViewCell.xib; sourceTree = "<group>"; };
 		D6568AAE1D34D26B00214120 /* CCNewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewRequest.h; sourceTree = "<group>"; };
 		D6568AAF1D34D26B00214120 /* CCNewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewRequest.m; sourceTree = "<group>"; };
 		D6568AB11D34D91600214120 /* CCNewHeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewHeadModel.h; sourceTree = "<group>"; };
@@ -102,6 +125,8 @@
 		D6A1C16F1D2FA6F3009693E9 /* MatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTableViewCell.h; sourceTree = "<group>"; };
 		D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
 		D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
+		D6D14DEC1D371D07006D707E /* CCVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoTableViewController.h; sourceTree = "<group>"; };
+		D6D14DED1D371D07006D707E /* CCVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoTableViewController.m; sourceTree = "<group>"; };
 		D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchViewController.xib; sourceTree = "<group>"; };
 		D6D6051D1D3387F500F9F1BC /* UrlRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlRequest.h; sourceTree = "<group>"; };
 		D6D6051E1D3387F500F9F1BC /* UrlRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlRequest.m; sourceTree = "<group>"; };
@@ -155,6 +180,28 @@
 				D62EC0871D33462F00A4A093 /* NBA.png */,
 			);
 			path = picture;
+			sourceTree = "<group>";
+		};
+		D638DB891D367288001CD3BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D638DB8E1D368B75001CD3BB /* CCVideoModel.h */,
+				D638DB8F1D368B75001CD3BB /* CCVideoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D638DB8A1D367288001CD3BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D638DB911D368B92001CD3BB /* CCVideoTableViewCell.h */,
+				D638DB921D368B92001CD3BB /* CCVideoTableViewCell.m */,
+				D638DB931D368B92001CD3BB /* CCVideoTableViewCell.xib */,
+				D60D06621D37BDA800382A32 /* WCCAVPlayerView.h */,
+				D60D06631D37BDB700382A32 /* WCCAVPlayerView.m */,
+				D60D06651D37BDC200382A32 /* WCCAVPlayerView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D63BD9CB1D33BE5300D91961 /* View */ = {
@@ -375,6 +422,8 @@
 			isa = PBXGroup;
 			children = (
 				D6A1C1581D2F5837009693E9 /* Controller */,
+				D638DB891D367288001CD3BB /* Model */,
+				D638DB8A1D367288001CD3BB /* View */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -384,6 +433,14 @@
 			children = (
 				D6A1C1591D2F5837009693E9 /* CCVideoViewController.h */,
 				D6A1C15A1D2F5837009693E9 /* CCVideoViewController.m */,
+				D638DB801D366441001CD3BB /* CCCollectionTableViewController.h */,
+				D638DB811D366441001CD3BB /* CCCollectionTableViewController.m */,
+				D638DB821D366441001CD3BB /* CCHighlightsTableViewController.h */,
+				D638DB831D366441001CD3BB /* CCHighlightsTableViewController.m */,
+				D638DB841D366441001CD3BB /* CCOptimalTableViewController.h */,
+				D638DB851D366441001CD3BB /* CCOptimalTableViewController.m */,
+				D6D14DEC1D371D07006D707E /* CCVideoTableViewController.h */,
+				D6D14DED1D371D07006D707E /* CCVideoTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +550,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60D06661D37BDC200382A32 /* WCCAVPlayerView.xib in Resources */,
 				D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */,
 				D678D5FA1D3739C600C62B6B /* CCMoreViewController.xib in Resources */,
 				D678D6081D3798CC00C62B6B /* CCLoginViewController.xib in Resources */,
@@ -503,6 +561,7 @@
 				D67F38231D36625B007AED4F /* CCHeadLineTableViewCell.xib in Resources */,
 				D6A1C13C1D2F57F1009693E9 /* Assets.xcassets in Resources */,
 				D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */,
+				D638DB951D368B92001CD3BB /* CCVideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,25 +625,34 @@
 				D6A1C15D1D2F5837009693E9 /* CCMoreViewController.m in Sources */,
 				D6568AB01D34D26B00214120 /* CCNewRequest.m in Sources */,
 				D6A1C15B1D2F5837009693E9 /* CCBaseViewController.m in Sources */,
+				D638DB861D366441001CD3BB /* CCCollectionTableViewController.m in Sources */,
 				D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */,
+				D638DB881D366441001CD3BB /* CCOptimalTableViewController.m in Sources */,
 				D67F382B1D366285007AED4F /* CCHeadTwoViewController.m in Sources */,
 				D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */,
 				D678D6071D3798CC00C62B6B /* CCLoginViewController.m in Sources */,
 				D6568AB31D34D91600214120 /* CCNewHeadModel.m in Sources */,
+
+				D638DB871D366441001CD3BB /* CCHighlightsTableViewController.m in Sources */,
 				D678D5F81D372C7300C62B6B /* WCCDrawerViewController.m in Sources */,
+
 				D6F07EB21D34CBBF003B27C8 /* DateTime.m in Sources */,
+				D638DB941D368B92001CD3BB /* CCVideoTableViewCell.m in Sources */,
 				D6A1C1311D2F57F1009693E9 /* AppDelegate.m in Sources */,
 				D678D6021D3740FD00C62B6B /* CCMeViewController.m in Sources */,
 				D606DAED1D3663F600D09826 /* MatchDetailViewController.m in Sources */,
 				D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */,
 				D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */,
+				D6D14DEE1D371D07006D707E /* CCVideoTableViewController.m in Sources */,
 				D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */,
 				D6A1C15F1D2F5837009693E9 /* CCVideoViewController.m in Sources */,
 				D6A1C15C1D2F5837009693E9 /* CCMatchViewController.m in Sources */,
 				D6A1C12E1D2F57F1009693E9 /* main.m in Sources */,
 				D67F382A1D366285007AED4F /* CCHeadLineViewController.m in Sources */,
 				D6A1C15E1D2F5837009693E9 /* CCNewViewController.m in Sources */,
+				D60D06641D37BDB700382A32 /* WCCAVPlayerView.m in Sources */,
 				D67F382C1D366285007AED4F /* CCinformationViewController.m in Sources */,
+				D638DB901D368B75001CD3BB /* CCVideoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
