@@ -18,74 +18,71 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *rootScrollView;
 @property (nonatomic,strong)NSMutableDictionary *dateDic;
 @property (nonatomic,assign)NSInteger dateNum;
+@property (nonatomic) CGPoint scrollViewStartPosPoint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rootScrollViewcontentSizeWitdh;
+@property (weak, nonatomic) IBOutlet UIButton *leftBtn;
+@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+
+
 @end
 static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 @implementation CCMatchViewController
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.dateNum = 0;
-    [self setTableView];
+    [self setTableView:self.rootTableView];
+    [self setTableView:self.leftTableView];
+    [self setTableView:self.rightTableView];
     [self loadTableView];
-    NSLog(@"%f",self.rootScrollView.contentSize.width);
 }
-- (void)setTableView{
-    self.rootTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self refreshTableView];
+- (void)setTableView:(UITableView *)tableView{
+    tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self refreshTableView:tableView];
     }];
-    [self.rootTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
-    [self.leftTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
-    [self.rightTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
-    
+    [tableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
 }
 - (void)loadTableView{
+    if (self.dateNum == 1) {
+        [self loadTableView:self.rightTableView];
+    }else if(self.dateNum == -10){
+        [self loadTableView:self.leftTableView];
+    }else{
+    [self loadTableView:self.rootTableView];
+    }
+}
+- (void)loadTableView:(UITableView *)tableView{
     if (![self.dateDic objectForKey:[self dateTime]]){
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        NSString *url = [NSString stringWithFormat:@"http://sportsnba.qq.com/match/listByDate?appver=1.0.2&appvid=1.0.2&date=%@&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",[self dateTime]];
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-    
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            if (responseObject != nil) {
-                NSMutableArray *mArr = [NSMutableArray array];
-                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
-                for (NSDictionary *mDic in dic[@"data"][@"matches"]) {
-                    MatchModel *model = [MatchModel new];
-                    [model setValuesForKeysWithDictionary:mDic[@"matchInfo"]];
-                    [mArr addObject:model];
-                }
-                [self.dateDic setObject:mArr forKey:[self dateTime]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                    [self reloadTableView];
-                });
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@",error);
-        }];
+        [tableView.mj_header beginRefreshing];
+        [self refreshTableView:tableView];
     }else{
         [self reloadTableView];
     }
+    self.leftBtn.alpha = 1.0;
+    self.rightBtn.alpha = 1.0;
 }
-- (void)refreshTableView{
+- (void)refreshTableView:(UITableView *)tableView{
     NSString *url = [NSString stringWithFormat:@"http://sportsnba.qq.com/match/listByDate?appver=1.0.2&appvid=1.0.2&date=%@&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",[self dateTime]];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//        NSLog(@"%@",downloadProgress);
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject != nil) {
-            NSMutableArray *modelArr = [NSMutableArray array];
+            NSMutableArray *mArr = [NSMutableArray array];
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
             for (NSDictionary *mDic in dic[@"data"][@"matches"]) {
                 MatchModel *model = [MatchModel new];
                 [model setValuesForKeysWithDictionary:mDic[@"matchInfo"]];
-                [modelArr addObject:model];
+                [mArr addObject:model];
             }
-            [self.dateDic setObject:modelArr forKey:[self dateTime]];
-            [self.rootTableView reloadData];
-            [self.rootTableView.mj_header endRefreshing];
+            [self.dateDic setObject:mArr forKey:[self dateTime]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadTableView];
+                [tableView.mj_header endRefreshing];
+            });
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -94,8 +91,8 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 - (void)reloadTableView{
     if (self.dateNum != 1 && self.dateNum != -10) {
         [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+        [self.rootTableView setContentOffset:(CGPointMake(0, 0)) animated:NO];
     }
-    [self.rootTableView setContentOffset:(CGPointMake(0, 0)) animated:NO];
     [self.rootTableView reloadData];
     [self.leftTableView reloadData];
     [self.rightTableView reloadData];
@@ -135,18 +132,32 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 //scollView
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    self.scrollViewStartPosPoint = scrollView.contentOffset;
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if ([scrollView isKindOfClass:[UITableView class]]) {
         return;
     }
+    NSLog(@"%f   %f",self.scrollViewStartPosPoint.x-self.scrollViewStartPosPoint.y-scrollView.contentOffset.x, scrollView.contentOffset.y);
     if (scrollView.contentOffset.x == 0) {
         if (self.dateNum >= -9) {
             self.dateNum --;
+            [self loadTableView];
         }
-        [self loadTableView];
     }
     if (scrollView.contentOffset.x == self.view.width * 2) {
-        if (self.dateNum <=0) {
+        if (self.dateNum <= 0) {
+            self.dateNum ++;
+            [self loadTableView];
+        }
+    }
+    if (scrollView.contentOffset.x == self.view.width) {
+        if (self.dateNum == 1) {
+            self.dateNum --;
+        }
+        if (self.dateNum == -10) {
             self.dateNum ++;
         }
         [self loadTableView];
@@ -161,17 +172,27 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     return _dateDic;
 }
 #pragma mark //////////////////////////xib 方法////////////////////////////
-- (IBAction)leftbtn:(id)sender {
-    if (self.dateNum - 1 >= -10) {
+- (IBAction)leftbtn:(UIButton *)sender {
+    if (self.dateNum  >= -9) {
         self.dateNum --;
         [self loadTableView];
+        if (self.dateNum == -9) {
+            self.rootScrollView.contentOffset = CGPointMake(0, 0);
+            sender.imageView.alpha = 0.5;
+        }
     }
+    
 }
-- (IBAction)rightbtn:(id)sender {
+- (IBAction)rightbtn:(UIButton *)sender {
     if (self.dateNum + 1 <= 1) {
         self.dateNum ++;
         [self loadTableView];
+        if (self.dateNum == 1) {
+            self.rootScrollView.contentOffset = CGPointMake(self.view.width *2, 0);
+            sender.imageView.alpha = 0.5;
+        }
     }
+    
 }
 - (IBAction)calendar:(id)sender {
     //日历点击方法
@@ -191,17 +212,22 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 #pragma mark //////////////////////////获取model数组////////////////////////////
 - (NSMutableArray *)getModelArrayWithTableView:(UITableView *)tableView{
     NSInteger num = 0;
+    NSInteger dateNum = 0;
+    if (self.dateNum == 1) {
+        dateNum = 0;
+    }else if (self.dateNum == -10) {
+        dateNum = -9;
+    }else{
+        dateNum = self.dateNum;
+    }
     if (tableView == self.rootTableView) {
-        num = self.dateNum;
+        num = dateNum;
     }
     if (tableView == self.leftTableView) {
-        num = self.dateNum-1;
+        num = dateNum-1;
     }
     if (tableView == self.rightTableView) {
-        num = self.dateNum+1;
-    }
-    if (self.dateNum == 1) {
-        num --;
+        num = dateNum+1;
     }
     return [self.dateDic objectForKey:[self dateTimeWithNum:num]] ? [self.dateDic objectForKey:[self dateTimeWithNum:num]] : nil;
 }

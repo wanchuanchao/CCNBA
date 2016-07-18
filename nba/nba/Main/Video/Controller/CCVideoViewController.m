@@ -97,7 +97,7 @@
     self.selectButton.enabled = YES;
     sender.enabled = NO;
     self.selectButton = sender;
-    [UIView animateWithDuration:0.01 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         self.indicatorView.width = sender.width;
         self.indicatorView.x = sender.x;
     }];
