@@ -18,6 +18,7 @@
 /**   */
 @property (nonatomic,strong) NSMutableArray *arr;
 
+@property (nonatomic,strong) UIButton *headBtn;
 @end
 
 @implementation CCinformationViewController
@@ -43,6 +44,7 @@
     self.informationTableView.delegate = self;
     self.informationTableView.dataSource = self;
     self.informationTableView.showsVerticalScrollIndicator = NO;
+
     [self.view addSubview:self.informationTableView];
     
     // 注册cell
@@ -98,19 +100,30 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    
+    
     // 取出数组里的第一段数据,加在头视图上
     CCInformationModel *model = (CCInformationModel *)self.arr.firstObject;
     // 加载头视图图片
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = tableView.tableHeaderView.frame;
+    imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
-//    // 加载头视图标题
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 10, tableView.tableHeaderView.frame.size.height - 20)];
+    // 加载头视图标题
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 180, self.view.frame.size.width - 10, 20)];
 //    label.text = model.title;
 //    [imageView addSubview:label];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnAction)];
+    [imageView addGestureRecognizer:tap];
+    imageView.userInteractionEnabled = YES;
+    
     return imageView;
 }
 
+// btn的点击事件
+- (void)btnAction{
+    NSLog(@"跳转");
+}
 
 
 @end
