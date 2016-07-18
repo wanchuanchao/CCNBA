@@ -10,4 +10,6 @@
 
 @interface CCinformationTwoViewController : UIViewController
 
+/**   */
+@property (nonatomic,strong) NSString *url;
 @end

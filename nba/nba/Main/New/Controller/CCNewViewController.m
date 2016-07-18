@@ -50,10 +50,10 @@
     [self.view addSubview:self.headLineVC.view];
     //self.headLineVC.view.frame = self.view.bounds;
     [self addChildViewController:self.headLineVC];
-//    self.informationVC = [[CCinformationViewController alloc] init];
+    self.informationVC = [[CCinformationViewController alloc] init];
 //    [self.view addSubview:self.informationVC.view];
 //     self.informationVC.view.frame = self.view.bounds;
-//    [self addChildViewController:_informationVC];
+    [self addChildViewController:_informationVC];
     
 }
 
@@ -82,15 +82,11 @@
             break;
         }
         case 1:{
-            if (!_informationVC) {
-                self.informationVC = [[CCinformationViewController alloc] init];
-            }
             NSLog(@"");
             NSArray *array2 = [self.view subviews];
             if ([array2 count] == 2) {
                 [[array2 objectAtIndex:1] removeFromSuperview];
             }
-            
             [self.view addSubview:self.informationVC.view];
             break;
         }
