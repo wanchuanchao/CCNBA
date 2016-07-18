@@ -128,7 +128,7 @@
                         </mask>
                     </variation>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJB-gA-QXR">
+                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJB-gA-QXR">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -222,22 +222,22 @@
                     <exclude reference="pXh-zV-XD1"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="BFh-wR-1g9"/>
-                    <exclude reference="LY8-z7-fL7"/>
-                    <exclude reference="SL6-IL-0EN"/>
-                    <exclude reference="cip-Yp-Vqj"/>
-                    <exclude reference="yfY-Qa-Upl"/>
-                    <exclude reference="7eS-QO-wlT"/>
-                    <exclude reference="Dfx-wq-9Z1"/>
-                    <exclude reference="rt6-Oz-L2i"/>
                     <exclude reference="FTq-Ob-kxi"/>
                     <exclude reference="v8v-2B-4hH"/>
-                    <exclude reference="Egc-ap-qqx"/>
-                    <exclude reference="VOl-GI-44c"/>
                     <exclude reference="2Iy-h2-taO"/>
                     <exclude reference="Bsv-mE-kel"/>
                     <exclude reference="lYZ-wF-kle"/>
                     <exclude reference="o0r-lx-Mel"/>
+                    <exclude reference="7eS-QO-wlT"/>
+                    <exclude reference="Dfx-wq-9Z1"/>
+                    <exclude reference="rt6-Oz-L2i"/>
+                    <exclude reference="SL6-IL-0EN"/>
+                    <exclude reference="cip-Yp-Vqj"/>
+                    <exclude reference="yfY-Qa-Upl"/>
+                    <exclude reference="Egc-ap-qqx"/>
+                    <exclude reference="VOl-GI-44c"/>
+                    <exclude reference="BFh-wR-1g9"/>
+                    <exclude reference="LY8-z7-fL7"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -252,22 +252,22 @@
                     <include reference="pXh-zV-XD1"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="BFh-wR-1g9"/>
-                    <include reference="LY8-z7-fL7"/>
-                    <include reference="SL6-IL-0EN"/>
-                    <include reference="cip-Yp-Vqj"/>
-                    <include reference="yfY-Qa-Upl"/>
-                    <include reference="7eS-QO-wlT"/>
-                    <include reference="Dfx-wq-9Z1"/>
-                    <include reference="rt6-Oz-L2i"/>
                     <include reference="FTq-Ob-kxi"/>
                     <include reference="v8v-2B-4hH"/>
-                    <include reference="Egc-ap-qqx"/>
-                    <include reference="VOl-GI-44c"/>
                     <include reference="2Iy-h2-taO"/>
                     <include reference="Bsv-mE-kel"/>
                     <include reference="lYZ-wF-kle"/>
                     <include reference="o0r-lx-Mel"/>
+                    <include reference="7eS-QO-wlT"/>
+                    <include reference="Dfx-wq-9Z1"/>
+                    <include reference="rt6-Oz-L2i"/>
+                    <include reference="SL6-IL-0EN"/>
+                    <include reference="cip-Yp-Vqj"/>
+                    <include reference="yfY-Qa-Upl"/>
+                    <include reference="Egc-ap-qqx"/>
+                    <include reference="VOl-GI-44c"/>
+                    <include reference="BFh-wR-1g9"/>
+                    <include reference="LY8-z7-fL7"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="322" y="295"/>

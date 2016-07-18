@@ -90,10 +90,10 @@
 }
 - (void)panAction:(UIPanGestureRecognizer *)sender{
     CGPoint point = [sender translationInView:rootVC.view];
-    CGFloat newX = point.x + rootVC.view.frame.origin.x;
-    if (newX >= 0 && newX <= 300) {
-        rootVC.view.transform = CGAffineTransformTranslate(rootVC.view.transform, point.x, 0);
-        menuVC.view.transform = CGAffineTransformTranslate(menuVC.view.transform, point.x /3,0);
+    CGFloat X = rootVC.view.x;
+    if (X >= 0 && X <= 300) {
+        rootVC.view.x += point.x;
+        menuVC.view.x += point.x/3;
     }
     [sender setTranslation:CGPointZero inView:rootVC.view];
     if (sender.state == UIGestureRecognizerStateEnded) {

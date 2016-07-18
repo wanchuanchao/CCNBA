@@ -26,6 +26,7 @@
     
 }
 -(void)setModel:(MatchModel *)model{
+    self.headtitle.textColor = [UIColor blackColor];
     if (!model) {
         return;
     }
@@ -44,7 +45,8 @@
             self.theviduo.text = @"精彩视频";
         }else{
             //比赛进行中
-            self.headtitle.text = model.quarter;
+            self.headtitle.text = [NSString stringWithFormat:@"直播 %@ %@",model.quarter,model.quarterTime];
+            self.headtitle.textColor = [UIColor redColor];
         }
         self.leftGoal.text = model.leftGoal;
         self.rightGoal.text = model.rightGoal;

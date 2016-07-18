@@ -27,6 +27,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     self.dateNum = 0;
     [self setTableView];
     [self loadTableView];
+    NSLog(@"%f",self.rootScrollView.contentSize.width);
 }
 - (void)setTableView{
     self.rootTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -35,6 +36,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     [self.rootTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
     [self.leftTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
     [self.rightTableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
+    
 }
 - (void)loadTableView{
     if (![self.dateDic objectForKey:[self dateTime]]){
@@ -90,7 +92,9 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     }];
 }
 - (void)reloadTableView{
-    [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+    if (self.dateNum != 1 && self.dateNum != -10) {
+        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+    }
     [self.rootTableView setContentOffset:(CGPointMake(0, 0)) animated:NO];
     [self.rootTableView reloadData];
     [self.leftTableView reloadData];
@@ -136,14 +140,19 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
         return;
     }
     if (scrollView.contentOffset.x == 0) {
-        self.dateNum --;
+        if (self.dateNum >= -9) {
+            self.dateNum --;
+        }
         [self loadTableView];
     }
     if (scrollView.contentOffset.x == self.view.width * 2) {
-        self.dateNum ++;
+        if (self.dateNum <=0) {
+            self.dateNum ++;
+        }
         [self loadTableView];
     }
 }
+
 #pragma mark //////////////////////////懒加载////////////////////////////
 -(NSMutableDictionary *)dateDic{
     if (!_dateDic) {
@@ -190,6 +199,9 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     }
     if (tableView == self.rightTableView) {
         num = self.dateNum+1;
+    }
+    if (self.dateNum == 1) {
+        num --;
     }
     return [self.dateDic objectForKey:[self dateTimeWithNum:num]] ? [self.dateDic objectForKey:[self dateTimeWithNum:num]] : nil;
 }
