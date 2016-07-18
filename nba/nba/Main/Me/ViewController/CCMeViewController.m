@@ -75,7 +75,7 @@
     return (float)[[SDImageCache sharedImageCache] getSize]/1024/1024;
 }
 - (void)clearTmp{
-    UILabel *alert = [[UILabel alloc] initWithFrame:(CGRectMake(self.view.width, 0, 50, 50))];
+    UILabel *alert = [[UILabel alloc] initWithFrame:(CGRectMake(0, 0, 50, 50))];
     if ([self getTmpSize]) {
         alert.text = [NSString stringWithFormat:@"已清理%.1fMB",[self getTmpSize]];
     }else{
@@ -101,6 +101,7 @@
         [alert removeFromSuperview];
         self.view.userInteractionEnabled = YES;
     });
+    NSLog(@"%@",self.view);
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     if ([keyPath isEqualToString:@"frame"]) {

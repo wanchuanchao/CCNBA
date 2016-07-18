@@ -80,7 +80,7 @@ static WCCAVPlayerView *view = nil;
     [self addSubview:self.lightProgress];
     [self.volumeProgress setHidden:YES];
     [self.lightProgress setHidden:YES];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 #pragma mark //////////////////////////控件方法////////////////////////////
 //全屏按钮1
@@ -94,35 +94,10 @@ static WCCAVPlayerView *view = nil;
         [self.MyView layoutSubviews];
         [self.window addSubview:self];
         self.center = self.window.center;
+        self.fullScreen.selected = YES;
     }else{
         [self turnback];
     }
-    self.fullScreen.selected = !self.fullScreen.isSelected;
-    self.turnBack.hidden = !self.turnBack.isHidden;
-}
-//- (void)deviceOrientationDidChange{
-//    if ([self superview]) {
-//        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-//        if (orientation == UIInterfaceOrientationPortrait && self.fullScreen.isSelected == NO) {
-//            [self turnback];
-//        }else{
-//            [self transformRotationWithOrientation:orientation];
-//        }
-//    }
-//}
-- (void)transformRotationWithOrientation:(UIInterfaceOrientation)orientation{
-    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        [self setFrame:(CGRectMake(0, 0, HEIGHT, WIDTH))];
-        self.avplayerlayer.frame =CGRectMake(0, 0, HEIGHT, WIDTH);
-        self.transform = CGAffineTransformMakeRotation(M_PI_2);
-    }else{
-        [self setFrame:(CGRectMake(0, 0, WIDTH, HEIGHT))];
-        self.avplayerlayer.frame = CGRectMake(0, 0, WIDTH, HEIGHT);
-    }
-    [self layoutSubviews];
-    [self.MyView layoutSubviews];
-    [self.window addSubview:self];
-    self.center = self.window.center;
 }
 //全屏返回按钮
 - (IBAction)turnback {
@@ -132,6 +107,8 @@ static WCCAVPlayerView *view = nil;
     [self.aView addSubview:self];
     [self layoutSubviews];
     [self.MyView layoutSubviews];
+    self.fullScreen.selected = NO;
+    [self.turnBack setHidden:YES];
 }
 // 开始暂停
 - (IBAction)buttonAction {
@@ -203,14 +180,6 @@ static WCCAVPlayerView *view = nil;
 -(void)cancel{
     [self stop];
 }
-////重写setter
-//-(void)setFrame:(CGRect)frame{
-//    [super setFrame:frame];
-//    self.avplayerlayer.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-//    [self layoutSubviews];
-//    [self.MyView layoutSubviews];
-//}
-
 //播放器是否在播放 getter
 - (BOOL)isplaying{
     if (self.status == playing) {
@@ -220,12 +189,6 @@ static WCCAVPlayerView *view = nil;
     }
 }
 
--(void)setNewFrame:(CGRect)frame{
-    self.frame = frame;
-    self.avplayerlayer.frame = frame;
-    [self layoutSubviews];
-    [self.aView layoutSubviews];
-}
 #pragma mark //////////////////////////手势方法////////////////////////////
 
 
@@ -310,6 +273,11 @@ static WCCAVPlayerView *view = nil;
     [self.titleLabel setHidden:!showornot];
     [self.bufferProgressView setHidden:showornot];
     [self.timeProgressView setHidden:showornot];
+    if (self.fullScreen.selected == YES) {
+        [self.turnBack setHidden:!showornot];
+    }else{
+        [self.turnBack setHidden:YES];
+    }
 }
 - (void)showSmallView:(BOOL)show{
     
@@ -323,47 +291,8 @@ static WCCAVPlayerView *view = nil;
         
     }];
 }
-#pragma mark //////////////////////////通知监听////////////////////////////
-
-#pragma mark //////////////////////////播放器控制////////////////////////////
-- (void)play{  //开始播放
-    [self.player play];
-    self.status = playing;
-    if (self.timer)return;
-    //开启定时器
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
-}
-- (void)timerAction{  //定时器方法
-    self.timeSlider.value = CMTimeGetSeconds(self.player.currentItem.currentTime);
-    self.timeProgressView.progress = (CMTimeGetSeconds(self.player.currentItem.currentTime) / CMTimeGetSeconds(self.item.duration));
-    [self setLabelTimeWithTime:self.timeSlider.value];
-}
-- (void)setLabelTimeWithTime:(float)time{
-    if (time > CMTimeGetSeconds(self.item.duration)) return;
-    int minus = time / 60; //分钟
-    int seconds = (int)time % 60;// 秒
-    int totalMinuts = CMTimeGetSeconds(self.item.duration) / 60;
-    int totalSeconds = (int)CMTimeGetSeconds(self.item.duration) % 60;
-    self.currentTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",minus,seconds];
-    self.totalTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",totalMinuts,totalSeconds];
-}
-- (void)stop  //暂停播放
-{
-    [self.player pause];
-    self.status = stop;
-    //销毁定时器
-    [self.timer invalidate];
-    self.timer = nil;
-}
-/**
- *      kvo
- *
- *  @param keyPath 监听的属性
- *  @param object  属性属于哪个对象
- *  @param change  变化的值
- *  @param context 上面传递的值
- */
+#pragma mark //////////////////////////监听////////////////////////////
+//请求数据进度
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"status"]) {
@@ -396,6 +325,69 @@ static WCCAVPlayerView *view = nil;
     }else{
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+//屏幕旋转
+- (void)deviceOrientationDidChange{
+    if ([self superview]) {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        if (orientation == UIInterfaceOrientationPortrait) {
+            [self turnback];
+        }
+        if (orientation == UIInterfaceOrientationLandscapeLeft) {
+            if (self.fullScreen.selected == YES) {
+                return;
+            }
+            self.transform = CGAffineTransformIdentity;
+            [self setFrame:[UIScreen mainScreen].bounds];
+            self.avplayerlayer.frame =[UIScreen mainScreen].bounds;
+            [self layoutSubviews];
+            [self.MyView layoutSubviews];
+            [self.window addSubview:self];
+            self.center = self.window.center;
+            self.fullScreen.selected = !self.fullScreen.isSelected;
+        }
+        if (orientation == UIInterfaceOrientationLandscapeRight) {
+            self.transform = CGAffineTransformIdentity;
+            [self setFrame:[UIScreen mainScreen].bounds];
+            self.avplayerlayer.frame =[UIScreen mainScreen].bounds;
+            [self layoutSubviews];
+            [self.MyView layoutSubviews];
+            [self.window addSubview:self];
+            self.center = self.window.center;
+            self.fullScreen.selected = !self.fullScreen.isSelected;
+        }
+    }
+}
+#pragma mark //////////////////////////播放器控制////////////////////////////
+- (void)play{  //开始播放
+    [self.player play];
+    self.status = playing;
+    if (self.timer)return;
+    //开启定时器
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+}
+- (void)timerAction{  //定时器方法
+    self.timeSlider.value = CMTimeGetSeconds(self.player.currentItem.currentTime);
+    self.timeProgressView.progress = (CMTimeGetSeconds(self.player.currentItem.currentTime) / CMTimeGetSeconds(self.item.duration));
+    [self setLabelTimeWithTime:self.timeSlider.value];
+}
+- (void)setLabelTimeWithTime:(float)time{
+    if (time > CMTimeGetSeconds(self.item.duration)) return;
+    int minus = time / 60; //分钟
+    int seconds = (int)time % 60;// 秒
+    int totalMinuts = CMTimeGetSeconds(self.item.duration) / 60;
+    int totalSeconds = (int)CMTimeGetSeconds(self.item.duration) % 60;
+    self.currentTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",minus,seconds];
+    self.totalTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",totalMinuts,totalSeconds];
+}
+- (void)stop  //暂停播放
+{
+    [self.player pause];
+    self.status = stop;
+    //销毁定时器
+    [self.timer invalidate];
+    self.timer = nil;
 }
 #pragma mark //////////////////////////添加MyView,并开启定时器,3秒后移除////////////////////////////
 - (void)showMyView{

@@ -34,9 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.headTableView = [[UITableView alloc] initWithFrame:self.view.frame style:(UITableViewStylePlain)];
+    self.headTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60) style:(UITableViewStylePlain)];
     self.headTableView.delegate = self;
     self.headTableView.dataSource = self;
+    self.headTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.headTableView];
     
     UINib *nib = [UINib nibWithNibName:@"CCHeadLineTableViewCell" bundle:[NSBundle mainBundle]];
@@ -92,7 +93,7 @@
             [self.view addSubview:self.headTableView];
         }
         [self.headTableView reloadData];
-        NSLog(@"%@",self.dataArr);
+//        NSLog(@"%@",self.dataArr);
     } failBlock:^(NSError *err) {
          NSLog(@"line = %d,err = %@",__LINE__,err);
     }];

@@ -35,14 +35,15 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="xF7-iv-shw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS8-ee-TAU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS8-ee-TAU">
                         <rect key="frame" x="107" y="40" width="299" height="37"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -62,6 +63,12 @@
                     <constraint firstItem="XS8-ee-TAU" firstAttribute="leading" secondItem="JCc-40-jnZ" secondAttribute="trailing" constant="5" id="qin-kk-eZ4"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="detailLabel" destination="XS8-ee-TAU" id="FyT-GP-olp"/>
+                <outlet property="informationImage" destination="JCc-40-jnZ" id="jvC-Nk-XaN"/>
+                <outlet property="timeLabel" destination="Qjk-hh-zQI" id="edI-C9-sot"/>
+                <outlet property="titleLable" destination="0Lx-WN-2sg" id="fIg-qU-d57"/>
+            </connections>
             <point key="canvasLocation" x="252.5" y="292"/>
         </tableViewCell>
     </objects>
