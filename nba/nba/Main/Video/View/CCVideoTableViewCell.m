@@ -10,16 +10,6 @@
 #import "CCVideoModel.h"
 
 @interface CCVideoTableViewCell ()
-// 标题
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-// 时间
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-// 时长
-@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
-/** 记录当前的button */
-@property (nonatomic, strong) UIButton *selectedButton;
-
-- (IBAction)playButtonAction:(id)sender;
 
 @end
 
@@ -35,10 +25,11 @@
     self.timeLabel.text = videoModel.pub_time;
     self.durationLabel.text = videoModel.duration;
     [self.backgroundImageView sd_setImageWithURL:[NSURL URLWithString:videoModel.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
+    self.backgroundImageView.userInteractionEnabled = YES;
 }
 
 
-
+// 播放点击事件
 - (IBAction)playButtonAction:(UIButton *)sender {
     self.selectedButton.hidden = NO;
     sender.hidden = YES;
@@ -48,5 +39,12 @@
         [self.delegate videoTableViewCell:self videoModel:self.videoModel];
     }
 
+}
+// 分享点击事件
+- (IBAction)shareButtonAction:(UIButton *)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(videoTableViewCell:videoModel:)]) {
+        [self.delegate videoTableViewCell:self videoModel:self.videoModel];
+    }
 }
 @end

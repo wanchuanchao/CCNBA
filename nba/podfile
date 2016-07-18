@@ -5,4 +5,5 @@ pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'MJExtension'
 pod 'UIView+AutoLayout'
+pod 'UMengSocialCOM'
 end
