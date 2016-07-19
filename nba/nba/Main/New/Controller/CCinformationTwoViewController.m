@@ -72,7 +72,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
+//    NSString *str = [NSString stringWithFormat:@"http://sportsnba.qq.com/news/item?appver=1.0.2&appvid=1.0.2&articleIds=%@&column=news&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",self.url];
     [webView stringByEvaluatingJavaScriptFromString:@"var div = document.getElementsByClassName('share')[0];div.parentElement.removeChild(div);var div1 = document.getElementsByTagName('header')[0];div1.parentElement.removeChild(div1);var div2 = document.getElementsByClassName('app-layer')[0];div2.parentElement.removeChild(div2);var div3 = document.getElementsByClassName('navbar')[0];div3.parentElement.removeChild(div3);var div4 = document.getElementsByTagName('footer')[0];div4.parentElement.removeChild(div4);var div5 = document.getElementsByClassName('xw-for-nba-qrcode')[0];div5.parentElement.removeChild(div5);var div6 = document.getElementsByClassName('xw-for-nba-logo')[0];div6.parentElement.removeChild(div6);var div7 = document.getElementsByClassName('count')[0];div7.parentElement.removeChild(div7);var div8 = document.getElementsByClassName('comments')[0];div8.parentElement.removeChild(div8)"];
         [self.view addSubview:webView];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];

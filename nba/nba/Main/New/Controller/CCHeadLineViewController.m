@@ -42,7 +42,7 @@
     
     UINib *nib = [UINib nibWithNibName:@"CCHeadLineTableViewCell" bundle:[NSBundle mainBundle]];
     [self.headTableView registerNib:nib forCellReuseIdentifier:@"CCHeadLineTableViewCell"];
-    [self getRequest];
+   
     
     MJRefreshNormalHeader* header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self performSelector:@selector(headRefresh)withObject:nil afterDelay:2.0f];
@@ -53,7 +53,8 @@
     [header setTitle:@"正在刷新中"forState:MJRefreshStateRefreshing];
     
     self.headTableView.mj_header= header;
-    
+    [self.headTableView.mj_header beginRefreshing];
+     [self getRequest];
     //创建上拉刷新
     MJRefreshBackNormalFooter * foot =[MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         
@@ -71,7 +72,7 @@
 // 上拉刷新下拉加载
 - (void)headRefresh {
     NSLog(@"下拉,加载数据");
-    [self.headTableView.mj_header endRefreshing];
+    [self getRequest];
 }
 - (void)footRefresh {
     NSLog(@"上拉，加载数据");
@@ -82,27 +83,47 @@
 #pragma mark 数据请求
 
 - (void)getRequest {
-    NSString *url = @"http://sportsnba.qq.com/news/item?appver=1.0.2&appvid=1.0.2&articleIds=20160706005300%2C20160706005298%2C20160705030401%2C20160705024020%2C20160705001023%2C20160704001110%2C20160704030469%2C20160703002492%2C20160703000750%2C20160702020097%2C20160702020110%2C20160702020106%2C20160702020100%2C20160702001600%2C20160702001599%2C20160702001601%2C20160701035241%2C20160701032111%2C20160701025057%2C20160701017726&column=banner&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375";
+    NSMutableString *urlStr = [NSMutableString string];
+    NSString *url = @"http://sportsnba.qq.com/news/index?appver=1.0.2&appvid=1.0.2&column=banner&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375";
     [CCNewRequest getDataWithUrl:url par:nil successBlock:^(id data) {
-        for (NSDictionary *dic in [data[@"data"] allValues]) {
-            CCNewHeadModel *model = [[CCNewHeadModel alloc] init];
-            [model setValuesForKeysWithDictionary:dic];
-            [self.dataArr addObject:model];
+        for (NSDictionary *dic in data[@"data"]) {
+            NSString *string = dic[@"id"];
+            [urlStr appendFormat:@"%%2c%@",string];
         }
-        if (![self.view.subviews containsObject:self.headTableView]) {
-            [self.view addSubview:self.headTableView];
-        }
-        [self.headTableView reloadData];
-//        NSLog(@"%@",self.dataArr);
+        NSString *string = [urlStr substringFromIndex:3];
+        [CCNewRequest getDataWithUrl:[NSString stringWithFormat:@"http://sportsnba.qq.com/news/item?appver=1.0.2&appvid=1.0.2&articleIds=%@&column=banner&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",string] par:nil successBlock:^(id data) {
+            NSArray *arr = [data[@"data"] allKeys];
+            NSComparator cmptr = ^(id obj1, id obj2){
+                if ([obj1 integerValue] < [obj2 integerValue]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                if ([obj1 integerValue] > [obj2 integerValue]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            };
+            
+            for (NSString *string1 in (NSArray *)[arr sortedArrayUsingComparator:cmptr]) {
+                CCNewHeadModel *model = [[CCNewHeadModel alloc] init];
+                [model setValuesForKeysWithDictionary:[data[@"data"] valueForKey:string1]];
+                [self.dataArr addObject:model];
+            }
+            [self.headTableView reloadData];
+            if ([self.headTableView.mj_header isRefreshing]) {
+                [self.headTableView.mj_header endRefreshing];
+            }
+        } failBlock:^(NSError *err) {
+            NSLog(@"line = %d,err = %@",__LINE__,err);
+        }];
     } failBlock:^(NSError *err) {
-         NSLog(@"line = %d,err = %@",__LINE__,err);
+        NSLog(@"line = %d,err = %@",__LINE__,err);
     }];
+    
 }
 
 
 #pragma mark tableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.dataArr.count;
 }
 
