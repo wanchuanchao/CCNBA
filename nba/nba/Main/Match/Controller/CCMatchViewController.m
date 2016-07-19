@@ -10,6 +10,7 @@
 #import "MatchDetailViewController.h"
 #import "MatchTableViewCell.h"
 #import "MatchModel.h"
+#import "CCCalendarViewController.h"
 @interface CCMatchViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *datetitle;
 @property (weak, nonatomic) IBOutlet UITableView *rootTableView;
@@ -196,6 +197,9 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 }
 - (IBAction)calendar:(id)sender {
     //日历点击方法
+    CCCalendarViewController *vc = [[CCCalendarViewController alloc] init];
+    vc.date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*(self.dateNum)];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSString *)datetitletext{
     NSDate *date = [NSDate date];
