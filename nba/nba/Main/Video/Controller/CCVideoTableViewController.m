@@ -12,7 +12,6 @@
 #import <MJExtension.h>
 #import "CCVideoModel.h"
 #import "CCNewRequest.h"
-
 #import "UMSocial.h"
 @interface CCVideoTableViewController ()<CCVideoTableViewCellDelegate,UMSocialUIDelegate>
 /** 所有的视频数据 */

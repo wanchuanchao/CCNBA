@@ -11,6 +11,7 @@
 #import "CCNewRequest.h"
 #import "CCInformationModel.h"
 #import <UIImageView+WebCache.h>
+#import "CCinformationTwoViewController.h"
 @interface CCinformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 /**   */
@@ -19,6 +20,7 @@
 @property (nonatomic,strong) NSMutableArray *arr;
 
 @property (nonatomic,strong) UIButton *headBtn;
+
 @end
 
 @implementation CCinformationViewController
@@ -110,9 +112,9 @@
     imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
     // 加载头视图标题
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 180, self.view.frame.size.width - 10, 20)];
-//    label.text = model.title;
-//    [imageView addSubview:label];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 180, self.view.frame.size.width - 10, 20)];
+    label.text = model.title;
+    [imageView addSubview:label];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnAction)];
     [imageView addGestureRecognizer:tap];
     imageView.userInteractionEnabled = YES;
@@ -122,8 +124,29 @@
 
 // btn的点击事件
 - (void)btnAction{
+    CCinformationTwoViewController *ccVC = [CCinformationTwoViewController new];
+    ccVC.url =((CCInformationModel *)self.arr[0]).url;
+    [self.navigationController pushViewController:ccVC animated:YES];
     NSLog(@"跳转");
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CCinformationTwoViewController *ccVC = [CCinformationTwoViewController new];
+    ccVC.url = ((CCInformationModel *)self.arr[indexPath.row +1]).url;
+    [self.navigationController pushViewController:ccVC animated:YES];
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end
