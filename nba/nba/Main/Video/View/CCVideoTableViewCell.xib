@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-34-ieU">
-                                <rect key="frame" x="10" y="30" width="152" height="15"/>
+                                <rect key="frame" x="10" y="30" width="222" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,6 +68,9 @@
                                     </attributedString>
                                 </state>
                                 <state key="highlighted" image="mainCellShareClick"/>
+                                <connections>
+                                    <action selector="shareButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wWJ-QN-T6t"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="时间" translatesAutoresizingMaskIntoConstraints="NO" id="nMF-MK-kWf">
                                 <rect key="frame" x="265" y="30" width="15" height="15"/>
@@ -79,7 +82,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="POc-bU-jdg" firstAttribute="leading" secondItem="UPa-34-ieU" secondAttribute="trailing" constant="120" id="03N-QB-ezb"/>
+                            <constraint firstItem="POc-bU-jdg" firstAttribute="leading" secondItem="UPa-34-ieU" secondAttribute="trailing" constant="50" id="03N-QB-ezb"/>
                             <constraint firstAttribute="bottom" secondItem="SKF-1z-1Dy" secondAttribute="bottom" constant="5" id="7vp-fY-EkW"/>
                             <constraint firstItem="SKF-1z-1Dy" firstAttribute="top" secondItem="h4I-Qs-GIu" secondAttribute="bottom" constant="5" id="BWx-Wj-tWC"/>
                             <constraint firstItem="h4I-Qs-GIu" firstAttribute="leading" secondItem="eRU-Ka-hQE" secondAttribute="leading" constant="10" id="Ge7-AP-tik"/>

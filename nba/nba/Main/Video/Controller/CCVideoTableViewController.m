@@ -12,15 +12,14 @@
 #import <MJExtension.h>
 #import "CCVideoModel.h"
 #import "CCNewRequest.h"
-#import "WCCAVPlayerView.h"
-
-@interface CCVideoTableViewController ()<CCVideoTableViewCellDelegate>
+#import "UMSocial.h"
+@interface CCVideoTableViewController ()<CCVideoTableViewCellDelegate,UMSocialUIDelegate>
 /** 所有的视频数据 */
 @property (nonatomic,strong) NSMutableArray *videosArray;
 @property(nonatomic,strong)CCVideoModel *videoModel;
-@property(nonatomic,weak)WCCAVPlayerView *playerView;
 /** 记录当前indexPath */
 @property (nonatomic,assign) NSIndexPath *index;
+@property (nonatomic,strong) UIWebView *webView;
 @end
 
 @implementation CCVideoTableViewController
@@ -50,7 +49,7 @@
  */
 -(void)setupPadding{
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.contentInset = UIEdgeInsetsMake(35, 0, 49, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(35, 0, 64, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CCVideoTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"CCVideoTableViewCell"];
@@ -113,15 +112,14 @@
     cell.videoModel = self.videosArray[indexPath.row];
     // 解决重用
     if (indexPath == self.index) {
-        [cell addSubview:self.playerView];
+        [cell.backgroundImageView addSubview:self.webView];
         cell.playButton.hidden = YES;
     }else {
-        if ([cell.subviews containsObject:self.playerView]) {
-            [self.playerView removeFromSuperview];
+        if ([cell.backgroundImageView.subviews containsObject:self.webView]) {
+            [self.webView removeFromSuperview];
         }
         cell.playButton.hidden = NO;
     }
-  
     return cell;
 }
 
@@ -130,16 +128,39 @@
 }
 
 -(void)videoTableViewCell:(CCVideoTableViewCell *)cell videoModel:(CCVideoModel *)model{
-    // 拿当当前cell的indexPath
-    NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
-    self.index = indexpath;
+    
+    if (cell.playButton.hidden) {
+        // 拿当当前cell的indexPath
+        NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
+        self.index = indexpath;
+        
+        
+            UIWebView *wb = [[UIWebView alloc]init];
+            NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:model.url]];
+            [wb loadRequest:request];
+             NSString *url = [wb stringByEvaluatingJavaScriptFromString:@"document.getElementById('tenvideo_video_player_0').src"];
+        self.webView = [[UIWebView alloc]initWithFrame:cell.backgroundImageView.frame];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+        
+         self.webView.opaque = NO;
+        
+        [cell.backgroundImageView addSubview:self.webView];
+        [self.tableView reloadData];
+    }else{
+        //如果需要分享回调，请将delegate对象设置self，并实现下面的回调方法
+        [UMSocialData defaultData].extConfig.title = model.title;
+        [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"5788e997e0f55aab37001bfc"
+                                          shareText:model.url
+                                         shareImage:cell.backgroundImageView
+                                    shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                           delegate:self];
+    }
+  
+    
+   
 
-    self.playerView = [WCCAVPlayerView shareWCCAVPlayerView:cell.backgroundImageView.frame];
-    self.playerView.url = @"http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4";
-    //self.playerView.url = model.url;
- 
-    [cell addSubview:self.playerView];
-    [self.tableView reloadData];
     
 }
 

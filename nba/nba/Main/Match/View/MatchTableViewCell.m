@@ -59,7 +59,7 @@
         
     }];
     self.leftName.text = model.leftName;
-    [self.rightBadge sd_setImageWithURL:[NSURL URLWithString:model.rightBadge] placeholderImage:[UIImage imageNamed:@"1"]];
+    [self.rightBadge sd_setImageWithURL:[NSURL URLWithString:model.rightBadge]];
     [manager downloadImageWithURL:[NSURL URLWithString:model.rightBadge] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {

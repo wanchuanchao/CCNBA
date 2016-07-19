@@ -21,6 +21,7 @@ PODS:
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - UIView+AutoLayout (2.0.1)
+  - UMengSocialCOM (5.2.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - UIView+AutoLayout
+  - UMengSocialCOM
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -37,7 +39,8 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   UIView+AutoLayout: 9eb76d5e72974e5b96c0350624d8f17ddb405ee0
+  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
 
-PODFILE CHECKSUM: 5614dd7d449039938a3ecce4b830d83ac884d78f
+PODFILE CHECKSUM: acbb149f782e8934c7857d9abb72e2c4de761858
 
 COCOAPODS: 1.0.0

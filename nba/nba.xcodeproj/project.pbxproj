@@ -33,6 +33,15 @@
 		D67F382A1D366285007AED4F /* CCHeadLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F38251D366285007AED4F /* CCHeadLineViewController.m */; };
 		D67F382B1D366285007AED4F /* CCHeadTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F38271D366285007AED4F /* CCHeadTwoViewController.m */; };
 		D67F382C1D366285007AED4F /* CCinformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F38291D366285007AED4F /* CCinformationViewController.m */; };
+		D68CAFCD1D3906540043370D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFCC1D3906540043370D /* Security.framework */; };
+		D68CAFCF1D3906760043370D /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFCE1D3906760043370D /* libiconv.tbd */; };
+		D68CAFD11D3906830043370D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFD01D3906830043370D /* SystemConfiguration.framework */; };
+		D68CAFD31D39068C0043370D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFD21D39068C0043370D /* CoreGraphics.framework */; };
+		D68CAFD51D3906970043370D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFD41D3906970043370D /* libsqlite3.tbd */; };
+		D68CAFD71D3906AB0043370D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFD61D3906AB0043370D /* CoreTelephony.framework */; };
+		D68CAFD91D3906B90043370D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFD81D3906B90043370D /* libstdc++.tbd */; };
+		D68CAFDB1D3906C80043370D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFDA1D3906C80043370D /* libz.tbd */; };
+		D68CAFDD1D3907520043370D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68CAFDC1D3907520043370D /* ImageIO.framework */; };
 		D6A1C12E1D2F57F1009693E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C12D1D2F57F1009693E9 /* main.m */; };
 		D6A1C1311D2F57F1009693E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C1301D2F57F1009693E9 /* AppDelegate.m */; };
 		D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C1381D2F57F1009693E9 /* nba.xcdatamodeld */; };
@@ -101,6 +110,15 @@
 		D67F38271D366285007AED4F /* CCHeadTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHeadTwoViewController.m; sourceTree = "<group>"; };
 		D67F38281D366285007AED4F /* CCinformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCinformationViewController.h; sourceTree = "<group>"; };
 		D67F38291D366285007AED4F /* CCinformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCinformationViewController.m; sourceTree = "<group>"; };
+		D68CAFCC1D3906540043370D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D68CAFCE1D3906760043370D /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D68CAFD01D3906830043370D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D68CAFD21D39068C0043370D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D68CAFD41D3906970043370D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D68CAFD61D3906AB0043370D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		D68CAFD81D3906B90043370D /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		D68CAFDA1D3906C80043370D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D68CAFDC1D3907520043370D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		D6A1C1291D2F57F1009693E9 /* nba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A1C12D1D2F57F1009693E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6A1C12F1D2F57F1009693E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +164,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68CAFDD1D3907520043370D /* ImageIO.framework in Frameworks */,
+				D68CAFDB1D3906C80043370D /* libz.tbd in Frameworks */,
+				D68CAFD91D3906B90043370D /* libstdc++.tbd in Frameworks */,
+				D68CAFD71D3906AB0043370D /* CoreTelephony.framework in Frameworks */,
+				D68CAFD51D3906970043370D /* libsqlite3.tbd in Frameworks */,
+				D68CAFD31D39068C0043370D /* CoreGraphics.framework in Frameworks */,
+				D68CAFD11D3906830043370D /* SystemConfiguration.framework in Frameworks */,
+				D68CAFCF1D3906760043370D /* libiconv.tbd in Frameworks */,
+				D68CAFCD1D3906540043370D /* Security.framework in Frameworks */,
 				4D81063AB169E6B01D2716A9 /* libPods-nba.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +183,15 @@
 		5C7144E2B77277143A1EE1EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D68CAFDC1D3907520043370D /* ImageIO.framework */,
+				D68CAFDA1D3906C80043370D /* libz.tbd */,
+				D68CAFD81D3906B90043370D /* libstdc++.tbd */,
+				D68CAFD61D3906AB0043370D /* CoreTelephony.framework */,
+				D68CAFD41D3906970043370D /* libsqlite3.tbd */,
+				D68CAFD21D39068C0043370D /* CoreGraphics.framework */,
+				D68CAFD01D3906830043370D /* SystemConfiguration.framework */,
+				D68CAFCE1D3906760043370D /* libiconv.tbd */,
+				D68CAFCC1D3906540043370D /* Security.framework */,
 				BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */,
 			);
 			name = Frameworks;
@@ -768,12 +804,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = nba/tool/PrefixHeader.pch;
 				INFOPLIST_FILE = nba/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wanccao.nba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1c9eaf5b-5ad1-433a-80fc-77eac457da24";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -783,12 +821,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (Z496ZX8FT7)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = nba/tool/PrefixHeader.pch;
 				INFOPLIST_FILE = nba/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wanccao.nba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1c9eaf5b-5ad1-433a-80fc-77eac457da24";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

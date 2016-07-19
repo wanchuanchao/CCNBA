@@ -142,11 +142,10 @@
 
 
 
-- (void)webView {
-    UIWebView *webView = [[UIWebView alloc] init];
-    NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tenvideo_video_player_0').src"];
-    NSLog(@"%@",url);
-}
+
+
+
+
 
 
 
