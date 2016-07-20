@@ -38,10 +38,10 @@
     [super viewDidLoad];
     [self setNavBtn];
     
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 50)];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
     self.webView.delegate = self;
-    [self.view addSubview:self.webView];
+    
     
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -73,9 +73,9 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.webView = webView;
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self.webView stringByEvaluatingJavaScriptFromString:@"var div = document.getElementsByClassName('share')[0];div.parentElement.removeChild(div);var div1 = document.getElementsByTagName('header')[0];div1.parentElement.removeChild(div1);var div2 = document.getElementsByClassName('app-layer')[0];div2.parentElement.removeChild(div2);var div3 = document.getElementsByClassName('navbar')[0];div3.parentElement.removeChild(div3);var div4 = document.getElementsByTagName('footer')[0];div4.parentElement.removeChild(div4);var div5 = document.getElementsByClassName('xw-for-nba-qrcode')[0];div5.parentElement.removeChild(div5);var div6 = document.getElementsByClassName('xw-for-nba-logo')[0];div6.parentElement.removeChild(div6);var div7 = document.getElementsByClassName('count')[0];div7.parentElement.removeChild(div7);var div8 = document.getElementsByClassName('comments')[0];div8.parentElement.removeChild(div8)"];
-    
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self.view addSubview:self.webView];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
