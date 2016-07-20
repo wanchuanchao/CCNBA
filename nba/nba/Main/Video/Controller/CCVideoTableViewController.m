@@ -14,13 +14,14 @@
 #import "CCNewRequest.h"
 
 #import "UMSocial.h"
-@interface CCVideoTableViewController ()<CCVideoTableViewCellDelegate,UMSocialUIDelegate>
+@interface CCVideoTableViewController ()<CCVideoTableViewCellDelegate,UMSocialUIDelegate,UIWebViewDelegate>
 /** 所有的视频数据 */
 @property (nonatomic,strong) NSMutableArray *videosArray;
 @property(nonatomic,strong)CCVideoModel *videoModel;
 /** 记录当前indexPath */
 @property (nonatomic,assign) NSIndexPath *index;
 @property (nonatomic,strong) UIWebView *webView;
+@property (nonatomic,strong) NSString *wbUrl;
 @end
 
 @implementation CCVideoTableViewController
@@ -137,11 +138,12 @@
         
         
             UIWebView *wb = [[UIWebView alloc]init];
+            wb.delegate = self;
             NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:model.url]];
             [wb loadRequest:request];
-             NSString *url = [wb stringByEvaluatingJavaScriptFromString:@"document.getElementById('tenvideo_video_player_0').src"];
+        
         self.webView = [[UIWebView alloc]initWithFrame:cell.backgroundImageView.frame];
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.wbUrl]]];
         
          self.webView.opaque = NO;
         
@@ -159,9 +161,16 @@
                                            delegate:self];
     }
   
-    
-   
 
+    
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+     NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tenvideo_video_player_0').src"];
+     self.wbUrl = url;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
     
 }
 
