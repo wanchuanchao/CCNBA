@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CCUserModel;
 @interface CCLoginViewController : UIViewController
 
+@property(nonatomic,strong)CCUserModel *usermodel;
 @end
