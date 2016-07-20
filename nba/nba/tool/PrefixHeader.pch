@@ -18,4 +18,7 @@
 #import "UIKit+AFNetworking.h"//里面有异步加载图片的方法
 #import <UIView+AutoLayout.h>
 #import "DateTime.h"
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+#import "UIColor+ZXLazy.h"
 #endif /* PrefixHeader_pch */

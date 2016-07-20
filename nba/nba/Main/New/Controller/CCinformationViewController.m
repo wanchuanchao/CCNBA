@@ -11,6 +11,8 @@
 #import "CCNewRequest.h"
 #import "CCInformationModel.h"
 #import <UIImageView+WebCache.h>
+#import "CCinformationTwoViewController.h"
+#import <MJRefresh.h>
 @interface CCinformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 /**   */
@@ -19,6 +21,7 @@
 @property (nonatomic,strong) NSMutableArray *arr;
 
 @property (nonatomic,strong) UIButton *headBtn;
+
 @end
 
 @implementation CCinformationViewController
@@ -51,23 +54,84 @@
     UINib *nib = [UINib nibWithNibName:@"CCInformationTableViewCell" bundle:[NSBundle mainBundle]];
     [self.informationTableView registerNib:nib forCellReuseIdentifier:@"CCInformationTableViewCell"];
     
+    
+    MJRefreshNormalHeader* header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self performSelector:@selector(headRefresh)withObject:nil afterDelay:2.0f];
+    }];
+    //设置自定义文字，因为默认是英文的
+    [header setTitle:@"下拉刷新"forState:MJRefreshStateIdle];
+    [header setTitle:@"松开加载更多"forState:MJRefreshStatePulling];
+    [header setTitle:@"正在刷新中"forState:MJRefreshStateRefreshing];
+    
+    self.informationTableView.mj_header= header;
+    [self.informationTableView.mj_header beginRefreshing];
+    [self getRequest];
+    //创建上拉刷新
+    MJRefreshBackNormalFooter * foot =[MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        
+        [self performSelector:@selector(footRefresh)withObject:nil afterDelay:2.0f];
+        
+    }];
+    self.informationTableView.mj_footer= foot;
+    
+    [foot setTitle:@"上拉刷新"forState:MJRefreshStateIdle];
+    [foot setTitle:@"松开加载更多"forState:MJRefreshStatePulling];
+    [foot setTitle:@"正在刷新中"forState:MJRefreshStateRefreshing];
+    
 }
+
+
+
+// 上拉刷新下拉加载
+- (void)headRefresh {
+    NSLog(@"下拉,加载数据");
+    [self getRequest];
+}
+- (void)footRefresh {
+    NSLog(@"上拉，加载数据");
+    [self.informationTableView.mj_footer endRefreshing];
+}
+
 
 
 #pragma mark 请求数据
 - (void)getRequest {
-    NSString *url = @"http://sportsnba.qq.com/news/item?appver=1.0.2&appvid=1.0.2&articleIds=20160706046456%2C20160706031972%2C20160706028791%2C20160706011416%2C20160706019527%2C20160705058715%2C20160706000384%2C20160706004391%2C20160706003312%2C20160706002542%2C20160706000802%2C20160705016245%2C20160705012405%2C20160705006601%2C20160705001893%2C20160705001745%2C20160705001305%2C20160705000805%2C20160704043726%2C20160704039877&column=news&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375";
+    NSMutableString *urlStr = [NSMutableString string];
+    NSString *url = @"http://url.cn/2KZ1Rh2";
     [CCNewRequest getDataWithUrl:url par:nil successBlock:^(id data) {
-        for (NSDictionary *dic  in [data[@"data"]allValues]) {
-            CCInformationModel *model = [[CCInformationModel alloc] init];
-//            NSLog(@"%@", dic);
-            [model setValuesForKeysWithDictionary:dic];
-            [self.arr addObject:model];
+        for (NSDictionary *dic in data[@"data"]) {
+            NSString *string = dic[@"id"];
+            [urlStr appendFormat:@"%%2c%@",string];
         }
-        [self.informationTableView reloadData];
+        NSString *string = [urlStr substringFromIndex:3];
+        [CCNewRequest getDataWithUrl:[NSString stringWithFormat:@"http://sportsnba.qq.com/news/item?appver=1.1&appvid=1.1&articleIds=%@&column=news&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",string] par:nil successBlock:^(id data) {
+            NSArray *arr = [data[@"data"] allKeys];
+            NSComparator cmptr = ^(id obj1, id obj2){
+                if ([obj1 integerValue] < [obj2 integerValue]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                if ([obj1 integerValue] > [obj2 integerValue]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            };
+            
+            for (NSString *string1 in (NSArray *)[arr sortedArrayUsingComparator:cmptr]) {
+                CCInformationModel *model = [[CCInformationModel alloc] init];
+                [model setValuesForKeysWithDictionary:[data[@"data"] valueForKey:string1]];
+                [self.arr addObject:model];
+            }
+            [self.informationTableView reloadData];
+            if ([self.informationTableView.mj_header isRefreshing]) {
+                [self.informationTableView.mj_header endRefreshing];
+            }
+        } failBlock:^(NSError *err) {
+            NSLog(@"line = %d,err = %@",__LINE__,err);
+        }];
     } failBlock:^(NSError *err) {
         NSLog(@"line = %d,err = %@",__LINE__,err);
     }];
+    
 }
 
 
@@ -110,9 +174,9 @@
     imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
     // 加载头视图标题
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 180, self.view.frame.size.width - 10, 20)];
-//    label.text = model.title;
-//    [imageView addSubview:label];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 180, self.view.frame.size.width - 10, 20)];
+    label.text = model.title;
+    [imageView addSubview:label];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnAction)];
     [imageView addGestureRecognizer:tap];
     imageView.userInteractionEnabled = YES;
@@ -122,8 +186,29 @@
 
 // btn的点击事件
 - (void)btnAction{
+    CCinformationTwoViewController *ccVC = [CCinformationTwoViewController new];
+    ccVC.url =((CCInformationModel *)self.arr[0]).url;
+    [self.navigationController pushViewController:ccVC animated:YES];
     NSLog(@"跳转");
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CCinformationTwoViewController *ccVC = [CCinformationTwoViewController new];
+    ccVC.url = ((CCInformationModel *)self.arr[indexPath.row +1]).url;
+    [self.navigationController pushViewController:ccVC animated:YES];
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end
