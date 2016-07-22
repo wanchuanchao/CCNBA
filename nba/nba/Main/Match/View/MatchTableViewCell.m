@@ -23,9 +23,11 @@
 @implementation MatchTableViewCell
 
 - (void)awakeFromNib {
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self addGestureRecognizer:tap];
 }
 -(void)setModel:(MatchModel *)model{
+    _model = model;
     self.headtitle.textColor = [UIColor blackColor];
     if (!model) {
         return;
@@ -35,14 +37,10 @@
         self.headtitle.text = [model.startTime substringWithRange:(NSMakeRange(11, 5))];
         self.leftGoal.text = @"-";
         self.rightGoal.text = @"-";
-        self.scorecount.text = @"季后赛对阵";
-        self.theviduo.text = @"比赛前瞻";
     }else{
         if (![model.quarter isEqualToString:@"第1节"] &&![model.quarter isEqualToString:@"第2节"] &&![model.quarter isEqualToString:@"第3节"]  && [model.quarterTime isEqualToString:@"00:00"]) {
             //比赛结束
             self.headtitle.text = @"已结束";
-            self.scorecount.text = @"计数统计";
-            self.theviduo.text = @"精彩视频";
         }else{
             //比赛进行中
             self.headtitle.text = [NSString stringWithFormat:@"直播 %@ %@",model.quarter,model.quarterTime];
@@ -51,6 +49,8 @@
         self.leftGoal.text = model.leftGoal;
         self.rightGoal.text = model.rightGoal;
     }
+    self.scorecount.text = [model.tabs.firstObject objectForKey:@"desc"];
+    self.theviduo.text = [model.tabs.lastObject objectForKey:@"desc"];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [self.leftBadge sd_setImageWithURL:[NSURL URLWithString:model.leftBadge] placeholderImage:[UIImage imageNamed:@"1"]];
     [manager downloadImageWithURL:[NSURL URLWithString:model.leftBadge] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -68,5 +68,17 @@
     self.rightName.text = model.rightName;
     self.matchDesc.text = model.matchDesc;
     
+}
+- (void)tapAction:(UITapGestureRecognizer *)sender{
+    NSString *type = @"1";
+    if (sender.view == self.scorecount) {
+        type = [_model.tabs.firstObject objectForKey:@"type"];
+    }
+    if (sender.view == self.theviduo) {
+        type = [_model.tabs.lastObject objectForKey:@"type"];
+    }
+    if ([_delegate respondsToSelector:@selector(tapTableViewCell:withType:mid:)]) {
+        [_delegate tapTableViewCell:self withType:type mid:_model.mid];
+    }
 }
 @end

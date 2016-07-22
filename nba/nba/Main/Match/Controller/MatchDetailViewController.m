@@ -9,19 +9,31 @@
 #import "MatchDetailViewController.h"
 
 @interface MatchDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *rootTableView;
+
+@property (weak, nonatomic) IBOutlet UIView *showView;
+@property (weak, nonatomic) IBOutlet UIStackView *headTabBarView;
 @end
 
 @implementation MatchDetailViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
+    [self.navigationController.navigationBar setHidden:YES];
 }
+
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    [self.navigationController.navigationBar setHidden:NO];
 }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+}
+- (void)loadRequestHeadView{
+    
+}
+
 #pragma mark //////////////////////////delegate////////////////////////////
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 0;

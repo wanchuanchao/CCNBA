@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class MatchModel;
+@class MatchTableViewCell;
+@protocol MatchTableViewCellDelegate <NSObject>
+- (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid;
+@end
 @interface MatchTableViewCell : UITableViewCell
+@property(nonatomic,weak)id<MatchTableViewCellDelegate>delegate;
 @property (nonatomic,strong)MatchModel *model;    
 @end

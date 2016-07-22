@@ -11,4 +11,6 @@
 @interface DateTime : NSObject
 + (NSString *)dateTimeWithDate:(NSDate *)date;
 + (NSString *)weekTimeWithDate:(NSDate *)date;
++ (NSDate *)dateWithTimeString:(NSString *)timeStr;
++ (NSString *)timeStrWithDate:(NSDate *)date;
 @end
