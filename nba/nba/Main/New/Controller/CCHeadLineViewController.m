@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.headTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60) style:(UITableViewStylePlain)];
+    self.headTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height - 70) style:(UITableViewStylePlain)];
     self.headTableView.delegate = self;
     self.headTableView.dataSource = self;
     self.headTableView.showsVerticalScrollIndicator = NO;
@@ -108,8 +108,9 @@
                 [model setValuesForKeysWithDictionary:[data[@"data"] valueForKey:string1]];
                 [self.dataArr addObject:model];
             }
-            [self.headTableView reloadData];
+            
             if ([self.headTableView.mj_header isRefreshing]) {
+                [self.headTableView reloadData];
                 [self.headTableView.mj_header endRefreshing];
             }
         } failBlock:^(NSError *err) {
