@@ -92,14 +92,14 @@ typedef NS_ENUM(NSInteger,playerStatus){
         [self.playButton setBackgroundImage:[UIImage imageNamed:@"播放 (2)"] forState:(UIControlStateNormal)];
         [self.littleView addSubview:self.playButton];
         [self.playButton addTarget:self action:@selector(bigPlayButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
-        self.playButton.frame = CGRectMake(10, 10, 20, 20);
+        self.playButton.frame = CGRectMake(5, 10, 25, 25);
         
         //全屏键
         self.fullButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [self.fullButton setBackgroundImage:[UIImage imageNamed:@"全屏"] forState:(UIControlStateNormal)];
         [self.littleView addSubview:self.fullButton];
         [self.fullButton addTarget:self action:@selector(fullButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
-        self.fullButton.frame = CGRectMake(WIDTH-40, 10, 20, 20);
+        self.fullButton.frame = CGRectMake(WIDTH-35, 10, 25, 25);
         self.isfull = NO;
         
         //喇叭键
@@ -107,29 +107,29 @@ typedef NS_ENUM(NSInteger,playerStatus){
         [self.speakerButton setBackgroundImage:[UIImage imageNamed:@"喇叭"] forState:(UIControlStateNormal)];
         [self.littleView addSubview:self.speakerButton];
         [self.speakerButton addTarget:self action:@selector(speakerButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
-        self.speakerButton.frame = CGRectMake(WIDTH-70, 10, 20, 20);
+        self.speakerButton.frame = CGRectMake(WIDTH-65, 10, 25, 25);
         
         //下载键
         self.downloadButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [self.downloadButton setBackgroundImage:[UIImage imageNamed:@"下载"] forState:(UIControlStateNormal)];
-        [self.littleView addSubview:self.downloadButton];
+      //7  [self.littleView addSubview:self.downloadButton];
         [self.downloadButton addTarget:self action:@selector(downloadAction:) forControlEvents:(UIControlEventTouchUpInside)];
         self.downloadButton.frame = CGRectMake(WIDTH-100, self.littleView.frame.size.height - 30, 20, 20);
         
         
         //tiemelabel
-        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-200, self.littleView.frame.size.height - 40, 130, 40)];
-        self.timeLabel.font = [UIFont systemFontOfSize:13];
+        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH-155, self.littleView.frame.size.height - 40, 130, 40)];
+        self.timeLabel.font = [UIFont systemFontOfSize:13.5];
         [self.littleView addSubview:self.timeLabel];
         
         //progressview
         self.bufferProgressView = [[UIProgressView alloc ]initWithProgressViewStyle:(UIProgressViewStyleDefault)];
-        self.bufferProgressView.frame = CGRectMake(40, 20, WIDTH-280, 40);
+        self.bufferProgressView.frame = CGRectMake(30, 20, WIDTH-195, 40);
         [self.littleView addSubview:self.bufferProgressView];
         self.bufferProgressView.tintColor = [UIColor grayColor];
         
         //进度条
-        self.timeSlider = [[UISlider alloc] initWithFrame:CGRectMake(40, 0, WIDTH-280, 40)];
+        self.timeSlider = [[UISlider alloc] initWithFrame:CGRectMake(30, 0, WIDTH-195, 40)];
         self.timeSlider.maximumTrackTintColor = [UIColor clearColor];
         self.timeSlider.minimumTrackTintColor = [UIColor greenColor];
         [self.littleView addSubview:self.timeSlider];
@@ -162,14 +162,14 @@ typedef NS_ENUM(NSInteger,playerStatus){
     self.littleView.frame = CGRectMake(0, self.frame.size.height - 40, self.frame.size.width, 40);
     
     self.bigPlayButton.center = self.center;
-    self.playButton.frame = CGRectMake(10, 10, 20, 20);
-    self.speakerButton.frame = CGRectMake(WIDTH-70, 10, 20, 20);
+    self.playButton.frame = CGRectMake(5, 10, 25, 25);
+    self.speakerButton.frame = CGRectMake(WIDTH-65, 10, 25, 25);
     self.downloadButton.frame = CGRectMake(WIDTH-100, self.littleView.frame.size.height - 30, 20, 20);
-    self.timeLabel.frame = CGRectMake(WIDTH-200, self.littleView.frame.size.height - 40, 130, 40);
-    self.bufferProgressView.frame = CGRectMake(40, 20, WIDTH-250, 40);
-    self.timeSlider.frame = CGRectMake(40, 0, WIDTH-250, 40);
+    self.timeLabel.frame = CGRectMake(WIDTH-155, self.littleView.frame.size.height - 37, 130, 40);
+    self.bufferProgressView.frame = CGRectMake(30, 20, WIDTH-195, 40);
+    self.timeSlider.frame = CGRectMake(30, 0, WIDTH-195, 40);
     self.volumeSlider.frame = CGRectMake(WIDTH-60,HEIGHT-180 , 100, 100);
-    self.fullButton.frame = CGRectMake(WIDTH-40, 10, 20, 20);
+    self.fullButton.frame = CGRectMake(WIDTH-35, 10, 25, 25);
 }
 
 
@@ -369,8 +369,8 @@ typedef NS_ENUM(NSInteger,playerStatus){
             
             //开始下载 (恢复)
             //任务,(默认挂起)
-            CCVideoTableViewController *VC = [[CCVideoTableViewController alloc]init];
-            self.task = [self.session downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:VC.wbUrl]]];
+            
+            self.task = [self.session downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
             //开启任务
             [self.task resume];
         }

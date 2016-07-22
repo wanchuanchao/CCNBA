@@ -23,12 +23,12 @@
     
     //    横屏
     if (self.view.frame.size.width > self.view.frame.size.height) {
-        self.playerView.frame = CGRectMake(0,0,736,414);
+        self.playerView.frame = CGRectMake(0,0,HEIGHT,WIDTH);
         
     }
     //    竖屏
     if (self.view.frame.size.width < self.view.frame.size.height) {
-        self.playerView.frame = CGRectMake(0,0,414,736);
+        self.playerView.frame = CGRectMake(0,0,WIDTH,HEIGHT);
     }
 
 }
@@ -36,12 +36,12 @@
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
     //    横屏
     if (size.width > size.height) {
-        self.playerView.frame = CGRectMake(0,0,736,414);
+        self.playerView.frame = CGRectMake(0,0,HEIGHT,WIDTH);
         
     }
     //    竖屏
     if (size.width < size.height) {
-        self.playerView.frame = CGRectMake(0,0,414,736);
+        self.playerView.frame = CGRectMake(0,0,HEIGHT,WIDTH);
     }
 }
 

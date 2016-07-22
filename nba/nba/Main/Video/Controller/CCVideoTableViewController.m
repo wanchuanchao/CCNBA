@@ -92,10 +92,11 @@
         
         [self.playerView removeFromSuperview];
         [UIView animateWithDuration:0.5 animations:^{
-            self.playerView.frame = CGRectMake(0,self.view.frame.size.height-44 -(300/16*9),300,300/16*9);
+            self.playerView.frame = CGRectMake(0,self.view.frame.size.height-49 -(300/16*9),(WIDTH/3) * 2,300/16*9);
             [[UIApplication sharedApplication].keyWindow addSubview:self.playerView];
             self.isOnWindow = YES;
             self.isOnCell = NO;
+            //self.playerView.littleView.hidden = YES;
         } completion:^(BOOL finished) {
         }];
     }
@@ -208,7 +209,7 @@
     }
     //如果划出去了，我们就缩小放到右下角
     CGRect currentCellRect = [self.tableView convertRect:self.currentCell.frame toView:self.view];
-    if (currentCellRect.origin.y < -self.currentCell.frame.size.height  || currentCellRect.origin.y > self.view.bounds.size.height) {
+    if (currentCellRect.origin.y < -self.currentCell.frame.size.height + 64 || currentCellRect.origin.y > self.view.bounds.size.height) {
         //放到windows上
         [self putToWindow];
     }
@@ -301,6 +302,9 @@
                                        delegate:self];
 }
 #pragma mark ---webView delegate
+
+
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
     if (webView.isLoading) {
@@ -314,7 +318,6 @@
     self.playerView.url = url;
     [cell.backgroundImageView addSubview:self.playerView];
     [self.tableView reloadData];
-    self.wbUrl = url;
     NSLog(@"%@",url);
 
 }
