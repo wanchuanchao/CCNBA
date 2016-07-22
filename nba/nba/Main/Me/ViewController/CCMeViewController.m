@@ -18,6 +18,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.rootTableView reloadData];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

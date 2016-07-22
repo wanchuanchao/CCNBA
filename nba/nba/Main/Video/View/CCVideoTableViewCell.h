@@ -11,8 +11,8 @@
 @class CCVideoTableViewCell;
 @protocol CCVideoTableViewCellDelegate <NSObject>
 
--(void)videoTableViewCell:(CCVideoTableViewCell *)cell videoModel:(CCVideoModel *)model;
-
+-(void)playVideoTableViewCell:(CCVideoTableViewCell *)cell videoModel:(CCVideoModel *)model;
+-(void)shareVideoTableViewCell:(CCVideoTableViewCell *)cell videoModel:(CCVideoModel *)model;
 
 @end
 

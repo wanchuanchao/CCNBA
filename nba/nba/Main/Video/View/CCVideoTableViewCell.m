@@ -35,16 +35,16 @@
     sender.hidden = YES;
     self.selectedButton = sender;
    
-    if ([self.delegate respondsToSelector:@selector(videoTableViewCell:videoModel:)]) {
-        [self.delegate videoTableViewCell:self videoModel:self.videoModel];
+    if ([self.delegate respondsToSelector:@selector(playVideoTableViewCell:videoModel:)]) {
+        [self.delegate playVideoTableViewCell:self videoModel:self.videoModel];
     }
 
 }
 // 分享点击事件
 - (IBAction)shareButtonAction:(UIButton *)sender {
     
-    if ([self.delegate respondsToSelector:@selector(videoTableViewCell:videoModel:)]) {
-        [self.delegate videoTableViewCell:self videoModel:self.videoModel];
+    if ([self.delegate respondsToSelector:@selector(shareVideoTableViewCell:videoModel:)]) {
+        [self.delegate shareVideoTableViewCell:self videoModel:self.videoModel];
     }
 }
 @end

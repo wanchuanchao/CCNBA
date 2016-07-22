@@ -11,4 +11,7 @@
 @interface CCVideoTableViewController : UITableViewController
 /** 要解析的URL */
 @property (nonatomic,strong) NSString *myurl;
+/** 视频的URL */
+@property (nonatomic,strong) NSString *wbUrl;
+
 @end
