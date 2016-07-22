@@ -35,7 +35,7 @@
     [self addChildViewController:[[CCNewViewController alloc] init] title:@"最新" image:@"最新"];
     [self addChildViewController:[[CCMatchViewController alloc] init] title:@"比赛" image:@"发起比赛"];
     [self addChildViewController:[[CCVideoViewController alloc] init] title:@"视频" image:@"视频"];
-    [self addChildViewController:[[CCMoreViewController alloc] init] title:@"更多" image:@"更多"];
+//    [self addChildViewController:[[CCMoreViewController alloc] init] title:@"更多" image:@"更多"];
     CCMeViewController *meVC = [[CCMeViewController alloc] init];
     self.drawVC = [[WCCDrawerViewController alloc] initWithRootViewController:self.tabBarVC menuViewController:meVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

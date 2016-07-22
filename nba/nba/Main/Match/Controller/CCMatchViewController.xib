@@ -14,7 +14,6 @@
                 <outlet property="rightBtn" destination="Div-LY-S1y" id="sz8-p3-jmj"/>
                 <outlet property="rightTableView" destination="AeV-cM-0qM" id="xGw-8F-AbU"/>
                 <outlet property="rootScrollView" destination="k0j-hd-GOL" id="psu-WC-9VW"/>
-                <outlet property="rootScrollViewcontentSizeWitdh" destination="BQC-aU-e6U" id="HtI-ie-cuH"/>
                 <outlet property="rootTableView" destination="SH1-EY-4xP" id="0zF-35-B3G"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ZOH-q5-KUM"/>
             </connections>
@@ -97,7 +96,7 @@
                                 <action selector="rightbtn:" destination="-1" eventType="touchUpInside" id="buZ-OV-FHV"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXG-I8-ZOM">
+                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXG-I8-ZOM">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" image="目录"/>
@@ -261,25 +260,19 @@
                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                         </constraint>
                         <constraint firstItem="IZ4-C3-Z3B" firstAttribute="top" secondItem="k0j-hd-GOL" secondAttribute="top" id="Hml-7x-28M"/>
-                        <constraint firstItem="AeV-cM-0qM" firstAttribute="width" secondItem="k0j-hd-GOL" secondAttribute="width" id="Rce-Rs-YMg"/>
                         <constraint firstItem="IZ4-C3-Z3B" firstAttribute="leading" secondItem="k0j-hd-GOL" secondAttribute="leading" id="Ysg-Qt-dCd"/>
-                        <constraint firstItem="fue-N1-8ma" firstAttribute="width" secondItem="k0j-hd-GOL" secondAttribute="width" id="hbG-QM-FaN"/>
-                        <constraint firstItem="SH1-EY-4xP" firstAttribute="width" secondItem="k0j-hd-GOL" secondAttribute="width" id="vdw-Dx-Inn"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
                             <exclude reference="IZ4-C3-Z3B"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="Rce-Rs-YMg"/>
                             <exclude reference="30o-Ph-bhI"/>
                             <exclude reference="5g6-Gh-0LF"/>
                             <exclude reference="BQC-aU-e6U"/>
                             <exclude reference="DEp-eH-Eij"/>
                             <exclude reference="Hml-7x-28M"/>
                             <exclude reference="Ysg-Qt-dCd"/>
-                            <exclude reference="vdw-Dx-Inn"/>
-                            <exclude reference="hbG-QM-FaN"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -287,15 +280,12 @@
                             <include reference="IZ4-C3-Z3B"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="Rce-Rs-YMg"/>
                             <include reference="30o-Ph-bhI"/>
                             <include reference="5g6-Gh-0LF"/>
                             <include reference="BQC-aU-e6U"/>
                             <include reference="DEp-eH-Eij"/>
                             <include reference="Hml-7x-28M"/>
                             <include reference="Ysg-Qt-dCd"/>
-                            <exclude reference="vdw-Dx-Inn"/>
-                            <exclude reference="hbG-QM-FaN"/>
                         </mask>
                     </variation>
                     <connections>
