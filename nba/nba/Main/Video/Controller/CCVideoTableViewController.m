@@ -267,7 +267,7 @@
     CCFullViewController *full = [[CCFullViewController alloc] init];
     full.playerView = self.playerView;
     full.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:full animated:YES];
+    [self presentViewController:full animated:YES completion:nil];
 }
 #pragma mark -- CCVideoTableViewCellDelegate
 -(void)playVideoTableViewCell:(CCVideoTableViewCell *)cell videoModel:(CCVideoModel *)model{
