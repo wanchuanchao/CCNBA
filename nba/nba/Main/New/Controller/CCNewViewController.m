@@ -9,7 +9,7 @@
 #import "CCNewViewController.h"
 #import "CCHeadLineViewController.h"
 #import "CCinformationViewController.h"
-@interface CCNewViewController ()
+@interface CCNewViewController ()<UIScrollViewDelegate>
 
 /**  导航栏图标 */
 @property (nonatomic,strong) UIButton *navBtn;
@@ -17,105 +17,153 @@
 @property (nonatomic,strong) CCHeadLineViewController *headLineVC;
 /**  资讯控制器 */
 @property (nonatomic,strong) CCinformationViewController *informationVC;
+/**  标签栏底部红色的指示器  */
+@property (nonatomic,strong)UIView * indicatorView;
+/**  当前选中的按钮  */
+@property (nonatomic,strong)UIButton * selectButton;
+/**  顶部的所有标签  */
+@property (nonatomic,strong)UIView * titleView;
+/**  底部的ScrollView  */
+@property (nonatomic,strong)UIScrollView * scrollView;
+
 
 @end
 
 @implementation CCNewViewController
 
 - (void)viewDidLoad {
-    
-    
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"图标" style:(UIBarButtonItemStylePlain) target:self action:nil];
     [super viewDidLoad];
-    [self setSegment];
-    [self setChildViewController];
-}
-
-- (void)setSegment {
-    self.view.backgroundColor = [UIColor orangeColor];
-    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"头条",@"资讯"]];
-    segment.frame = CGRectMake(0, 0,150, 30);
-    segment.layer.borderWidth = 0.0;
-    //    segment.tintColor = [UIColor whiteColor];
-//    segment.segmentedControlStyle = UISegmentedControlStyleBar;
-    segment.backgroundColor = [UIColor whiteColor];
-    segment.selectedSegmentIndex = 0;
-    [segment addTarget:self action:@selector(selectedSegmentIndexAction:) forControlEvents:(UIControlEventValueChanged)];
-    self.navigationItem.titleView = segment;
-}
-
-// 设置子控制器
-- (void)setChildViewController {
-    self.headLineVC = [[CCHeadLineViewController alloc] init];
-    [self.view addSubview:self.headLineVC.view];
-    //self.headLineVC.view.frame = self.view.bounds;
-    [self addChildViewController:self.headLineVC];
-    self.informationVC = [[CCinformationViewController alloc] init];
-//    [self.view addSubview:self.informationVC.view];
-//     self.informationVC.view.frame = self.view.bounds;
-    [self addChildViewController:_informationVC];
     
+    [self setUpChildViewController];
+    [self setUpScrollView];
+    [self setUpTitlesView];
+    [self addChildVcView];
+
 }
 
-//- (void)selectedSegmentIndexAction:(UISegmentedControl *)tag {
-//    NSInteger index = tag.selectedSegmentIndex;
-//    if (index == 0) {
-//        
-//    }
-//}
-
-- (void)selectedSegmentIndexAction:(id)sender {
-    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) {
-        case 0:{
+//设置顶部标签栏
+-(void)setUpTitlesView{
+    UIView *titlesView = [[UIView alloc]init];
+    titlesView.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:1];
+    titlesView.width = self.view.width;
+    titlesView.height = 35;
+    titlesView.y = 0;
+    [self.view addSubview:titlesView];
+    
+    // 底部红色横线
+    self.indicatorView = [[UIView alloc]init];
+    self.indicatorView.backgroundColor = [UIColor blueColor];
+    self.indicatorView.height = 2;
+    self.indicatorView.y = titlesView.height - self.indicatorView.height;
+    
+    // 内部的子标签
+    NSArray * titles = @[@"头条",@"资讯"];
+    CGFloat width = titlesView.width/ titles.count;
+    CGFloat height = titlesView.height;
+    for (NSInteger i = 0 ; i<titles.count; i++) {
+        UIButton * button = [[UIButton alloc]init];
+        button.tag = i;
+        button.height = height;
+        button.width = width;
+        button.x = i * width;
+        [button setTitle:titles[i] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blueColor] forState:UIControlStateDisabled];
+        button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:15.0f];
+        [button addTarget:self action:@selector(tilteClick:) forControlEvents:UIControlEventTouchUpInside];
+        [titlesView addSubview:button];
+        
+        //默认点击了一个按钮
+        if (i == 0) {
+            button.enabled = NO;
+            self.selectButton = button;
+            //让按钮内部的label根据文字内容来计算尺寸
+            [button.titleLabel sizeToFit];
+            self.indicatorView.width = button.width;
             
-            if (!_headLineVC) {
-               self.headLineVC = [[CCHeadLineViewController alloc] init];
-            }
-            
-            NSLog(@"");
-            NSArray *array1 = [self.view subviews];
-            if ([array1 count] == 2) {
-                [[array1 objectAtIndex:1] removeFromSuperview];
-            }
-           
-            [self.view addSubview:self.headLineVC.view];
-            break;
-        }
-        case 1:{
-            NSLog(@"");
-            NSArray *array2 = [self.view subviews];
-            if ([array2 count] == 2) {
-                [[array2 objectAtIndex:1] removeFromSuperview];
-            }
-            [self.view addSubview:self.informationVC.view];
-            break;
-        }
-        default:
-        {
-            NSLog(@"ccc");
-            break;
+            self.indicatorView.y = button.maxY - 2;
         }
     }
+    self.titleView = titlesView;
+    [titlesView addSubview:self.indicatorView];
+}
+// 点击标签导航栏事件
+- (void)tilteClick:(UIButton *)sender{
+    // 修改按钮状态
+    self.selectButton.enabled = YES;
+    sender.enabled = NO;
+    self.selectButton = sender;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.indicatorView.width = sender.width;
+        self.indicatorView.x = sender.x;
+    }];
+    //让UIScrollView滚动到对应位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = sender.tag * self.scrollView.width;
+    [self.scrollView setContentOffset:offset animated:YES];
+}
+// 设置底部的scrollView
+- (void)setUpScrollView{
+    //不要自动调整inset
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.scrollView = [[UIScrollView alloc]init];
+    self.scrollView.frame = self.view.bounds;
+    self.scrollView.delegate = self;
+    self.scrollView.pagingEnabled = YES;
+    [self.view insertSubview:self.scrollView atIndex:0];
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.width * self.childViewControllers.count, 0);
+    //添加第一个控制器的view
+    [self scrollViewDidEndScrollingAnimation:self.scrollView];
     
 }
 
-// 添加平移手势
-- (void)addPan {
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-    [self.view addGestureRecognizer:pan];
-}
-
-- (void)panAction:(UIPanGestureRecognizer *)sender {
-    CGPoint translation = [sender translationInView:self.view];
-    CGPoint center = sender.view.center;
-    center.x += translation.x;
-    center.y += translation.y;
-    sender.view.center = center;
-    //    清空移动距离
-    [sender setTranslation:CGPointZero inView:sender.view];
+#pragma mark - 添加子控制器的view
+- (void)addChildVcView{
+    // 子控制器的索引
+    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.width;
+    // 取出子控制器
+    UIViewController *childVc = self.childViewControllers[index];
+    if ([childVc isViewLoaded]) return;
+    childVc.view.frame = self.scrollView.bounds;
+    [self.scrollView addSubview:childVc.view];
 }
 
 
+//初始化子控制器
+- (void)setUpChildViewController{
+    
+    CCHeadLineViewController * collection = [[CCHeadLineViewController alloc]init];
+    [self addChildViewController:collection];
+    
+    CCinformationViewController * highlights = [[CCinformationViewController alloc]init];
+    [self addChildViewController:highlights];
+    
+    
+    
+}
+
+
+#pragma mark - <UIScrollViewDelegate>
+/**
+ * 在scrollView滚动动画结束时, 就会调用这个方法
+ * 前提: 使用setContentOffset:animated:或者scrollRectVisible:animated:方法让scrollView产生滚动动画
+ */
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+    [self addChildVcView];
+}
+/**
+ * 在scrollView滚动动画结束时, 就会调用这个方法
+ * 前提: 人为拖拽scrollView产生的滚动动画
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    //点击按钮
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    [self tilteClick:self.titleView.subviews[index]];
+    // 添加子控制器的view
+    [self addChildVcView];
+}
 
 
 

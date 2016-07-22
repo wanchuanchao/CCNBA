@@ -38,12 +38,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self setTableView];
     [self getRequest];
 }
 
 - (void)setTableView {
-    self.informationTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 70) style:(UITableViewStyleGrouped)];
+    self.informationTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 35, self.view.frame.size.width, self.view.frame.size.height - 70) style:(UITableViewStyleGrouped)];
     self.informationTableView.delegate = self;
     self.informationTableView.dataSource = self;
     self.informationTableView.showsVerticalScrollIndicator = NO;
@@ -85,6 +86,7 @@
 // 上拉刷新下拉加载
 - (void)headRefresh {
     NSLog(@"下拉,加载数据");
+    [self.informationTableView reloadData];
     [self getRequest];
 }
 - (void)footRefresh {
@@ -121,7 +123,7 @@
                 [model setValuesForKeysWithDictionary:[data[@"data"] valueForKey:string1]];
                 [self.arr addObject:model];
             }
-            [self.informationTableView reloadData];
+            
             if ([self.informationTableView.mj_header isRefreshing]) {
                 [self.informationTableView.mj_header endRefreshing];
             }
@@ -174,8 +176,11 @@
     imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"jordon"]];
     // 加载头视图标题
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 180, self.view.frame.size.width - 10, 20)];
-    label.text = model.title;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 180, self.view.frame.size.width , 20)];
+    label.text = [NSString stringWithFormat:@"  %@",model.title];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor blackColor];
+    label.alpha = 0.7f;
     [imageView addSubview:label];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnAction)];
     [imageView addGestureRecognizer:tap];
