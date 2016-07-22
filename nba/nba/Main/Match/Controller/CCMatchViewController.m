@@ -81,14 +81,11 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     [self loadTableView];
 }
 - (void)loadTableView{
-     //根据时间戳确定置中哪个tableView
     if (self.dateNum == self.dateArr.count - 1) {
-        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2, 0))];
         [self loadTableView:self.rightTableView];
     }else if(self.dateNum == 0){
         [self loadTableView:self.leftTableView];
     }else{
-        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
         [self loadTableView:self.rootTableView];
     }
 }
@@ -116,24 +113,36 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
                 [mArr addObject:model];
             }
             [self.dateDic setObject:mArr forKey:[self.dateArr objectAtIndex:self.dateNum]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self reloadTableView];
-                [tableView.mj_header endRefreshing];
-            });
+            [self reloadTableView];
+            [tableView.mj_header endRefreshing];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
 }
 - (void)reloadTableView{
-    if (self.dateNum != 0 && self.dateNum != self.dateArr.count - 1) {
-        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
-        [self.rootTableView setContentOffset:(CGPointMake(0, 0)) animated:NO];
-    }
     self.datetitle.text = [self datetitletext];
     [self.rootTableView reloadData];
     [self.leftTableView reloadData];
     [self.rightTableView reloadData];
+    if (self.dateNum != 0 && self.dateNum != self.dateArr.count - 1) {
+        if (self.rootScrollView.contentOffset.x != CGRectGetWidth(self.rootScrollView.bounds)) {
+             [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+        }
+        [self.rootTableView setContentOffset:(CGPointMake(0, 0))];
+    }else if (self.dateNum == 0) {
+        if (self.rootScrollView.contentOffset.x != 0) {
+            [self.rootScrollView setContentOffset:CGPointMake(0,0)];
+        }
+        [self.leftBtn setHidden:YES];
+        [self.leftTableView setContentOffset:(CGPointMake(0, 0))];
+    }else if (self.dateNum == self.dateArr.count - 1) {
+        if (self.rootScrollView.contentOffset.x != CGRectGetWidth(self.rootScrollView.bounds)*2) {
+            [self.rootScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2,0)];
+        }
+        [self.rightBtn setHidden:YES];
+        [self.rootTableView setContentOffset:(CGPointMake(0, 0))];
+    }
 }
 #pragma mark //////////////////////////delegate////////////////////////////
 //tableView
@@ -183,11 +192,16 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if (scrollView.contentOffset.x == self.view.width) {
         if (self.dateNum == 0) {
             self.dateNum ++;
+            [self loadTableView];
+            [self.rightBtn setHidden:NO];
+            [self.leftBtn setHidden:NO];
         }
         if (self.dateNum == self.dateArr.count - 1) {
             self.dateNum --;
+            [self loadTableView];
+            [self.rightBtn setHidden:NO];
+            [self.leftBtn setHidden:NO];
         }
-        [self loadTableView];
     }
 }
 #pragma mark //////////////////////////懒加载////////////////////////////
@@ -199,15 +213,17 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 }
 #pragma mark //////////////////////////xib 方法////////////////////////////
 - (IBAction)leftbtn:(UIButton *)sender {
-    if (self.dateNum  != 0) {
-        self.dateNum --;
-        [self loadTableView];
+    if (self.rootScrollView.contentOffset.x == CGRectGetWidth(self.rootScrollView.bounds)*2) {
+        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+    }else{
+    [self.rootScrollView setContentOffset:(CGPointMake(0, 0))];
     }
 }
 - (IBAction)rightbtn:(UIButton *)sender {
-    if (self.dateNum != self.dateArr.count - 1) {
-        self.dateNum ++;
-        [self loadTableView];
+    if (self.rootScrollView.contentOffset.x == 0) {
+        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+    }else{
+    [self.rootScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2,0)];
     }
 }
 - (IBAction)calendar:(id)sender {

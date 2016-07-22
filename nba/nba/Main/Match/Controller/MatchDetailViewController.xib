@@ -348,14 +348,5 @@
             </connections>
             <point key="canvasLocation" x="69" y="320"/>
         </view>
-        <visualEffectView opaque="NO" contentMode="scaleToFill" id="Fd1-FF-AeZ">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bgY-wy-ULC">
-                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            </view>
-            <blurEffect style="light"/>
-        </visualEffectView>
     </objects>
 </document>
