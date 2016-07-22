@@ -16,19 +16,19 @@
 		D60B84F81D362C4300C78FB8 /* CCInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60B84F61D362C4300C78FB8 /* CCInformationTableViewCell.xib */; };
 		D61B27B91D3CAF1F005B3842 /* CCAverseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D61B27B81D3CAF1F005B3842 /* CCAverseButton.m */; };
 		D61B27BC1D3D283C005B3842 /* NSString+alertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D61B27BB1D3D283C005B3842 /* NSString+alertView.m */; };
+		D62F111A1D40F56C007A8142 /* CCPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62F11191D40F56C007A8142 /* CCPlayerView.m */; };
+		D62F111D1D40F80A007A8142 /* CCFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62F111C1D40F80A007A8142 /* CCFullViewController.m */; };
+		D62F111F1D410EA1007A8142 /* CCVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62F111E1D410EA1007A8142 /* CCVideoTableViewController.m */; };
 		D63739BC1D3DD2C2001EABC0 /* CCCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63739BB1D3DD2C2001EABC0 /* CCCalendarViewController.xib */; };
 		D63739C01D3DD61B001EABC0 /* CCCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739BE1D3DD61B001EABC0 /* CCCalendarCollectionViewCell.m */; };
 		D63739C11D3DD61B001EABC0 /* CCCalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63739BF1D3DD61B001EABC0 /* CCCalendarCollectionViewCell.xib */; };
 		D63739FE1D3E4A96001EABC0 /* CCCollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739EB1D3E4A96001EABC0 /* CCCollectionTableViewController.m */; };
 		D63739FF1D3E4A96001EABC0 /* CCHighlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739ED1D3E4A96001EABC0 /* CCHighlightsTableViewController.m */; };
 		D6373A001D3E4A96001EABC0 /* CCOptimalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739EF1D3E4A96001EABC0 /* CCOptimalTableViewController.m */; };
-		D6373A011D3E4A96001EABC0 /* CCVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739F11D3E4A96001EABC0 /* CCVideoTableViewController.m */; };
 		D6373A021D3E4A96001EABC0 /* CCVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739F31D3E4A96001EABC0 /* CCVideoViewController.m */; };
 		D6373A031D3E4A96001EABC0 /* CCVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739F61D3E4A96001EABC0 /* CCVideoModel.m */; };
 		D6373A041D3E4A96001EABC0 /* CCVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739F91D3E4A96001EABC0 /* CCVideoTableViewCell.m */; };
 		D6373A051D3E4A96001EABC0 /* CCVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63739FA1D3E4A96001EABC0 /* CCVideoTableViewCell.xib */; };
-		D6373A061D3E4A96001EABC0 /* WCCAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63739FC1D3E4A96001EABC0 /* WCCAVPlayerView.m */; };
-		D6373A071D3E4A96001EABC0 /* WCCAVPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63739FD1D3E4A96001EABC0 /* WCCAVPlayerView.xib */; };
 		D638DB861D366441001CD3BB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D638DB871D366441001CD3BB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D638DB941D368B92001CD3BB /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -95,6 +95,11 @@
 		D61B27BA1D3D2830005B3842 /* NSString+alertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+alertView.h"; sourceTree = "<group>"; };
 		D61B27BB1D3D283C005B3842 /* NSString+alertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+alertView.m"; sourceTree = "<group>"; };
 		D62EC0871D33462F00A4A093 /* NBA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NBA.png; sourceTree = "<group>"; };
+		D62F11181D40F56C007A8142 /* CCPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPlayerView.h; sourceTree = "<group>"; };
+		D62F11191D40F56C007A8142 /* CCPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPlayerView.m; sourceTree = "<group>"; };
+		D62F111B1D40F80A007A8142 /* CCFullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFullViewController.h; sourceTree = "<group>"; };
+		D62F111C1D40F80A007A8142 /* CCFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFullViewController.m; sourceTree = "<group>"; };
+		D62F111E1D410EA1007A8142 /* CCVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoTableViewController.m; sourceTree = "<group>"; };
 		D63739BB1D3DD2C2001EABC0 /* CCCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCalendarViewController.xib; sourceTree = "<group>"; };
 		D63739BD1D3DD61B001EABC0 /* CCCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCalendarCollectionViewCell.h; sourceTree = "<group>"; };
 		D63739BE1D3DD61B001EABC0 /* CCCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCalendarCollectionViewCell.m; sourceTree = "<group>"; };
@@ -106,7 +111,6 @@
 		D63739EE1D3E4A96001EABC0 /* CCOptimalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCOptimalTableViewController.h; sourceTree = "<group>"; };
 		D63739EF1D3E4A96001EABC0 /* CCOptimalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCOptimalTableViewController.m; sourceTree = "<group>"; };
 		D63739F01D3E4A96001EABC0 /* CCVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoTableViewController.h; sourceTree = "<group>"; };
-		D63739F11D3E4A96001EABC0 /* CCVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoTableViewController.m; sourceTree = "<group>"; };
 		D63739F21D3E4A96001EABC0 /* CCVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoViewController.h; sourceTree = "<group>"; };
 		D63739F31D3E4A96001EABC0 /* CCVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoViewController.m; sourceTree = "<group>"; };
 		D63739F51D3E4A96001EABC0 /* CCVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoModel.h; sourceTree = "<group>"; };
@@ -114,9 +118,6 @@
 		D63739F81D3E4A96001EABC0 /* CCVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoTableViewCell.h; sourceTree = "<group>"; };
 		D63739F91D3E4A96001EABC0 /* CCVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoTableViewCell.m; sourceTree = "<group>"; };
 		D63739FA1D3E4A96001EABC0 /* CCVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCVideoTableViewCell.xib; sourceTree = "<group>"; };
-		D63739FB1D3E4A96001EABC0 /* WCCAVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCAVPlayerView.h; sourceTree = "<group>"; };
-		D63739FC1D3E4A96001EABC0 /* WCCAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCAVPlayerView.m; sourceTree = "<group>"; };
-		D63739FD1D3E4A96001EABC0 /* WCCAVPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCCAVPlayerView.xib; sourceTree = "<group>"; };
 		D6568AAE1D34D26B00214120 /* CCNewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewRequest.h; sourceTree = "<group>"; };
 		D6568AAF1D34D26B00214120 /* CCNewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewRequest.m; sourceTree = "<group>"; };
 		D6568AB11D34D91600214120 /* CCNewHeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewHeadModel.h; sourceTree = "<group>"; };
@@ -270,14 +271,16 @@
 			children = (
 				D63739EA1D3E4A96001EABC0 /* CCCollectionTableViewController.h */,
 				D63739EB1D3E4A96001EABC0 /* CCCollectionTableViewController.m */,
-				D63739EC1D3E4A96001EABC0 /* CCHighlightsTableViewController.h */,
-				D63739ED1D3E4A96001EABC0 /* CCHighlightsTableViewController.m */,
 				D63739EE1D3E4A96001EABC0 /* CCOptimalTableViewController.h */,
 				D63739EF1D3E4A96001EABC0 /* CCOptimalTableViewController.m */,
+				D63739EC1D3E4A96001EABC0 /* CCHighlightsTableViewController.h */,
+				D63739ED1D3E4A96001EABC0 /* CCHighlightsTableViewController.m */,
 				D63739F01D3E4A96001EABC0 /* CCVideoTableViewController.h */,
-				D63739F11D3E4A96001EABC0 /* CCVideoTableViewController.m */,
+				D62F111E1D410EA1007A8142 /* CCVideoTableViewController.m */,
 				D63739F21D3E4A96001EABC0 /* CCVideoViewController.h */,
 				D63739F31D3E4A96001EABC0 /* CCVideoViewController.m */,
+				D62F111B1D40F80A007A8142 /* CCFullViewController.h */,
+				D62F111C1D40F80A007A8142 /* CCFullViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,9 +300,8 @@
 				D63739F81D3E4A96001EABC0 /* CCVideoTableViewCell.h */,
 				D63739F91D3E4A96001EABC0 /* CCVideoTableViewCell.m */,
 				D63739FA1D3E4A96001EABC0 /* CCVideoTableViewCell.xib */,
-				D63739FB1D3E4A96001EABC0 /* WCCAVPlayerView.h */,
-				D63739FC1D3E4A96001EABC0 /* WCCAVPlayerView.m */,
-				D63739FD1D3E4A96001EABC0 /* WCCAVPlayerView.xib */,
+				D62F11181D40F56C007A8142 /* CCPlayerView.h */,
+				D62F11191D40F56C007A8142 /* CCPlayerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,7 +655,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6373A071D3E4A96001EABC0 /* WCCAVPlayerView.xib in Resources */,
 				D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */,
 				D678D5FA1D3739C600C62B6B /* CCMoreViewController.xib in Resources */,
 				D678D6081D3798CC00C62B6B /* CCLoginViewController.xib in Resources */,
@@ -726,6 +727,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D67F38221D36625B007AED4F /* CCHeadLineTableViewCell.m in Sources */,
+				D62F111D1D40F80A007A8142 /* CCFullViewController.m in Sources */,
 				D6A1C1691D2F5911009693E9 /* UIView+Extension.m in Sources */,
 				D6B74AAD1D3F269C00EB9009 /* DateTime.m in Sources */,
 				D6373A001D3E4A96001EABC0 /* CCOptimalTableViewController.m in Sources */,
@@ -757,14 +759,14 @@
 				D678D6021D3740FD00C62B6B /* CCMeViewController.m in Sources */,
 				D63739FF1D3E4A96001EABC0 /* CCHighlightsTableViewController.m in Sources */,
 				D606DAED1D3663F600D09826 /* MatchDetailViewController.m in Sources */,
-				D6373A061D3E4A96001EABC0 /* WCCAVPlayerView.m in Sources */,
+				D62F111F1D410EA1007A8142 /* CCVideoTableViewController.m in Sources */,
+				D62F111A1D40F56C007A8142 /* CCPlayerView.m in Sources */,
 				D66E36261D3CF78700FA86F9 /* UIColor+ZXLazy.m in Sources */,
 				D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */,
 				D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */,
 				D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */,
 				D66E36291D3CFCB800FA86F9 /* CCCalendarModel.m in Sources */,
 				D6A1C15C1D2F5837009693E9 /* CCMatchViewController.m in Sources */,
-				D6373A011D3E4A96001EABC0 /* CCVideoTableViewController.m in Sources */,
 				D6A1C12E1D2F57F1009693E9 /* main.m in Sources */,
 				D67F382A1D366285007AED4F /* CCHeadLineViewController.m in Sources */,
 				D6A1C15E1D2F5837009693E9 /* CCNewViewController.m in Sources */,
