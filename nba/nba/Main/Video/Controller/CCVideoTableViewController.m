@@ -34,6 +34,7 @@
 @property (assign, nonatomic) BOOL isOnCell;
 @property (assign, nonatomic) BOOL isOnWindow;
 @property (assign, nonatomic) BOOL isPlaying;
+@property (nonatomic,strong)MBProgressHUD *hud;
 @end
 
 @implementation CCVideoTableViewController
@@ -283,7 +284,7 @@
         }
         self.currentCell = cell;
         self.index = indexpath;
-        
+    [MBProgressHUD showHUDAddedTo:cell animated:YES];
         self.webView = [[UIWebView alloc]init];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.url]]];
         self.webView.delegate = self;
@@ -308,20 +309,14 @@
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    
-    if (webView.isLoading) {
-        return;
-    }
-
     NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tenvideo_video_player_0').src"];
-    CCVideoTableViewCell *cell = [[CCVideoTableViewCell alloc]init];
-    self.playerView = [CCPlayerView shareCCPlayerView:cell.backgroundImageView.frame];
+    [MBProgressHUD hideHUDForView:self.currentCell animated:YES];
+    self.playerView = [CCPlayerView shareCCPlayerView:self.currentCell.backgroundImageView.frame];
     self.playerView.delegate = self;
     self.playerView.url = url;
-    [cell.backgroundImageView addSubview:self.playerView];
+    [self.currentCell.backgroundImageView addSubview:self.playerView];
     [self.tableView reloadData];
     NSLog(@"%@",url);
-
 }
 
 
