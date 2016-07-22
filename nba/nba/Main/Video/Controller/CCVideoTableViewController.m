@@ -49,6 +49,8 @@
     return _videosArray;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isPlaying = NO;

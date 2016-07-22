@@ -20,7 +20,7 @@
     [self.view addSubview:self.playerView];
     self.playerView.delegate = self;
     self.navigationController.navigationBarHidden = YES;
-    
+    //supportedInterfaceOrientations
     //    横屏
     if (self.view.frame.size.width > self.view.frame.size.height) {
         self.playerView.frame = CGRectMake(0,0,HEIGHT,WIDTH);
@@ -45,13 +45,20 @@
     }
 }
 
-
-
-
-
-
 - (void)notFullPlay{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
+
+// 支持很竖屏
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
+
 
 @end
