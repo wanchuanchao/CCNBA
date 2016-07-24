@@ -34,7 +34,7 @@
 @property (assign, nonatomic) BOOL isOnCell;
 @property (assign, nonatomic) BOOL isOnWindow;
 @property (assign, nonatomic) BOOL isPlaying;
-@property (nonatomic,strong)MBProgressHUD *hud;
+//@property (nonatomic,strong)MBProgressHUD *hud;
 @end
 
 @implementation CCVideoTableViewController
@@ -268,7 +268,7 @@
     CCFullViewController *full = [[CCFullViewController alloc] init];
     full.playerView = self.playerView;
     full.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:full animated:YES];
+    [self presentViewController:full animated:YES completion:nil];
 }
 #pragma mark -- CCVideoTableViewCellDelegate
 -(void)playVideoTableViewCell:(CCVideoTableViewCell *)cell videoModel:(CCVideoModel *)model{
@@ -284,7 +284,7 @@
         }
         self.currentCell = cell;
         self.index = indexpath;
-    [MBProgressHUD showHUDAddedTo:cell animated:YES];
+        [MBProgressHUD showHUDAddedTo:cell animated:YES];
         self.webView = [[UIWebView alloc]init];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.url]]];
         self.webView.delegate = self;
