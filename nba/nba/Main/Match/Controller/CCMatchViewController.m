@@ -26,6 +26,10 @@
 @end
 static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 @implementation CCMatchViewController
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -127,7 +131,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     [self.rightTableView reloadData];
     if (self.dateNum != 0 && self.dateNum != self.dateArr.count - 1) {
         if (self.rootScrollView.contentOffset.x != CGRectGetWidth(self.rootScrollView.bounds)) {
-             [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+            [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
         }
         [self.rootTableView setContentOffset:(CGPointMake(0, 0))];
     }else if (self.dateNum == 0) {
@@ -154,7 +158,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if ([self getModelArrayWithTableView:tableView]) {
         cell.model = [self getModelArrayWithTableView:tableView][indexPath.section];
     }
-//    cell.delegate = self;
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -216,21 +220,21 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if (self.rootScrollView.contentOffset.x == CGRectGetWidth(self.rootScrollView.bounds)*2) {
         [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
     }else{
-    [self.rootScrollView setContentOffset:(CGPointMake(0, 0))];
+        [self.rootScrollView setContentOffset:(CGPointMake(0, 0))];
     }
 }
 - (IBAction)rightbtn:(UIButton *)sender {
     if (self.rootScrollView.contentOffset.x == 0) {
         [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
     }else{
-    [self.rootScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2,0)];
+        [self.rootScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2,0)];
     }
 }
 - (IBAction)calendar:(id)sender {
-//    //日历点击方法
-//    CCCalendarViewController *vc = [[CCCalendarViewController alloc] init];
-//    vc.date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*(self.dateNum)];
-//    [self.navigationController pushViewController:vc animated:YES];
+    //    //日历点击方法
+    //    CCCalendarViewController *vc = [[CCCalendarViewController alloc] init];
+    //    vc.date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*(self.dateNum)];
+    //    [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSString *)datetitletext{
     NSDate *date = [NSDate date];
@@ -271,7 +275,11 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 - (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid{
     MatchDetailViewController *vc = [[MatchDetailViewController alloc] init];
     vc.type = type;
+    NSLog(@"%@",type);
     vc.mid = mid;
+    NSLog(@"%@",mid);
+    self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed=NO;
 }
 @end

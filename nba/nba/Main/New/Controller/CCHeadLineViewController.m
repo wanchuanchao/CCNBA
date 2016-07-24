@@ -131,7 +131,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCHeadLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCHeadLineTableViewCell" forIndexPath:indexPath];
     cell.model = _dataArr[indexPath.row];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
