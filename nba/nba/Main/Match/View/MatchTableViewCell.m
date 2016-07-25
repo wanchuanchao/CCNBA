@@ -71,14 +71,18 @@
 }
 - (void)tapAction:(UITapGestureRecognizer *)sender{
     NSString *type = @"1";
-    if (sender.view == self.scorecount) {
+    NSMutableString *mStr = _model.mid.mutableCopy;
+    NSString *str = @"%3A";
+    [mStr replaceCharactersInRange:NSMakeRange(6, 1) withString:str];
+    NSLog(@"%@",mStr);
+    if (CGRectContainsPoint(self.scorecount.frame,[sender locationInView:self])){
         type = [_model.tabs.firstObject objectForKey:@"type"];
     }
-    if (sender.view == self.theviduo) {
+    if (CGRectContainsPoint(self.theviduo.frame,[sender locationInView:self])) {
         type = [_model.tabs.lastObject objectForKey:@"type"];
     }
     if ([_delegate respondsToSelector:@selector(tapTableViewCell:withType:mid:)]) {
-        [_delegate tapTableViewCell:self withType:type mid:_model.mid];
+        [_delegate tapTableViewCell:self withType:type mid:mStr];
     }
 }
 @end

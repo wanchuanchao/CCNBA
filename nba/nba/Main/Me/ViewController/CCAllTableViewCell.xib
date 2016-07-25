@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="69" id="KGk-i7-Jjw" customClass="CCAllTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="68"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9j9-7h-myt">
+                        <rect key="frame" x="13" y="13" width="42" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="9j9-7h-myt" secondAttribute="height" multiplier="1:1" id="FaO-b4-jKl"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yl-dd-OEA">
+                        <rect key="frame" x="65" y="10" width="282" height="48"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1Yl-dd-OEA" firstAttribute="leading" secondItem="9j9-7h-myt" secondAttribute="trailing" constant="10" id="5zU-7W-1ai"/>
+                    <constraint firstItem="9j9-7h-myt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="9eP-r4-N7M"/>
+                    <constraint firstItem="1Yl-dd-OEA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Asq-9M-y1h"/>
+                    <constraint firstItem="9j9-7h-myt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="TUb-NV-1HV"/>
+                    <constraint firstAttribute="bottom" secondItem="1Yl-dd-OEA" secondAttribute="bottom" constant="10" id="eAO-cL-FnV"/>
+                    <constraint firstAttribute="trailing" secondItem="1Yl-dd-OEA" secondAttribute="trailing" constant="10" id="qyB-ir-kKd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9j9-7h-myt" secondAttribute="bottom" constant="5" id="s8j-IM-fWg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="383.5" y="383.5"/>
+        </tableViewCell>
+    </objects>
+</document>

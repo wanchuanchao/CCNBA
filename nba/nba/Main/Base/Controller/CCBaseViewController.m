@@ -7,7 +7,11 @@
 //
 
 #import "CCBaseViewController.h"
-
+#import "CCNewViewController.h"
+#import "CCMatchViewController.h"
+#import "CCMoreViewController.h"
+#import "CCVideoViewController.h"
+#import "CCBaseNaviViewController.h"
 @interface CCBaseViewController ()
 
 @end
@@ -16,25 +20,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITabBarItem *item = [UITabBarItem appearance];
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor lightGrayColor]};
+    NSDictionary *selectAttrs = @{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [item setTitleTextAttributes:attrs forState:(UIControlStateNormal)];
+    [item setTitleTextAttributes:selectAttrs forState:(UIControlStateSelected)];
+    [self addChildViewController:[[CCNewViewController alloc] init] title:@"最新" image:@"最新"];
+    [self addChildViewController:[[CCMatchViewController alloc] init] title:@"比赛" image:@"发起比赛"];
+    [self addChildViewController:[[CCVideoViewController alloc] init] title:@"视频" image:@"视频"];
+    self.tabBar.translucent = NO;
+    self.tabBar.backgroundColor = [UIColor whiteColor];
+    self.tabBar.tintColor = [UIColor whiteColor];
+    self.tabBar.barTintColor = [UIColor CCcolor];
     self.view.backgroundColor = [UIColor whiteColor];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image{
+    CCBaseNaviViewController *nc = [[CCBaseNaviViewController alloc] initWithRootViewController:vc];
+    nc.navigationBar.translucent = NO;
+    vc.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed:image];
+    [self addChildViewController:nc];
 }
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

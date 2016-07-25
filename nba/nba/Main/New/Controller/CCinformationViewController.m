@@ -48,7 +48,7 @@
     self.informationTableView.delegate = self;
     self.informationTableView.dataSource = self;
     self.informationTableView.showsVerticalScrollIndicator = NO;
-
+    self.informationTableView .separatorStyle = NO;
     [self.view addSubview:self.informationTableView];
     
     // 注册cell
@@ -151,6 +151,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCInformationTableViewCell" forIndexPath:indexPath];
     cell.model = _arr[indexPath.row+1];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
@@ -201,7 +202,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CCinformationTwoViewController *ccVC = [CCinformationTwoViewController new];
     ccVC.url = ((CCInformationModel *)self.arr[indexPath.row +1]).url;
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ccVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 

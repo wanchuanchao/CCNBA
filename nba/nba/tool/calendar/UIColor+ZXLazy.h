@@ -19,4 +19,6 @@
  *  @return uicolor
  */
 + (UIColor *)colorWithHexString:(NSString *)color;
++ CCcolor;
++ CCcolorWithAlpha:(CGFloat)alpha;
 @end

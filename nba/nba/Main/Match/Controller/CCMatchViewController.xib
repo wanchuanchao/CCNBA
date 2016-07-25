@@ -204,7 +204,9 @@
                                 <constraint firstAttribute="bottom" secondItem="AeV-cM-0qM" secondAttribute="bottom" constant="365" id="cLL-6Y-5hD">
                                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                 </constraint>
-                                <constraint firstAttribute="bottom" secondItem="fue-N1-8ma" secondAttribute="bottom" id="pXn-MY-kVl"/>
+                                <constraint firstAttribute="bottom" secondItem="fue-N1-8ma" secondAttribute="bottom" id="pXn-MY-kVl">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                </constraint>
                                 <constraint firstItem="SH1-EY-4xP" firstAttribute="width" secondItem="fue-N1-8ma" secondAttribute="width" id="t24-Qd-oIA"/>
                                 <constraint firstItem="AeV-cM-0qM" firstAttribute="leading" secondItem="SH1-EY-4xP" secondAttribute="trailing" id="tAJ-9W-iad"/>
                             </constraints>
@@ -307,7 +309,7 @@
                 <constraint firstAttribute="trailing" secondItem="k0j-hd-GOL" secondAttribute="trailing" id="O50-aI-g99"/>
                 <constraint firstItem="MIb-td-2lY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a3n-Iy-Ump"/>
                 <constraint firstAttribute="bottom" secondItem="k0j-hd-GOL" secondAttribute="bottom" constant="40" id="gjd-et-6Ke">
-                    <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                 </constraint>
                 <constraint firstItem="k0j-hd-GOL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rOU-yG-vtb"/>
             </constraints>
