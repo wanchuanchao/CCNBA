@@ -309,6 +309,7 @@
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
     NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tenvideo_video_player_0').src"];
     [MBProgressHUD hideHUDForView:self.currentCell animated:YES];
     self.playerView = [CCPlayerView shareCCPlayerView:self.currentCell.backgroundImageView.frame];
