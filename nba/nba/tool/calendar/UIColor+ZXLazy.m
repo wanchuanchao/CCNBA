@@ -55,4 +55,10 @@
     
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
++ CCcolor{
+    return [UIColor colorWithRed:26/255.0 green:71/255.0 blue:123/255.0 alpha:1];
+}
++ CCcolorWithAlpha:(CGFloat)alpha{
+    return [UIColor colorWithRed:26/255.0 green:71/255.0 blue:123/255.0 alpha:alpha];
+}
 @end

@@ -52,7 +52,7 @@
     
     // 底部红色横线
     self.indicatorView = [[UIView alloc]init];
-    self.indicatorView.backgroundColor = [UIColor blueColor];
+    self.indicatorView.backgroundColor = [UIColor CCcolor];
     self.indicatorView.height = 2;
     self.indicatorView.y = titlesView.height - self.indicatorView.height;
     
@@ -68,7 +68,7 @@
         button.x = i * width;
         [button setTitle:titles[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blueColor] forState:UIControlStateDisabled];
+        [button setTitleColor:[UIColor CCcolor] forState:UIControlStateDisabled];
         button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:15.0f];
         [button addTarget:self action:@selector(tilteClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:button];

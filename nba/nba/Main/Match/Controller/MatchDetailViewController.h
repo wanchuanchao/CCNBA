@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MatchDetailViewController : UIViewController
-
+@property (nonatomic,strong)NSString *type;
+@property (nonatomic,strong)NSString *mid;    
 @end

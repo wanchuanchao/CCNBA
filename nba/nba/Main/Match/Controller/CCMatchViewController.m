@@ -11,7 +11,9 @@
 #import "MatchTableViewCell.h"
 #import "MatchModel.h"
 #import "CCCalendarViewController.h"
-@interface CCMatchViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface CCMatchViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,MatchTableViewCellDelegate>
+@property (nonatomic,strong)NSString *dateStr;
+@property (nonatomic,strong)NSArray *dateArr;    //时间栏所有标题
 @property (weak, nonatomic) IBOutlet UILabel *datetitle;
 @property (weak, nonatomic) IBOutlet UITableView *rootTableView;
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
@@ -19,25 +21,25 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *rootScrollView;
 @property (nonatomic,strong)NSMutableDictionary *dateDic;
 @property (nonatomic,assign)NSInteger dateNum;
-@property (nonatomic) CGPoint scrollViewStartPosPoint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rootScrollViewcontentSizeWitdh;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
-
-
 @end
 static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 @implementation CCMatchViewController
-
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.dateNum = 0;
+    [self setTableView];
+    [self requestWithDateStr:_dateStr];
+}
+- (void)setTableView{
     [self setTableView:self.rootTableView];
     [self setTableView:self.leftTableView];
     [self setTableView:self.rightTableView];
-    [self loadTableView];
 }
 - (void)setTableView:(UITableView *)tableView{
     tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -45,27 +47,62 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     }];
     [tableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
 }
+//请求所有时间栏标题
+- (void)requestWithDateStr:(NSString *)dateStr{
+    if (!dateStr) {
+        dateStr = [DateTime dateTimeWithDate:[NSDate date]];
+    }
+    NSString *url = [NSString stringWithFormat:@"http://sportsnba.qq.com/match/calendarNavBar?needInfo=1&appver=1.1&appvid=1.1&date=%@&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",dateStr];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
+        self.dateArr = dic[@"data"][@"list"];
+        //确定self.dateNum的初始值
+        [self setDateNum];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+- (void)setDateNum{
+    self.dateNum = -1;
+    //获取当前时间戳
+    for (NSString *str in self.dateArr) {
+        if ([str intValue] > [[DateTime timeStrWithDate:[NSDate date]] intValue]) {
+            if ([self.dateArr indexOfObject:str] == 0) {
+                self.dateNum = 0;
+            }else{
+                self.dateNum = [self.dateArr indexOfObject:str] - 1;
+            }
+            break;
+        }
+    }
+    if (self.dateNum == -1) {
+        self.dateNum = self.dateArr.count - 1;
+    }
+    [self loadTableView];
+}
 - (void)loadTableView{
-    if (self.dateNum == 1) {
+    if (self.dateNum == self.dateArr.count - 1) {
         [self loadTableView:self.rightTableView];
-    }else if(self.dateNum == -10){
+    }else if(self.dateNum == 0){
         [self loadTableView:self.leftTableView];
     }else{
-    [self loadTableView:self.rootTableView];
+        [self loadTableView:self.rootTableView];
     }
 }
 - (void)loadTableView:(UITableView *)tableView{
-    if (![self.dateDic objectForKey:[self dateTime]]){
+    if (![self.dateDic objectForKey:[self.dateArr objectAtIndex:self.dateNum]]){
         [tableView.mj_header beginRefreshing];
-        [self refreshTableView:tableView];
     }else{
         [self reloadTableView];
     }
-    self.leftBtn.alpha = 1.0;
-    self.rightBtn.alpha = 1.0;
 }
 - (void)refreshTableView:(UITableView *)tableView{
-    NSString *url = [NSString stringWithFormat:@"http://sportsnba.qq.com/match/listByDate?appver=1.0.2&appvid=1.0.2&date=%@&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",[self dateTime]];
+    NSString *dateStr = [DateTime dateTimeWithDate:[DateTime dateWithTimeString:[self.dateArr objectAtIndex:self.dateNum]]];
+    NSString *url = [NSString stringWithFormat:@"http://sportsnba.qq.com/match/listByDate?appver=1.0.2&appvid=1.0.2&date=%@&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",dateStr];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -79,25 +116,37 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
                 [model setValuesForKeysWithDictionary:mDic[@"matchInfo"]];
                 [mArr addObject:model];
             }
-            [self.dateDic setObject:mArr forKey:[self dateTime]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self reloadTableView];
-                [tableView.mj_header endRefreshing];
-            });
+            [self.dateDic setObject:mArr forKey:[self.dateArr objectAtIndex:self.dateNum]];
+            [self reloadTableView];
+            [tableView.mj_header endRefreshing];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
 }
 - (void)reloadTableView{
-    if (self.dateNum != 1 && self.dateNum != -10) {
-        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
-        [self.rootTableView setContentOffset:(CGPointMake(0, 0)) animated:NO];
-    }
+    self.datetitle.text = [self datetitletext];
     [self.rootTableView reloadData];
     [self.leftTableView reloadData];
     [self.rightTableView reloadData];
-    self.datetitle.text = [self datetitletext];
+    if (self.dateNum != 0 && self.dateNum != self.dateArr.count - 1) {
+        if (self.rootScrollView.contentOffset.x != CGRectGetWidth(self.rootScrollView.bounds)) {
+            [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+        }
+        [self.rootTableView setContentOffset:(CGPointMake(0, 0))];
+    }else if (self.dateNum == 0) {
+        if (self.rootScrollView.contentOffset.x != 0) {
+            [self.rootScrollView setContentOffset:CGPointMake(0,0)];
+        }
+        [self.leftBtn setHidden:YES];
+        [self.leftTableView setContentOffset:(CGPointMake(0, 0))];
+    }else if (self.dateNum == self.dateArr.count - 1) {
+        if (self.rootScrollView.contentOffset.x != CGRectGetWidth(self.rootScrollView.bounds)*2) {
+            [self.rootScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2,0)];
+        }
+        [self.rightBtn setHidden:YES];
+        [self.rootTableView setContentOffset:(CGPointMake(0, 0))];
+    }
 }
 #pragma mark //////////////////////////delegate////////////////////////////
 //tableView
@@ -109,6 +158,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if ([self getModelArrayWithTableView:tableView]) {
         cell.model = [self getModelArrayWithTableView:tableView][indexPath.section];
     }
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -127,44 +177,37 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 200;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self getModelArrayWithTableView:tableView];
-    MatchDetailViewController *vc = [[MatchDetailViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-//scollView
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    self.scrollViewStartPosPoint = scrollView.contentOffset;
-}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if ([scrollView isKindOfClass:[UITableView class]]) {
         return;
     }
-    NSLog(@"%f   %f",self.scrollViewStartPosPoint.x-self.scrollViewStartPosPoint.y-scrollView.contentOffset.x, scrollView.contentOffset.y);
     if (scrollView.contentOffset.x == 0) {
-        if (self.dateNum >= -9) {
+        if (self.dateNum > 0) {
             self.dateNum --;
             [self loadTableView];
         }
     }
     if (scrollView.contentOffset.x == self.view.width * 2) {
-        if (self.dateNum <= 0) {
+        if (self.dateNum < self.dateArr.count - 1) {
             self.dateNum ++;
             [self loadTableView];
         }
     }
     if (scrollView.contentOffset.x == self.view.width) {
-        if (self.dateNum == 1) {
-            self.dateNum --;
-        }
-        if (self.dateNum == -10) {
+        if (self.dateNum == 0) {
             self.dateNum ++;
+            [self loadTableView];
+            [self.rightBtn setHidden:NO];
+            [self.leftBtn setHidden:NO];
         }
-        [self loadTableView];
+        if (self.dateNum == self.dateArr.count - 1) {
+            self.dateNum --;
+            [self loadTableView];
+            [self.rightBtn setHidden:NO];
+            [self.leftBtn setHidden:NO];
+        }
     }
 }
-
 #pragma mark //////////////////////////懒加载////////////////////////////
 -(NSMutableDictionary *)dateDic{
     if (!_dateDic) {
@@ -174,36 +217,29 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 }
 #pragma mark //////////////////////////xib 方法////////////////////////////
 - (IBAction)leftbtn:(UIButton *)sender {
-    if (self.dateNum  >= -9) {
-        self.dateNum --;
-        [self loadTableView];
-        if (self.dateNum == -9) {
-            self.rootScrollView.contentOffset = CGPointMake(0, 0);
-            sender.imageView.alpha = 0.5;
-        }
+    if (self.rootScrollView.contentOffset.x == CGRectGetWidth(self.rootScrollView.bounds)*2) {
+        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+    }else{
+        [self.rootScrollView setContentOffset:(CGPointMake(0, 0))];
     }
-    
 }
 - (IBAction)rightbtn:(UIButton *)sender {
-    if (self.dateNum + 1 <= 1) {
-        self.dateNum ++;
-        [self loadTableView];
-        if (self.dateNum == 1) {
-            self.rootScrollView.contentOffset = CGPointMake(self.view.width *2, 0);
-            sender.imageView.alpha = 0.5;
-        }
+    if (self.rootScrollView.contentOffset.x == 0) {
+        [self.rootScrollView setContentOffset:(CGPointMake(CGRectGetWidth(self.rootScrollView.bounds), 0))];
+    }else{
+        [self.rootScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.rootScrollView.bounds)*2,0)];
     }
-    
 }
 - (IBAction)calendar:(id)sender {
-    //日历点击方法
-    CCCalendarViewController *vc = [[CCCalendarViewController alloc] init];
-    vc.date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*(self.dateNum)];
-    [self.navigationController pushViewController:vc animated:YES];
+    //    //日历点击方法
+    //    CCCalendarViewController *vc = [[CCCalendarViewController alloc] init];
+    //    vc.date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*(self.dateNum)];
+    //    [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSString *)datetitletext{
     NSDate *date = [NSDate date];
-    return [[self dateTime] isEqualToString: [DateTime dateTimeWithDate:date]] ? @"今日" : [DateTime weekTimeWithDate:[NSDate dateWithTimeIntervalSinceNow:24*60*60*(self.dateNum)]];
+    NSString *dateStr = [DateTime dateTimeWithDate:[DateTime dateWithTimeString:[self.dateArr objectAtIndex:self.dateNum]]];
+    return [dateStr isEqualToString: [DateTime dateTimeWithDate:date]] ? @"今日" : [DateTime weekTimeWithDate:[DateTime dateWithTimeString:[self.dateArr objectAtIndex:self.dateNum]]];
 }
 #pragma mark //////////////////////////date方法////////////////////////////
 - (NSString *)dateTime{
@@ -217,10 +253,10 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
 - (NSMutableArray *)getModelArrayWithTableView:(UITableView *)tableView{
     NSInteger num = 0;
     NSInteger dateNum = 0;
-    if (self.dateNum == 1) {
-        dateNum = 0;
-    }else if (self.dateNum == -10) {
-        dateNum = -9;
+    if (self.dateNum == 0) {
+        dateNum = 1;
+    }else if (self.dateNum == self.dateArr.count - 1) {
+        dateNum = self.dateNum - 1;
     }else{
         dateNum = self.dateNum;
     }
@@ -233,6 +269,17 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     if (tableView == self.rightTableView) {
         num = dateNum+1;
     }
-    return [self.dateDic objectForKey:[self dateTimeWithNum:num]] ? [self.dateDic objectForKey:[self dateTimeWithNum:num]] : nil;
+    return [self.dateDic objectForKey:[self.dateArr objectAtIndex:num]] ? [self.dateDic objectForKey:[self.dateArr objectAtIndex:num]] : nil;
+}
+#pragma mark //////////////////////////cell代理////////////////////////////
+- (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid{
+    MatchDetailViewController *vc = [[MatchDetailViewController alloc] init];
+    vc.type = type;
+    NSLog(@"%@",type);
+    vc.mid = mid;
+    NSLog(@"%@",mid);
+    self.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed=NO;
 }
 @end

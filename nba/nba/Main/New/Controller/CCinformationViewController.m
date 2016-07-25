@@ -151,6 +151,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCInformationTableViewCell" forIndexPath:indexPath];
     cell.model = _arr[indexPath.row+1];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }

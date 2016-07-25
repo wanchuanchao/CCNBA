@@ -18,6 +18,18 @@
 @end
 
 @implementation WCCDrawerViewController
+//  设置屏幕旋转
+- (BOOL)shouldAutorotate{
+   // 获取当前的控制器
+    UINavigationController *navc = rootVC.selectedViewController;
+    UIViewController *currrentVC = navc.visibleViewController;
+    // 默认shouldAutorotate是YES  取反:返回为YES的时候不能旋转，返回NO的时候可以旋转
+    return !currrentVC.shouldAutorotate;
+}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
+
 -(instancetype)initWithRootViewController:(UIViewController *)rootViewController menuViewController:(UIViewController *)menuViewController{
     self = [super init];
     if (self) {

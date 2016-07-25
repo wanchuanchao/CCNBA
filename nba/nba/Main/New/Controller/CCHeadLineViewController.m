@@ -90,7 +90,7 @@
     [CCNewRequest getDataWithUrl:url par:nil successBlock:^(id data) {
         for (NSDictionary *dic in data[@"data"]) {
             NSString *string = dic[@"id"];
-            [urlStr appendFormat:@"%%2c%@",string];
+            [urlStr appendFormat:@"%%2C%@",string];
         }
         NSString *string = [urlStr substringFromIndex:3];
         [CCNewRequest getDataWithUrl:[NSString stringWithFormat:@"http://sportsnba.qq.com/news/item?appver=1.0.2&appvid=1.0.2&articleIds=%@&column=banner&deviceId=CA0D1337-38E7-441E-9611-26B9FAAA6272&from=app&guid=CA0D1337-38E7-441E-9611-26B9FAAA6272&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375",string] par:nil successBlock:^(id data) {
@@ -134,7 +134,7 @@
     
     CCHeadLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCHeadLineTableViewCell" forIndexPath:indexPath];
     cell.model = _dataArr[indexPath.row];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

@@ -10,10 +10,6 @@
 
 
 #import "AppDelegate.h"
-#import "CCNewViewController.h"
-#import "CCMatchViewController.h"
-#import "CCMoreViewController.h"
-#import "CCVideoViewController.h"
 #import "CCBaseViewController.h"
 #import "WCCDrawerViewController.h"
 #import "CCMeViewController.h"
@@ -25,44 +21,27 @@
 
 
 @interface AppDelegate ()
-@property (nonatomic,strong)UITabBarController *tabBarVC;
 @property (nonatomic,strong)WCCDrawerViewController *drawVC;
 @end
-
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.tabBarVC = [[CCBaseViewController alloc] init];
-    [self addChildViewController:[[CCNewViewController alloc] init] title:@"最新" image:@"最新"];
-    [self addChildViewController:[[CCMatchViewController alloc] init] title:@"比赛" image:@"发起比赛"];
-    [self addChildViewController:[[CCVideoViewController alloc] init] title:@"视频" image:@"视频"];
-    [self addChildViewController:[[CCMoreViewController alloc] init] title:@"更多" image:@"更多"];
-    CCMeViewController *meVC = [[CCMeViewController alloc] init];
-    self.drawVC = [[WCCDrawerViewController alloc] initWithRootViewController:self.tabBarVC menuViewController:meVC];
+    self.drawVC = [[WCCDrawerViewController alloc] initWithRootViewController:[[CCBaseViewController alloc] init] menuViewController:[[CCMeViewController alloc] init]];
+    self.drawVC.view.backgroundColor = [UIColor whiteColor];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = self.drawVC;
-    
     // 分享
      [UMSocialData setAppKey:@"5788e997e0f55aab37001bfc"];
     //设置友盟社会化组件appkey
     //    [UMSocialData setAppKey:UmengAppkey];
-    
     //设置微信AppId、appSecret，分享url
     [UMSocialWechatHandler setWXAppId:@"wx3f646e488311d7ac" appSecret:@"b0445331d7a066c6ce4ec1744a23ce0d" url:@"http://www.umeng.com/social"];
     //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
     [UMSocialQQHandler setQQWithAppId:@"1105349917" appKey:@"pXyk08mId1G9YUxp" url:@"http://www.umeng.com/social"];
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
         [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3783133970"secret:@"6de4b5094674527e8ef574f426fc20f8"RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-    
-   
-
     return YES;
-    
-    
 }
-
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL result = [UMSocialSnsService handleOpenURL:url];
@@ -72,13 +51,6 @@
     return result;
 }
 
-- (void)addChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image{
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
-    vc.title = title;
-    vc.navigationController.navigationBar.translucent = NO;
-    vc.tabBarItem.image = [UIImage imageNamed:image];
-    [self.tabBarVC addChildViewController:nc];
-}
 
 
 
