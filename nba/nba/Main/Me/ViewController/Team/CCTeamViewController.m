@@ -15,58 +15,82 @@
 /**   */
 @property (nonatomic,strong) UITableView *teamTableView;
 /**   */
-@property (nonatomic,strong) NSMutableArray *arr;
+@property (nonatomic,strong) NSMutableDictionary *dic;
 @end
 
 @implementation CCTeamViewController
 
 // 懒加载
-- (NSMutableArray *)arr{
-    if (!_arr) {
-        _arr = [NSMutableArray array];
+-(NSMutableDictionary *)dic{
+    if (!_dic) {
+        _dic = [NSMutableDictionary dictionary];
     }
-    return _arr;
+    return _dic;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.teamTableView = [[UITableView alloc] initWithFrame:self.view.frame style:(UITableViewStylePlain)];
+    self.teamTableView = [[UITableView alloc] initWithFrame:self.view.frame style:(UITableViewStyleGrouped)];
     self.teamTableView.delegate = self;
     self.teamTableView.dataSource = self;
     [self.view addSubview:self.teamTableView];
-    
-    [self.teamTableView registerNib:[UINib nibWithNibName:@"cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+    [self getRequest];
 }
 
 
 - (void)getRequest {
     NSString *url = @"http://sportsnba.qq.com/team/list?appver=1.0.2&appvid=1.0.2&deviceId=C65DEA60-C052-4DAF-A742-C447246489F8&from=app&guid=C65DEA60-C052-4DAF-A742-C447246489F8&height=667&network=WiFi&os=iphone&osvid=9.3.2&width=375";
-    
-    [CCNewRequest getDataWithUrl:url par:nil successBlock:^(id data) {
-        for (NSDictionary *dic in data[@"data"][@"west"]) {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:(NSJSONReadingAllowFragments) error:nil];
+        NSMutableArray *westArr = [NSMutableArray array];
+        for (NSDictionary *mdic in dic[@"data"][@"west"]) {
             CCWestModel *westModel = [[CCWestModel alloc] init];
-            [westModel setValuesForKeysWithDictionary:dic];
-            [self.arr addObject:westModel];
+            [westModel setValuesForKeysWithDictionary:mdic];
+            [westArr addObject:westModel];
         }
-        for (NSDictionary *dic in data[@"data"][@"west"]) {
-            CCEastModel *eastModel = [[CCEastModel alloc] init];
-            [eastModel setValuesForKeysWithDictionary:dic];
-            [self.arr addObject:eastModel];
+        NSMutableArray *eastArr = [NSMutableArray array];
+        for (NSDictionary *mdic in dic[@"data"][@"east"]) {
+            CCWestModel *eastModel = [[CCWestModel alloc] init];
+            [eastModel setValuesForKeysWithDictionary:mdic];
+            [eastArr addObject:eastModel];
         }
-    } failBlock:^(NSError *err) {
-        NSLog(@"line = %d,err = %@",__LINE__,err);
+        [self.dic setObject:westArr forKey:@"west"];
+        [self.dic setObject:eastArr forKey:@"east"];
+        NSLog(@"%@",self.dic);
+        [self.teamTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
     }];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.arr.count;
+    if ([self.dic objectForKey:@"east"]) {
+        if (section == 0) {
+            return [self.dic[@"east"] count];
+        }
+        if (section == 1) {
+            return [self.dic[@"west"] count];
+        }
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CCAllTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (indexPath.section == 0) {
+        cell.textLabel.text = self.dic[@"east"][indexPath.row][@"fullCnName"];
+        cell.detailTextLabel.text = self.dic[@"east"][indexPath.row][@"city"];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.dic[@"east"][indexPath.row][@"logo"]] placeholderImage:[UIImage imageNamed:@"1"]];
+    }
+    if (indexPath.section == 1) {
+        cell.textLabel.text = self.dic[@"west"][indexPath.row][@"fullCnName"];
+        cell.detailTextLabel.text = self.dic[@"west"][indexPath.row][@"city"];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.dic[@"west"][indexPath.row][@"logo"]] placeholderImage:[UIImage imageNamed:@"1"]];
+    }
     return cell;
     
 }

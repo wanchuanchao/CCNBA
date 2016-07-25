@@ -15,4 +15,7 @@
 @property (nonatomic,strong) NSString *logo;
 /**  传给下一页的url */
 @property (nonatomic,strong) NSString *detailUrl;
+@property (nonatomic,strong)NSString *city;
+@property (nonatomic,strong)NSString *teamId;
+@property (nonatomic,strong)NSString *teamName;
 @end

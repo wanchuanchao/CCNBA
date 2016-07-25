@@ -9,7 +9,7 @@
 #import "MatchDetailViewController.h"
 #import "CCMatchDetailModel.h"
 #import "CCBaseNaviViewController.h"
-@interface MatchDetailViewController ()
+@interface MatchDetailViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *teamsView;
 @property (nonatomic,strong)UIView *statusBar;
 @property (weak, nonatomic) IBOutlet UIView *showView;
@@ -60,6 +60,7 @@
     [self.leftbtn setTitleColor:[UIColor CCcolor] forState:(UIControlStateNormal)];
     [self showShowView];
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
+    pan.delegate = self;
     [self.view addGestureRecognizer:pan];
 }
 
@@ -148,6 +149,11 @@
         self.view.frame = frame;
         [self.view layoutSubviews];
     }
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
+    return YES;
+    
 }
 - (void)panAction:(UIPanGestureRecognizer *)sender{
     CGPoint point = [sender translationInView:self.showView];

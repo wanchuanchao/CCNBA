@@ -19,27 +19,28 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jordon" translatesAutoresizingMaskIntoConstraints="NO" id="egf-hF-BBi">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="20" width="400" height="780"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="egf-hF-BBi" secondAttribute="trailing" id="2qK-Jb-OOt"/>
-                            <constraint firstItem="egf-hF-BBi" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="cAT-Bf-8FT"/>
+                            <constraint firstAttribute="trailing" secondItem="egf-hF-BBi" secondAttribute="trailing" id="PG2-OT-ueS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="egf-hF-BBi" secondAttribute="bottom" id="XEY-DN-aTF"/>
                             <constraint firstItem="egf-hF-BBi" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="tGj-1b-uBo"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="egf-hF-BBi" secondAttribute="bottom" id="vdL-KF-eq9"/>
+                            <constraint firstItem="egf-hF-BBi" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="x4K-5K-aDB"/>
+                            <constraint firstItem="egf-hF-BBi" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="yn5-R4-08E"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="egf-hF-BBi"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="vdL-KF-eq9"/>
-                                <exclude reference="2qK-Jb-OOt"/>
-                                <exclude reference="cAT-Bf-8FT"/>
+                                <exclude reference="PG2-OT-ueS"/>
                                 <exclude reference="tGj-1b-uBo"/>
+                                <exclude reference="x4K-5K-aDB"/>
+                                <exclude reference="yn5-R4-08E"/>
+                                <exclude reference="XEY-DN-aTF"/>
+                                <exclude reference="vdL-KF-eq9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -47,10 +48,12 @@
                                 <include reference="egf-hF-BBi"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="vdL-KF-eq9"/>
-                                <include reference="2qK-Jb-OOt"/>
-                                <include reference="cAT-Bf-8FT"/>
+                                <include reference="PG2-OT-ueS"/>
                                 <include reference="tGj-1b-uBo"/>
+                                <include reference="x4K-5K-aDB"/>
+                                <include reference="yn5-R4-08E"/>
+                                <include reference="XEY-DN-aTF"/>
+                                <include reference="vdL-KF-eq9"/>
                             </mask>
                         </variation>
                     </view>

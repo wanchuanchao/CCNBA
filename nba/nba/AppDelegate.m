@@ -30,6 +30,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = self.drawVC;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     // 分享
      [UMSocialData setAppKey:@"5788e997e0f55aab37001bfc"];
     //设置友盟社会化组件appkey

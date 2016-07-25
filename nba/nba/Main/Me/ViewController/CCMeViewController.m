@@ -49,8 +49,8 @@
         cell.imageView.image = [UIImage imageNamed:@"qiudui"];
     }
     if (indexPath.section == 0 && indexPath.row == 3) {
-        titleStr = @"球队赛程";
-        cell.imageView.image = [UIImage imageNamed:@"赛程"];
+        titleStr = @"球员";
+        cell.imageView.image = [UIImage imageNamed:@"人"];
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
         titleStr = @"设置";
@@ -79,12 +79,12 @@
         
     }
     if (indexPath.section == 0 && indexPath.row == 2) {
-        CCTeamViewController *vc = [[CCTeamViewController alloc] init];
-        [[self getWCCDrawerVC] showViewController:vc animated:YES];
+//        CCTeamViewController *vc = [[CCTeamViewController alloc] init];
+//        [[self getWCCDrawerVC] showViewController:vc animated:YES];
     }
     if (indexPath.section == 0 && indexPath.row == 3) {
-        CCGameViewController *vc = [[CCGameViewController alloc] init];
-        [[self getWCCDrawerVC] showViewController:vc animated:YES];
+//        CCGameViewController *vc = [[CCGameViewController alloc] init];
+//        [[self getWCCDrawerVC] showViewController:vc animated:YES];
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
         
