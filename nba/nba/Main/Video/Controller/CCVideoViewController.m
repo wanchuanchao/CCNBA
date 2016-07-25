@@ -54,9 +54,9 @@
     titlesView.y = 0;
     [self.view addSubview:titlesView];
     
-    // 底部红色横线
+    // 底部横线
     self.indicatorView = [[UIView alloc]init];
-    self.indicatorView.backgroundColor = [UIColor redColor];
+    self.indicatorView.backgroundColor = [UIColor CCcolor];
     self.indicatorView.height = 2;
     self.indicatorView.y = titlesView.height - self.indicatorView.height;
     

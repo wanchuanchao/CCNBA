@@ -124,7 +124,7 @@ typedef NS_ENUM(NSInteger,playerStatus){
         
         //progressview
         self.bufferProgressView = [[UIProgressView alloc ]initWithProgressViewStyle:(UIProgressViewStyleDefault)];
-        self.bufferProgressView.frame = CGRectMake(30, 20, WIDTH-195, 40);
+        self.bufferProgressView.frame = CGRectMake(30, 22, WIDTH-195, 40);
         [self.littleView addSubview:self.bufferProgressView];
         self.bufferProgressView.tintColor = [UIColor grayColor];
         

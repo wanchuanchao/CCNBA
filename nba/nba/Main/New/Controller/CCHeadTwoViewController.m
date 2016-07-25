@@ -25,8 +25,15 @@
 
 
 
+<<<<<<< HEAD
 
 
+=======
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+}
+>>>>>>> 65ffc6998599f4f20063a71d427d7f2ba3e8f6d8
 
 
 - (void)viewDidLoad {

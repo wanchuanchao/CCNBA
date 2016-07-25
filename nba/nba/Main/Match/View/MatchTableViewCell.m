@@ -48,9 +48,16 @@
         }
         self.leftGoal.text = model.leftGoal;
         self.rightGoal.text = model.rightGoal;
+        if ([model.leftGoal intValue] > [model.rightGoal intValue]) {
+            self.leftGoal.textColor = [UIColor CCcolor];
+            self.rightGoal.textColor = [UIColor lightGrayColor];
+        }else{
+            self.rightGoal.textColor = [UIColor CCcolor];
+            self.leftGoal.textColor = [UIColor lightGrayColor];
+        }
     }
-    self.scorecount.text = [model.tabs.firstObject objectForKey:@"desc"];
-    self.theviduo.text = [model.tabs.lastObject objectForKey:@"desc"];
+//    self.scorecount.text = [model.tabs.firstObject objectForKey:@"desc"];
+//    self.theviduo.text = [model.tabs.lastObject objectForKey:@"desc"];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [self.leftBadge sd_setImageWithURL:[NSURL URLWithString:model.leftBadge] placeholderImage:[UIImage imageNamed:@"1"]];
     [manager downloadImageWithURL:[NSURL URLWithString:model.leftBadge] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -70,19 +77,22 @@
     
 }
 - (void)tapAction:(UITapGestureRecognizer *)sender{
+    NSString *title = [NSString stringWithFormat:@"%@@%@",_model.leftName,_model.rightName];
     NSString *type = @"1";
     NSMutableString *mStr = _model.mid.mutableCopy;
     NSString *str = @"%3A";
     [mStr replaceCharactersInRange:NSMakeRange(6, 1) withString:str];
     NSLog(@"%@",mStr);
     if (CGRectContainsPoint(self.scorecount.frame,[sender locationInView:self])){
-        type = [_model.tabs.firstObject objectForKey:@"type"];
+//        type = [_model.tabs.firstObject objectForKey:@"type"];
+        type = @"1";
     }
     if (CGRectContainsPoint(self.theviduo.frame,[sender locationInView:self])) {
-        type = [_model.tabs.lastObject objectForKey:@"type"];
+//        type = [_model.tabs.lastObject objectForKey:@"type"];
+        type = @"2";
     }
-    if ([_delegate respondsToSelector:@selector(tapTableViewCell:withType:mid:)]) {
-        [_delegate tapTableViewCell:self withType:type mid:mStr];
+    if ([_delegate respondsToSelector:@selector(tapTableViewCell:withType:mid:title:)]) {
+        [_delegate tapTableViewCell:self withType:type mid:mStr title:title];
     }
 }
 @end
