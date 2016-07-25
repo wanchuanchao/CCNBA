@@ -72,7 +72,7 @@
         button.x = i * width;
         [button setTitle:titles[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
+        [button setTitleColor:[UIColor CCcolor] forState:UIControlStateDisabled];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button addTarget:self action:@selector(tilteClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:button];
