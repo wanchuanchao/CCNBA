@@ -10,7 +10,7 @@
 @class MatchModel;
 @class MatchTableViewCell;
 @protocol MatchTableViewCellDelegate <NSObject>
-- (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid;
+- (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid title:(NSString *)title;
 @end
 @interface MatchTableViewCell : UITableViewCell
 @property(nonatomic,weak)id<MatchTableViewCellDelegate>delegate;

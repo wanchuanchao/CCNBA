@@ -21,5 +21,5 @@
 @property (nonatomic,strong)NSString *quarterTime;
 @property (nonatomic,strong)NSString *startTime;
 @property (nonatomic,strong)NSString *mid;
-@property (nonatomic,strong)NSArray *tabs;    
+@property (nonatomic,strong)NSArray *tabs;
 @end
