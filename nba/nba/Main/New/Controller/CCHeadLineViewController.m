@@ -38,6 +38,8 @@
     self.headTableView.delegate = self;
     self.headTableView.dataSource = self;
     self.headTableView.showsVerticalScrollIndicator = NO;
+    self.headTableView.separatorStyle = NO;
+    
     [self.view addSubview:self.headTableView];
     
     UINib *nib = [UINib nibWithNibName:@"CCHeadLineTableViewCell" bundle:[NSBundle mainBundle]];
@@ -129,6 +131,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     CCHeadLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCHeadLineTableViewCell" forIndexPath:indexPath];
     cell.model = _dataArr[indexPath.row];
     
@@ -144,7 +147,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CCHeadTwoViewController *vc = [CCHeadTwoViewController new];
     vc.url =((CCNewHeadModel *)self.dataArr[indexPath.row]).url;
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

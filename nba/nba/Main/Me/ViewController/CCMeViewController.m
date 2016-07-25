@@ -9,6 +9,8 @@
 #import "CCMeViewController.h"
 #import "WCCDrawerViewController.h"
 #import "CCLoginViewController.h"
+#import "CCTeamViewController.h"
+#import "CCGameViewController.h"
 @interface CCMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *rootTableView;
 
@@ -26,6 +28,9 @@
 }
 #pragma mark //////////////////////////代理////////////////////////////
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 4;
+    }
     return 2;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -38,6 +43,14 @@
     if (indexPath.section == 0 && indexPath.row == 1) {
         titleStr = @"推送消息";
         cell.imageView.image = [UIImage imageNamed:@"信封"];
+    }
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        titleStr = @"球队";
+        cell.imageView.image = [UIImage imageNamed:@"qiudui"];
+    }
+    if (indexPath.section == 0 && indexPath.row == 3) {
+        titleStr = @"球队赛程";
+        cell.imageView.image = [UIImage imageNamed:@"赛程"];
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
         titleStr = @"设置";
@@ -65,12 +78,21 @@
     if (indexPath.section == 0 && indexPath.row == 1) {
         
     }
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        CCTeamViewController *vc = [[CCTeamViewController alloc] init];
+        [[self getWCCDrawerVC] showViewController:vc animated:YES];
+    }
+    if (indexPath.section == 0 && indexPath.row == 3) {
+        CCGameViewController *vc = [[CCGameViewController alloc] init];
+        [[self getWCCDrawerVC] showViewController:vc animated:YES];
+    }
     if (indexPath.section == 1 && indexPath.row == 0) {
         
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
         [self clearTmp];
     }
+    
 }
 - (float)getTmpSize{
     return (float)[[SDImageCache sharedImageCache] getSize]/1024/1024;
