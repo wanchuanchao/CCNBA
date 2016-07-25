@@ -10,7 +10,6 @@
 #import "MatchDetailViewController.h"
 #import "MatchTableViewCell.h"
 #import "MatchModel.h"
-#import "CCCalendarViewController.h"
 @interface CCMatchViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,MatchTableViewCellDelegate>
 @property (nonatomic,strong)NSString *dateStr;
 @property (nonatomic,strong)NSArray *dateArr;    //时间栏所有标题

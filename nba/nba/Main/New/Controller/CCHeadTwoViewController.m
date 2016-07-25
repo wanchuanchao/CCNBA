@@ -23,14 +23,6 @@
 
 @implementation CCHeadTwoViewController
 
-<<<<<<< HEAD
-=======
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tabBarController.tabBar setHidden:YES];
-}
->>>>>>> 74f837daa93c1c9855f5918f816af5012c4a0408
-
 
 
 - (void)viewDidLoad {

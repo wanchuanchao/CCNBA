@@ -9,7 +9,6 @@
 #import "MatchDetailViewController.h"
 #import "CCMatchDetailModel.h"
 #import "CCBaseNaviViewController.h"
-#import "CCMatchDetailShowFirstOneTableViewCell.h"
 @interface MatchDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIView *teamsView;
 @property (nonatomic,strong)UIView *statusBar;
