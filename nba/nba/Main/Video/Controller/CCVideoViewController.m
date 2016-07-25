@@ -56,7 +56,7 @@
     
     // 底部横线
     self.indicatorView = [[UIView alloc]init];
-    self.indicatorView.backgroundColor = [UIColor cyanColor];
+    self.indicatorView.backgroundColor = [UIColor CCcolor];
     self.indicatorView.height = 2;
     self.indicatorView.y = titlesView.height - self.indicatorView.height;
     
