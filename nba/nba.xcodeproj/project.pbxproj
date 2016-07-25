@@ -72,8 +72,22 @@
 		D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C16D1D2FA6D3009693E9 /* MatchModel.m */; };
 		D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */; };
 		D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */; };
+		D6AEBE721D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE701D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.m */; };
+		D6AEBE731D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AEBE711D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.xib */; };
+		D6AEBE771D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE751D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.m */; };
+		D6AEBE781D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AEBE761D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.xib */; };
+		D6AEBE7C1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE7A1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.m */; };
+		D6AEBE7D1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AEBE7B1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.xib */; };
+		D6AEBE811D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE7F1D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.m */; };
+		D6AEBE821D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AEBE801D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.xib */; };
+		D6AEBE861D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE841D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.m */; };
+		D6AEBE871D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AEBE851D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.xib */; };
+		D6AEBE941D44A9B000AD1343 /* CCMatchDetailShowFirstModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE931D44A9B000AD1343 /* CCMatchDetailShowFirstModel.m */; };
+		D6AEBE971D44A9C800AD1343 /* CCMatchDetailShowSecondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEBE961D44A9C800AD1343 /* CCMatchDetailShowSecondModel.m */; };
 		D6B74AAA1D3F264A00EB9009 /* WCCDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B74AA91D3F264A00EB9009 /* WCCDrawerViewController.m */; };
 		D6B74AAD1D3F269C00EB9009 /* DateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B74AAC1D3F269C00EB9009 /* DateTime.m */; };
+		D6BBEA701D45A7E60039B5CD /* CCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BBEA6E1D45A7E60039B5CD /* CCCollectionViewCell.m */; };
+		D6BBEA711D45A7E60039B5CD /* CCCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BBEA6F1D45A7E60039B5CD /* CCCollectionViewCell.xib */; };
 		D6C61BBF1D3C6FED00463B96 /* CCinformationTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C61BBE1D3C6FED00463B96 /* CCinformationTwoViewController.m */; };
 		D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */; };
 		D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6051E1D3387F500F9F1BC /* UrlRequest.m */; };
@@ -186,10 +200,32 @@
 		D6A1C16F1D2FA6F3009693E9 /* MatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTableViewCell.h; sourceTree = "<group>"; };
 		D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
 		D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
+		D6AEBE6F1D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowFirstOneTableViewCell.h; sourceTree = "<group>"; };
+		D6AEBE701D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowFirstOneTableViewCell.m; sourceTree = "<group>"; };
+		D6AEBE711D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchDetailShowFirstOneTableViewCell.xib; sourceTree = "<group>"; };
+		D6AEBE741D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowFirstTwoTableViewCell.h; sourceTree = "<group>"; };
+		D6AEBE751D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowFirstTwoTableViewCell.m; sourceTree = "<group>"; };
+		D6AEBE761D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchDetailShowFirstTwoTableViewCell.xib; sourceTree = "<group>"; };
+		D6AEBE791D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowFirstThreeTableViewCell.h; sourceTree = "<group>"; };
+		D6AEBE7A1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowFirstThreeTableViewCell.m; sourceTree = "<group>"; };
+		D6AEBE7B1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchDetailShowFirstThreeTableViewCell.xib; sourceTree = "<group>"; };
+		D6AEBE7E1D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowSecondOneTableViewCell.h; sourceTree = "<group>"; };
+		D6AEBE7F1D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowSecondOneTableViewCell.m; sourceTree = "<group>"; };
+		D6AEBE801D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchDetailShowSecondOneTableViewCell.xib; sourceTree = "<group>"; };
+		D6AEBE831D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowSecondTwoTableViewCell.h; sourceTree = "<group>"; };
+		D6AEBE841D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowSecondTwoTableViewCell.m; sourceTree = "<group>"; };
+		D6AEBE851D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchDetailShowSecondTwoTableViewCell.xib; sourceTree = "<group>"; };
+		D6AEBE921D44A9B000AD1343 /* CCMatchDetailShowFirstModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowFirstModel.h; sourceTree = "<group>"; };
+		D6AEBE931D44A9B000AD1343 /* CCMatchDetailShowFirstModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowFirstModel.m; sourceTree = "<group>"; };
+		D6AEBE951D44A9C800AD1343 /* CCMatchDetailShowSecondModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchDetailShowSecondModel.h; sourceTree = "<group>"; };
+		D6AEBE961D44A9C800AD1343 /* CCMatchDetailShowSecondModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchDetailShowSecondModel.m; sourceTree = "<group>"; };
 		D6B74AA81D3F264A00EB9009 /* WCCDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCDrawerViewController.h; sourceTree = "<group>"; };
 		D6B74AA91D3F264A00EB9009 /* WCCDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCDrawerViewController.m; sourceTree = "<group>"; };
 		D6B74AAB1D3F269C00EB9009 /* DateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTime.h; sourceTree = "<group>"; };
 		D6B74AAC1D3F269C00EB9009 /* DateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTime.m; sourceTree = "<group>"; };
+		D6BBEA6D1D45A7E60039B5CD /* CCCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCollectionViewCell.h; sourceTree = "<group>"; };
+		D6BBEA6E1D45A7E60039B5CD /* CCCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCollectionViewCell.m; sourceTree = "<group>"; };
+		D6BBEA6F1D45A7E60039B5CD /* CCCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCollectionViewCell.xib; sourceTree = "<group>"; };
 		D6C61BBD1D3C6FED00463B96 /* CCinformationTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCinformationTwoViewController.h; sourceTree = "<group>"; };
 		D6C61BBE1D3C6FED00463B96 /* CCinformationTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCinformationTwoViewController.m; sourceTree = "<group>"; };
 		D6D6051A1D3337E000F9F1BC /* CCMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCMatchViewController.xib; sourceTree = "<group>"; };
@@ -585,6 +621,10 @@
 				D66E36281D3CFCB800FA86F9 /* CCCalendarModel.m */,
 				D6195A7A1D43114D000783AB /* CCMatchDetailModel.h */,
 				D6195A7B1D43114D000783AB /* CCMatchDetailModel.m */,
+				D6AEBE921D44A9B000AD1343 /* CCMatchDetailShowFirstModel.h */,
+				D6AEBE931D44A9B000AD1343 /* CCMatchDetailShowFirstModel.m */,
+				D6AEBE951D44A9C800AD1343 /* CCMatchDetailShowSecondModel.h */,
+				D6AEBE961D44A9C800AD1343 /* CCMatchDetailShowSecondModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,6 +635,24 @@
 				D6A1C16F1D2FA6F3009693E9 /* MatchTableViewCell.h */,
 				D6A1C1701D2FA6F3009693E9 /* MatchTableViewCell.m */,
 				D6A1C1711D2FA6F3009693E9 /* MatchTableViewCell.xib */,
+				D6AEBE6F1D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.h */,
+				D6AEBE701D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.m */,
+				D6AEBE711D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.xib */,
+				D6BBEA6D1D45A7E60039B5CD /* CCCollectionViewCell.h */,
+				D6BBEA6E1D45A7E60039B5CD /* CCCollectionViewCell.m */,
+				D6BBEA6F1D45A7E60039B5CD /* CCCollectionViewCell.xib */,
+				D6AEBE741D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.h */,
+				D6AEBE751D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.m */,
+				D6AEBE761D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.xib */,
+				D6AEBE791D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.h */,
+				D6AEBE7A1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.m */,
+				D6AEBE7B1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.xib */,
+				D6AEBE7E1D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.h */,
+				D6AEBE7F1D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.m */,
+				D6AEBE801D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.xib */,
+				D6AEBE831D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.h */,
+				D6AEBE841D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.m */,
+				D6AEBE851D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,17 +730,23 @@
 			files = (
 				D6D6051B1D3337E000F9F1BC /* CCMatchViewController.xib in Resources */,
 				D678D5FA1D3739C600C62B6B /* CCMoreViewController.xib in Resources */,
+				D6AEBE781D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.xib in Resources */,
 				D678D6081D3798CC00C62B6B /* CCLoginViewController.xib in Resources */,
 				D6A1C13F1D2F57F1009693E9 /* LaunchScreen.storyboard in Resources */,
 				D678D6031D3740FD00C62B6B /* CCMeViewController.xib in Resources */,
+				D6AEBE731D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.xib in Resources */,
+				D6AEBE7D1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.xib in Resources */,
 				D60B84F81D362C4300C78FB8 /* CCInformationTableViewCell.xib in Resources */,
+				D6BBEA711D45A7E60039B5CD /* CCCollectionViewCell.xib in Resources */,
 				D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */,
 				D67F38231D36625B007AED4F /* CCHeadLineTableViewCell.xib in Resources */,
 				D6A1C13C1D2F57F1009693E9 /* Assets.xcassets in Resources */,
+				D6AEBE871D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.xib in Resources */,
 				D63739BC1D3DD2C2001EABC0 /* CCCalendarViewController.xib in Resources */,
 				D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */,
 				D6373A051D3E4A96001EABC0 /* CCVideoTableViewCell.xib in Resources */,
 				D63739C11D3DD61B001EABC0 /* CCCalendarCollectionViewCell.xib in Resources */,
+				D6AEBE821D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +808,7 @@
 				D67F38221D36625B007AED4F /* CCHeadLineTableViewCell.m in Sources */,
 				D62F111D1D40F80A007A8142 /* CCFullViewController.m in Sources */,
 				D6195A821D4353D4000783AB /* CCViewController.m in Sources */,
+				D6AEBE721D448AF800AD1343 /* CCMatchDetailShowFirstOneTableViewCell.m in Sources */,
 				D6A1C1691D2F5911009693E9 /* UIView+Extension.m in Sources */,
 				D6195A851D4354E2000783AB /* CCMatchViewController.m in Sources */,
 				D6B74AAD1D3F269C00EB9009 /* DateTime.m in Sources */,
@@ -756,16 +821,20 @@
 				D6C61BBF1D3C6FED00463B96 /* CCinformationTwoViewController.m in Sources */,
 				D6E504871D37418B002DEAF7 /* CCInformationModel.m in Sources */,
 				D6373A041D3E4A96001EABC0 /* CCVideoTableViewCell.m in Sources */,
+				D6AEBE941D44A9B000AD1343 /* CCMatchDetailShowFirstModel.m in Sources */,
 				D66E36031D3CF4C800FA86F9 /* CCCalendarViewController.m in Sources */,
+				D6AEBE861D448B6300AD1343 /* CCMatchDetailShowSecondTwoTableViewCell.m in Sources */,
 				D6A1C15B1D2F5837009693E9 /* CCBaseViewController.m in Sources */,
 				D638DB861D366441001CD3BB /* (null) in Sources */,
 				D61B27B91D3CAF1F005B3842 /* CCAverseButton.m in Sources */,
+				D6BBEA701D45A7E60039B5CD /* CCCollectionViewCell.m in Sources */,
 				D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */,
 				D67F382B1D366285007AED4F /* CCHeadTwoViewController.m in Sources */,
 				D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */,
 				D678D6071D3798CC00C62B6B /* CCLoginViewController.m in Sources */,
 				D6568AB31D34D91600214120 /* CCNewHeadModel.m in Sources */,
 				D60A8C7D1D3E0A360047A421 /* CCUserModel.m in Sources */,
+				D6AEBE7C1D448B3900AD1343 /* CCMatchDetailShowFirstThreeTableViewCell.m in Sources */,
 				D638DB871D366441001CD3BB /* (null) in Sources */,
 				D60A8C7A1D3E04D20047A421 /* CCDataBasehandle.m in Sources */,
 				D61B27BC1D3D283C005B3842 /* NSString+alertView.m in Sources */,
@@ -783,10 +852,13 @@
 				D66E36261D3CF78700FA86F9 /* UIColor+ZXLazy.m in Sources */,
 				D60B84F71D362C4300C78FB8 /* CCInformationTableViewCell.m in Sources */,
 				D6A1C1721D2FA6F3009693E9 /* MatchTableViewCell.m in Sources */,
+				D6AEBE811D448B5000AD1343 /* CCMatchDetailShowSecondOneTableViewCell.m in Sources */,
+				D6AEBE971D44A9C800AD1343 /* CCMatchDetailShowSecondModel.m in Sources */,
 				D6A1C16E1D2FA6D3009693E9 /* MatchModel.m in Sources */,
 				D66E36291D3CFCB800FA86F9 /* CCCalendarModel.m in Sources */,
 				D6A1C12E1D2F57F1009693E9 /* main.m in Sources */,
 				D67F382A1D366285007AED4F /* CCHeadLineViewController.m in Sources */,
+				D6AEBE771D448B1C00AD1343 /* CCMatchDetailShowFirstTwoTableViewCell.m in Sources */,
 				D6A1C15E1D2F5837009693E9 /* CCNewViewController.m in Sources */,
 				D67F382C1D366285007AED4F /* CCinformationViewController.m in Sources */,
 			);

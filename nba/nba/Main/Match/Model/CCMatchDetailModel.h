@@ -25,6 +25,8 @@
 @property (nonatomic,strong)NSString *startDate;
 @property (nonatomic,strong)NSString *startHour;
 @property (nonatomic,strong)NSString *venue;
+@property (nonatomic,strong)NSString *leftUrl;
+@property (nonatomic,strong)NSString *rightUrl;   
 
 
 @end

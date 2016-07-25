@@ -45,7 +45,7 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self refreshTableView:tableView];
     }];
-    [tableView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
+    [tableView registerNib:[UINib nibWithNibName:MatchTableViewCellID bundle:nil] forCellReuseIdentifier:MatchTableViewCellID];
 }
 //请求所有时间栏标题
 - (void)requestWithDateStr:(NSString *)dateStr{
@@ -272,12 +272,11 @@ static NSString * const MatchTableViewCellID = @"MatchTableViewCell";
     return [self.dateDic objectForKey:[self.dateArr objectAtIndex:num]] ? [self.dateDic objectForKey:[self.dateArr objectAtIndex:num]] : nil;
 }
 #pragma mark //////////////////////////cell代理////////////////////////////
-- (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid{
+- (void)tapTableViewCell:(MatchTableViewCell *)tableViewCell withType:(NSString *)type mid:(NSString *)mid title:(NSString *)title{
     MatchDetailViewController *vc = [[MatchDetailViewController alloc] init];
-    vc.type = type;
-    NSLog(@"%@",type);
+    vc.navigationItem.title = title;
     vc.mid = mid;
-    NSLog(@"%@",mid);
+    vc.type = type;
     self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:vc animated:YES];
     self.hidesBottomBarWhenPushed=NO;
