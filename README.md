@@ -11,4 +11,4 @@
 # 4.自定义封装SDWebImage实现图片缓存加载策略
 # 5.使用友盟,SharedSDK等第三方SDK实现第三方登录,短信注册,分享的功能
 
-#特别感谢
+#本项目由ZFXxi,JoinProgram,wanccao共同编写
