@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D81063AB169E6B01D2716A9 /* libPods-nba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */; };
+		80385B92212190B6007D8FF8 /* CCNBA.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 80385B91212190B6007D8FF8 /* CCNBA.podspec */; };
 		D606DAED1D3663F600D09826 /* MatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */; };
 		D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D606DAEC1D3663F600D09826 /* MatchDetailViewController.xib */; };
 		D60A8C7A1D3E04D20047A421 /* CCDataBasehandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A8C791D3E04D20047A421 /* CCDataBasehandle.m */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nba.release.xcconfig"; path = "Pods/Target Support Files/Pods-nba/Pods-nba.release.xcconfig"; sourceTree = "<group>"; };
+		80385B91212190B6007D8FF8 /* CCNBA.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CCNBA.podspec; path = ../../CCNBA.podspec; sourceTree = "<group>"; };
 		BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D606DAEA1D3663F600D09826 /* MatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailViewController.h; sourceTree = "<group>"; };
 		D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDetailViewController.m; sourceTree = "<group>"; };
@@ -252,6 +254,22 @@
 				BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80385B93212196C2007D8FF8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				80385B94212196C2007D8FF8 /* Exclude */,
+			);
+			name = Classes;
+			path = ../../Classes;
+			sourceTree = "<group>";
+		};
+		80385B94212196C2007D8FF8 /* Exclude */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Exclude;
 			sourceTree = "<group>";
 		};
 		C407F23087E1150103400624 /* Pods */ = {
@@ -478,6 +496,8 @@
 		D6A1C12B1D2F57F1009693E9 /* nba */ = {
 			isa = PBXGroup;
 			children = (
+				80385B93212196C2007D8FF8 /* Classes */,
+				80385B91212190B6007D8FF8 /* CCNBA.podspec */,
 				D6A1C1651D2F5911009693E9 /* tool */,
 				D6A1C1461D2F5837009693E9 /* Main */,
 				D6A1C12F1D2F57F1009693E9 /* AppDelegate.h */,
@@ -730,6 +750,7 @@
 				D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */,
 				D67F38231D36625B007AED4F /* CCHeadLineTableViewCell.xib in Resources */,
 				D6A1C13C1D2F57F1009693E9 /* Assets.xcassets in Resources */,
+				80385B92212190B6007D8FF8 /* CCNBA.podspec in Resources */,
 				D6A1C1731D2FA6F3009693E9 /* MatchTableViewCell.xib in Resources */,
 				D6373A051D3E4A96001EABC0 /* CCVideoTableViewCell.xib in Resources */,
 				D68BD1A61D4349CA00912FA1 /* CCAllTableViewCell.xib in Resources */,
