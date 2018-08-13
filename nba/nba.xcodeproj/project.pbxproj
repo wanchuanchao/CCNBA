@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D81063AB169E6B01D2716A9 /* libPods-nba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */; };
 		80385B92212190B6007D8FF8 /* CCNBA.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 80385B91212190B6007D8FF8 /* CCNBA.podspec */; };
+		80385B9721219751007D8FF8 /* CCfasdfa.m in Sources */ = {isa = PBXBuildFile; fileRef = 80385B9621219751007D8FF8 /* CCfasdfa.m */; };
 		D606DAED1D3663F600D09826 /* MatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */; };
 		D606DAEE1D3663F600D09826 /* MatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D606DAEC1D3663F600D09826 /* MatchDetailViewController.xib */; };
 		D60A8C7A1D3E04D20047A421 /* CCDataBasehandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A8C791D3E04D20047A421 /* CCDataBasehandle.m */; };
@@ -89,6 +90,8 @@
 /* Begin PBXFileReference section */
 		1CEF34DAD109684BE6767B34 /* Pods-nba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nba.release.xcconfig"; path = "Pods/Target Support Files/Pods-nba/Pods-nba.release.xcconfig"; sourceTree = "<group>"; };
 		80385B91212190B6007D8FF8 /* CCNBA.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CCNBA.podspec; path = ../../CCNBA.podspec; sourceTree = "<group>"; };
+		80385B9521219751007D8FF8 /* CCfasdfa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCfasdfa.h; sourceTree = "<group>"; };
+		80385B9621219751007D8FF8 /* CCfasdfa.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCfasdfa.m; sourceTree = "<group>"; };
 		BB9013F6C77CF1F8BA1A23FB /* libPods-nba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D606DAEA1D3663F600D09826 /* MatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailViewController.h; sourceTree = "<group>"; };
 		D606DAEB1D3663F600D09826 /* MatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDetailViewController.m; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 		80385B94212196C2007D8FF8 /* Exclude */ = {
 			isa = PBXGroup;
 			children = (
+				80385B9521219751007D8FF8 /* CCfasdfa.h */,
+				80385B9621219751007D8FF8 /* CCfasdfa.m */,
 			);
 			path = Exclude;
 			sourceTree = "<group>";
@@ -835,6 +840,7 @@
 				D68BD1AC1D434A7C00912FA1 /* CCGameViewController.m in Sources */,
 				D61B27B91D3CAF1F005B3842 /* CCAverseButton.m in Sources */,
 				D6D6051F1D3387F500F9F1BC /* UrlRequest.m in Sources */,
+				80385B9721219751007D8FF8 /* CCfasdfa.m in Sources */,
 				D67F382B1D366285007AED4F /* CCHeadTwoViewController.m in Sources */,
 				D6A1C13A1D2F57F1009693E9 /* nba.xcdatamodeld in Sources */,
 				D678D6071D3798CC00C62B6B /* CCLoginViewController.m in Sources */,
